@@ -32,7 +32,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/superlist-item/editor.scss");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/superlist-item/editor.scss");
 
 
 /**
@@ -49,6 +51,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
+
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -57,6 +60,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
+const LISTITEM_TEMPLATE = [["core/paragraph"]];
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -67,9 +71,27 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 function Edit(props) {
+  const {
+    clientId
+  } = props;
+  const {
+    hasInnerBlocks
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
+    const {
+      getBlock
+    } = select(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.store);
+    const block = getBlock(clientId);
+    return {
+      hasInnerBlocks: !!(block && block.innerBlocks.length)
+    };
+  }, [clientId]);
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({});
-  const innerBlockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.__experimentalUseInnerBlocksProps)(blockProps, {});
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", innerBlockProps);
+  const innerBlockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.__experimentalUseInnerBlocksProps)(blockProps, {
+    // template: LISTITEM_TEMPLATE,
+    renderAppender: hasInnerBlocks ? undefined : _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks.ButtonBlockAppender,
+    templateInsertUpdateSelection: true
+  });
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", innerBlockProps));
 }
 
 /***/ }),
@@ -232,7 +254,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const ALLOWED_BLOCKS = [_superlist_item__WEBPACK_IMPORTED_MODULE_4__.name];
-const LIST_TEMPLATE = [["createwithrani/superlist-item"]];
+const LIST_TEMPLATE = [["createwithrani/superlist-item"], ["createwithrani/superlist-item"]];
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -247,10 +269,9 @@ function Edit(props) {
   const innerBlockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.__experimentalUseInnerBlocksProps)(blockProps, {
     allowedBlocks: ALLOWED_BLOCKS,
     template: LIST_TEMPLATE,
-    templateInsertUpdateSelection: true // renderAppender: memberAppender,
-
+    templateInsertUpdateSelection: true
   });
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", innerBlockProps));
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", innerBlockProps)));
 }
 
 /***/ }),
@@ -421,6 +442,16 @@ module.exports = window["wp"]["blockEditor"];
 /***/ (function(module) {
 
 module.exports = window["wp"]["blocks"];
+
+/***/ }),
+
+/***/ "@wordpress/data":
+/*!******************************!*\
+  !*** external ["wp","data"] ***!
+  \******************************/
+/***/ (function(module) {
+
+module.exports = window["wp"]["data"];
 
 /***/ }),
 

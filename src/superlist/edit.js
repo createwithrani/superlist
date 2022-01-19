@@ -16,6 +16,7 @@ import {
 	InnerBlocks,
 	BlockControls,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	store as blockEditorStore,
 } from "@wordpress/block-editor";
 
 /**
@@ -31,7 +32,10 @@ import "./editor.scss";
  */
 import { name as allowedBlock } from "../superlist-item";
 const ALLOWED_BLOCKS = [allowedBlock];
-const LIST_TEMPLATE = [["createwithrani/superlist-item"]];
+const LIST_TEMPLATE = [
+	["createwithrani/superlist-item"],
+	["createwithrani/superlist-item"],
+];
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -48,11 +52,13 @@ export default function Edit(props) {
 		allowedBlocks: ALLOWED_BLOCKS,
 		template: LIST_TEMPLATE,
 		templateInsertUpdateSelection: true,
-		// renderAppender: memberAppender,
 	});
 	return (
-		<ul>
-			<div {...innerBlockProps} />
-		</ul>
+		<>
+			<BlockControls></BlockControls>
+			<ul>
+				<div {...innerBlockProps} />
+			</ul>
+		</>
 	);
 }

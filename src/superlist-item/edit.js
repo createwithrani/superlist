@@ -16,7 +16,9 @@ import {
 	InnerBlocks,
 	BlockControls,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	store as blockEditorStore,
 } from "@wordpress/block-editor";
+import { useSelect } from "@wordpress/data";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -26,6 +28,7 @@ import {
  */
 import "./editor.scss";
 
+const LISTITEM_TEMPLATE = [["core/paragraph"]];
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -35,7 +38,29 @@ import "./editor.scss";
  * @return {WPElement} Element to render.
  */
 export default function Edit(props) {
+	const { clientId } = props;
+	const { hasInnerBlocks } = useSelect(
+		(select) => {
+			const { getBlock } = select(blockEditorStore);
+			const block = getBlock(clientId);
+			return {
+				hasInnerBlocks: !!(block && block.innerBlocks.length),
+			};
+		},
+		[clientId]
+	);
 	const blockProps = useBlockProps({});
-	const innerBlockProps = useInnerBlocksProps(blockProps, {});
-	return <li {...innerBlockProps} />;
+	const innerBlockProps = useInnerBlocksProps(blockProps, {
+		// template: LISTITEM_TEMPLATE,
+		renderAppender: hasInnerBlocks
+			? undefined
+			: InnerBlocks.ButtonBlockAppender,
+		templateInsertUpdateSelection: true,
+	});
+	return (
+		<>
+			<BlockControls></BlockControls>
+			<li {...innerBlockProps} />
+		</>
+	);
 }
