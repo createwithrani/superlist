@@ -1,0 +1,20 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "createwithrani/superlist-item",
+	"parent": [
+		"createwithrani/superlist"
+	],
+	"version": "0.1.0",
+	"title": "Super List Item",
+	"category": "text",
+	"icon": "editor-insertmore",
+	"description": "A list item that allows you to nest as many other blocks as you like inside it.",
+	"supports": {
+		"html": true
+	},
+	"textdomain": "superlist-item",
+	"editorScript": "file:../../build/index.js",
+	"editorStyle": "file:../../build/index.css",
+	"style": "file:./build/style-index.css"
+}

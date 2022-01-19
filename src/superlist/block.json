@@ -1,0 +1,17 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "createwithrani/superlist-block",
+	"version": "0.1.0",
+	"title": "Super List",
+	"category": "text",
+	"icon": "editor-ul",
+	"description": "A Super List block to allow you to add team members from within or without the site.",
+	"supports": {
+		"html": true
+	},
+	"textdomain": "superlist-block",
+	"editorScript": "file:../../build/index.js",
+	"editorStyle": "file:../../build/index.css",
+	"style": "file:./build/style-index.css"
+}
