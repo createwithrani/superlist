@@ -18,7 +18,7 @@ import {
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 	store as blockEditorStore,
 } from "@wordpress/block-editor";
-
+import { Toolbar, ToolbarButton } from "@wordpress/components";
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -26,6 +26,7 @@ import {
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import "./editor.scss";
+import ListStyleUI from "./list-style";
 
 /**
  * Internal Dependencies
@@ -45,20 +46,26 @@ const LIST_TEMPLATE = [
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit(props) {
-	const blockProps = useBlockProps({});
-
+export default function Edit({ attributes, setAttributes }) {
+	const { listStyle } = attributes;
+	const blockProps = useBlockProps({ className: listStyle });
 	const innerBlockProps = useInnerBlocksProps(blockProps, {
 		allowedBlocks: ALLOWED_BLOCKS,
 		template: LIST_TEMPLATE,
 		templateInsertUpdateSelection: true,
+		// renderAppender: InnerBlocks.ButtonBlockAppender,
 	});
+	function switchStyle(style) {
+		setAttributes({ listStyle: style });
+	}
+	const ListContainer = "none" !== listStyle ? listStyle : "ul";
 	return (
 		<>
-			<BlockControls></BlockControls>
-			<ul>
-				<div {...innerBlockProps} />
-			</ul>
+			<BlockControls>
+				<ListStyleUI value={listStyle} onChange={switchStyle} />
+				{/* <Toolbar label="Options"></Toolbar> */}
+			</BlockControls>
+			<ListContainer {...innerBlockProps} />
 		</>
 	);
 }

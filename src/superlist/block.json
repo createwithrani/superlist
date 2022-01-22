@@ -6,7 +6,13 @@
 	"title": "Super List",
 	"category": "text",
 	"icon": "editor-ul",
-	"description": "A Super List block to allow you to add team members from within or without the site.",
+	"description": "Nest multiple blocks inside list items in any kind of list (ordered, unordered, no marker, etc)",
+	"attributes": {
+		"listStyle":{
+			"type": "string",
+			"default": "ul"
+		}
+	},
 	"supports": {
 		"html": true
 	},

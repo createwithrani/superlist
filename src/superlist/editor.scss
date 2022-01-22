@@ -4,6 +4,10 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-superlist-block-superlist-block {
-	border: 1px dotted #f00;
+.wp-block-createwithrani-superlist-block {
+	&.none {
+		list-style: none;
+		padding: 0;
+		// margin: 0;
+	}
 }

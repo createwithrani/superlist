@@ -4,15 +4,18 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-// [data-type="createwithrani/superlist-block"] {
-// 	.block-list-appender {
-// 		display: none;
-// 		margin: 0;
-// 	}
-// 	&.is-selected,
-// 	&.has-child-selected {
-// 		.block-list-appender {
-// 			display: block;
-// 		}
-// 	}
-// }
+[data-type="createwithrani/superlist-block"] {
+	.block-editor-inserter {
+		display: flex;
+	}
+	.block-list-appender {
+		display: none;
+		margin: 0;
+	}
+	&.is-selected,
+	&.has-child-selected {
+		.block-list-appender {
+			display: block;
+		}
+	}
+}

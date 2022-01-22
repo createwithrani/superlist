@@ -6,7 +6,7 @@ Stable tag:        0.1.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-A list block that allows you to nest other blocks in each list item.
+Nest multiple blocks inside list items in any kind of list (ordered, unordered, no marker, etc)
 
 == Installation ==
 
