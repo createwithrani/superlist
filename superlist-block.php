@@ -2,13 +2,13 @@
 /**
  * Plugin Name:       Super List Block
  * Description:       A list block that allows you to nest other blocks in each list item.
- * Requires at least: 5.8
+ * Requires at least: 5.9-RC3
  * Requires PHP:      7.0
  * Version:           0.1.0
  * Author:            Aurooba Ahmed
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       superlist-block
+ * Text Domain:       superlist
  *
  * @package           superlist-block
  */
