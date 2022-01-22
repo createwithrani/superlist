@@ -180,6 +180,31 @@ function Edit(props) {
 
 /***/ }),
 
+/***/ "./src/superlist-item/icons.js":
+/*!*************************************!*\
+  !*** ./src/superlist-item/icons.js ***!
+  \*************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ListItem": function() { return /* binding */ ListItem; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+
+const ListItem = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "10.814",
+  height: "2.703",
+  viewBox: "0 0 10.814 2.703"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M8.8 6.811v1.014h6.015V6.811zM5.352 6A1.352 1.352 0 106.7 7.352 1.356 1.356 0 005.352 6z",
+  transform: "translate(-4 -6)"
+}));
+
+/***/ }),
+
 /***/ "./src/superlist-item/index.js":
 /*!*************************************!*\
   !*** ./src/superlist-item/index.js ***!
@@ -196,6 +221,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/superlist-item/edit.js");
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/superlist-item/save.js");
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/superlist-item/block.json");
+/* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./icons */ "./src/superlist-item/icons.js");
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
@@ -218,6 +244,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 const {
   name
 } = _block_json__WEBPACK_IMPORTED_MODULE_4__;
@@ -229,6 +256,8 @@ const {
  */
 
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)("createwithrani/superlist-item", {
+  icon: _icons__WEBPACK_IMPORTED_MODULE_5__.ListItem,
+
   /**
    * @see ./edit.js
    */

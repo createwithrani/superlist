@@ -20,6 +20,7 @@ import "./style.scss";
 import edit from "./edit";
 import save from "./save";
 import metadata from "./block.json";
+import { ListItem as icon } from "./icons";
 
 const { name } = metadata;
 export { name };
@@ -29,6 +30,7 @@ export { name };
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType("createwithrani/superlist-item", {
+	icon,
 	/**
 	 * @see ./edit.js
 	 */
