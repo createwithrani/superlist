@@ -19,6 +19,7 @@ import "./style.scss";
  */
 import Edit from "./edit";
 import save from "./save";
+import { SuperList as icon } from "./icons";
 
 /**
  * Every block starts by registering a new block type definition.
@@ -26,6 +27,7 @@ import save from "./save";
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType("createwithrani/superlist-block", {
+	icon,
 	/**
 	 * @see ./edit.js
 	 */

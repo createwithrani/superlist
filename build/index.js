@@ -386,6 +386,44 @@ function Edit(_ref) {
 
 /***/ }),
 
+/***/ "./src/superlist/icons.js":
+/*!********************************!*\
+  !*** ./src/superlist/icons.js ***!
+  \********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "SuperList": function() { return /* binding */ SuperList; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+
+const SuperList = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "24",
+  height: "23.998",
+  viewBox: "0 0 24 23.998"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
+  "data-name": "Group 3",
+  transform: "translate(-76.096 -557.616)"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
+  fill: "none",
+  "data-name": "Polygon 1"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M12 0l2.82 4.506 5.013-1.612-.693 5.293L24 10.224l-3.881 3.6 2.434 4.732-5.253.226L16.168 24 12 20.743 7.832 24 6.7 18.784l-5.253-.226 2.434-4.732L0 10.224l4.86-2.037-.692-5.293L9.18 4.506z",
+  transform: "translate(76.096 557.616)"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  fill: "#207710",
+  d: "M12 1.885L9.615 5.696 5.364 4.33l.587 4.484-4.133 1.732 3.3 3.062-2.067 4.018 4.463.192.958 4.411L12 19.474l3.528 2.755.958-4.41 4.463-.193-2.066-4.018 3.3-3.062-4.134-1.732.587-4.484-4.251 1.366L12 1.886M12 0l2.82 4.506 5.012-1.612-.692 5.293L24 10.224l-3.881 3.602 2.434 4.732-5.254.226-1.131 5.214L12 20.743l-4.168 3.255-1.131-5.214-5.254-.226 2.434-4.732L0 10.224l4.86-2.037-.692-5.293L9.18 4.506 12 0z",
+  transform: "translate(76.096 557.616)"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M4 4v.832h8.879V4zm4.44 4.717h4.44v-.832H8.44zM4 12.879h8.879v-.832H4zM6.22 8.44a1.11 1.11 0 10-1.11 1.11 1.113 1.113 0 001.11-1.11z",
+  transform: "translate(79.657 561.175)"
+})));
+
+/***/ }),
+
 /***/ "./src/superlist/index.js":
 /*!********************************!*\
   !*** ./src/superlist/index.js ***!
@@ -398,6 +436,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/superlist/style.scss");
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/superlist/edit.js");
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/superlist/save.js");
+/* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./icons */ "./src/superlist/icons.js");
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
@@ -419,6 +458,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /**
  * Every block starts by registering a new block type definition.
  *
@@ -426,6 +466,8 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)("createwithrani/superlist-block", {
+  icon: _icons__WEBPACK_IMPORTED_MODULE_4__.SuperList,
+
   /**
    * @see ./edit.js
    */

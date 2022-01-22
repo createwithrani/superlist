@@ -1,26 +1,26 @@
-export const Bullets = (
+export const SuperList = (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		width="24"
-		height="24"
-		viewBox="0 0 24 24"
+		height="23.998"
+		viewBox="0 0 24 23.998"
 	>
-		<g fill="none">
-			<path d="M0 0h24v24H0V0z"></path>
-			<path d="M0 0h24v24H0V0z" opacity="0.87"></path>
+		<g data-name="Group 3" transform="translate(-76.096 -557.616)">
+			<g fill="none" data-name="Polygon 1">
+				<path
+					d="M12 0l2.82 4.506 5.013-1.612-.693 5.293L24 10.224l-3.881 3.6 2.434 4.732-5.253.226L16.168 24 12 20.743 7.832 24 6.7 18.784l-5.253-.226 2.434-4.732L0 10.224l4.86-2.037-.692-5.293L9.18 4.506z"
+					transform="translate(76.096 557.616)"
+				></path>
+				<path
+					fill="#207710"
+					d="M12 1.885L9.615 5.696 5.364 4.33l.587 4.484-4.133 1.732 3.3 3.062-2.067 4.018 4.463.192.958 4.411L12 19.474l3.528 2.755.958-4.41 4.463-.193-2.066-4.018 3.3-3.062-4.134-1.732.587-4.484-4.251 1.366L12 1.886M12 0l2.82 4.506 5.012-1.612-.692 5.293L24 10.224l-3.881 3.602 2.434 4.732-5.254.226-1.131 5.214L12 20.743l-4.168 3.255-1.131-5.214-5.254-.226 2.434-4.732L0 10.224l4.86-2.037-.692-5.293L9.18 4.506 12 0z"
+					transform="translate(76.096 557.616)"
+				></path>
+			</g>
+			<path
+				d="M4 4v.832h8.879V4zm4.44 4.717h4.44v-.832H8.44zM4 12.879h8.879v-.832H4zM6.22 8.44a1.11 1.11 0 10-1.11 1.11 1.113 1.113 0 001.11-1.11z"
+				transform="translate(79.657 561.175)"
+			></path>
 		</g>
-		<path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7zm-4 6h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"></path>
-	</svg>
-);
-
-export const NoBullets = (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		width="24"
-		height="24"
-		viewBox="0 0 24 24"
-	>
-		<path fill="none" d="M0 0h24v24H0V0z"></path>
-		<path d="M3 15h18v-2H3v2zm0 4h18v-2H3v2zm0-8h18V9H3v2zm0-6v2h18V5H3z"></path>
 	</svg>
 );
