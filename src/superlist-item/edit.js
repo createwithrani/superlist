@@ -52,11 +52,10 @@ export default function Edit(props) {
 	const blockProps = useBlockProps({});
 
 	const innerBlockProps = useInnerBlocksProps(blockProps, {
-		// template: LISTITEM_TEMPLATE,
+		template: LISTITEM_TEMPLATE,
 		renderAppender: hasInnerBlocks
 			? undefined
 			: InnerBlocks.ButtonBlockAppender,
-		// renderAppender: InnerBlocks.ButtonBlockAppender,
 		templateInsertUpdateSelection: true,
 	});
 	return (
