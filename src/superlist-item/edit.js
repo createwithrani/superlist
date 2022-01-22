@@ -15,7 +15,8 @@ import {
 	useBlockProps,
 	InnerBlocks,
 	BlockControls,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	// __experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
 	store as blockEditorStore,
 } from "@wordpress/block-editor";
 import { useSelect } from "@wordpress/data";
@@ -56,7 +57,7 @@ export default function Edit(props) {
 		renderAppender: hasInnerBlocks
 			? undefined
 			: InnerBlocks.ButtonBlockAppender,
-		templateInsertUpdateSelection: true,
+		// templateInsertUpdateSelection: true,
 	});
 	return (
 		<>

@@ -15,7 +15,8 @@ import {
 	useBlockProps,
 	InnerBlocks,
 	BlockControls,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	// __experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
 	store as blockEditorStore,
 } from "@wordpress/block-editor";
 import { Toolbar, ToolbarButton } from "@wordpress/components";
@@ -53,7 +54,6 @@ export default function Edit({ attributes, setAttributes }) {
 		allowedBlocks: ALLOWED_BLOCKS,
 		template: LIST_TEMPLATE,
 		templateInsertUpdateSelection: true,
-		// renderAppender: InnerBlocks.ButtonBlockAppender,
 	});
 	function switchStyle(style) {
 		setAttributes({ listStyle: style });
@@ -63,7 +63,6 @@ export default function Edit({ attributes, setAttributes }) {
 		<>
 			<BlockControls>
 				<ListStyleUI value={listStyle} onChange={switchStyle} />
-				{/* <Toolbar label="Options"></Toolbar> */}
 			</BlockControls>
 			<ListContainer {...innerBlockProps} />
 		</>
