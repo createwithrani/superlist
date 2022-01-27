@@ -61,9 +61,8 @@ const LIST_TEMPLATE = [
 export default function Edit(props) {
 	const { attributes, setAttributes, clientId } = props;
 	const { listStyle, orientation } = attributes;
-	const hasInnerBlocks = useSelect([clientId]);
 	const blockProps = useBlockProps({
-		className: listStyle + " " + orientation,
+		className: `${listStyle} ${orientation}`,
 	});
 
 	const innerBlockProps = useInnerBlocksProps(blockProps, {
@@ -71,9 +70,6 @@ export default function Edit(props) {
 		template: LIST_TEMPLATE,
 		orientation: `${orientation}`,
 		templateInsertUpdateSelection: true,
-		// renderAppender: hasInnerBlocks
-		// 	? undefined
-		// 	: InnerBlocks.ButtonBlockAppender,
 	});
 	function switchStyle(style) {
 		setAttributes({ listStyle: style });
@@ -101,36 +97,34 @@ export default function Edit(props) {
 				/>
 			</BlockControls>
 			<InspectorControls>
-				<Panel>
-					<PanelBody initialOpen={true} title="List Settings">
-						<PanelRow>
-							<ListStyleUI
-								value={listStyle}
-								onChange={switchStyle}
-								placement="inspector"
-							/>
-						</PanelRow>
-						<PanelRow>
-							<fieldset className="block-editor-hooks__flex-layout-justification-controls">
-								<legend>{__("Orientation")}</legend>
-								<div>
-									<Button
-										icon={arrowRight}
-										label="Horizontal orientation"
-										onClick={() => setAttributes({ orientation: "horizontal" })}
-										isPressed={orientation === "horizontal"}
-									/>
-									<Button
-										icon={arrowDown}
-										label="Vertical Orientation"
-										onClick={() => setAttributes({ orientation: "vertical" })}
-										isPressed={orientation === "vertical"}
-									/>
-								</div>
-							</fieldset>
-						</PanelRow>
-					</PanelBody>
-				</Panel>
+				<PanelBody initialOpen={false} title="Repeater Settings">
+					<PanelRow>
+						<ListStyleUI
+							value={listStyle}
+							onChange={switchStyle}
+							placement="inspector"
+						/>
+					</PanelRow>
+					<PanelRow>
+						<fieldset className="block-editor-hooks__flex-layout-justification-controls">
+							<legend>{__("Orientation")}</legend>
+							<div>
+								<Button
+									icon={arrowRight}
+									label="Horizontal orientation"
+									onClick={() => setAttributes({ orientation: "horizontal" })}
+									isPressed={orientation === "horizontal"}
+								/>
+								<Button
+									icon={arrowDown}
+									label="Vertical Orientation"
+									onClick={() => setAttributes({ orientation: "vertical" })}
+									isPressed={orientation === "vertical"}
+								/>
+							</div>
+						</fieldset>
+					</PanelRow>
+				</PanelBody>
 			</InspectorControls>
 			<ListContainer {...innerBlockProps} />
 		</>
