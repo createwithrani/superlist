@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Super List Block
- * Description:       A list block that allows you to nest other blocks in each list item.
+ * Description:       Nest multiple blocks inside lists of any kind of list (ordered, unordered, no marker, etc), or do away with list markers and use it like a repeater!
  * Requires at least: 5.9-RC3
  * Requires PHP:      7.0
  * Version:           0.1.0

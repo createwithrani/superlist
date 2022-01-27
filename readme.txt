@@ -1,12 +1,12 @@
 === Super List Block ===
 Contributors:      aurooba
-Tags:              block
+Tags:              block, list, nesting, repeater
 Tested up to:      5.9
 Stable tag:        0.1.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-Nest multiple blocks inside list items in any kind of list (ordered, unordered, no marker, etc)
+Nest multiple blocks inside lists of any kind of list (ordered, unordered, no marker, etc), or do away with list markers and use it like a repeater!
 
 == Installation ==
 
