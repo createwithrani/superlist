@@ -1,26 +1,54 @@
 export const SuperList = (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
-		width="24"
-		height="23.998"
-		viewBox="0 0 24 23.998"
+		width="32"
+		height="32"
+		viewBox="0 0 32 32"
 	>
-		<g data-name="Group 3" transform="translate(-76.096 -557.616)">
-			<g fill="none" data-name="Polygon 1">
+		<g data-name="Group 8" transform="translate(-73 -448)">
+			<g data-name="Group 4">
 				<path
-					d="M12 0l2.82 4.506 5.013-1.612-.693 5.293L24 10.224l-3.881 3.6 2.434 4.732-5.253.226L16.168 24 12 20.743 7.832 24 6.7 18.784l-5.253-.226 2.434-4.732L0 10.224l4.86-2.037-.692-5.293L9.18 4.506z"
-					transform="translate(76.096 557.616)"
+					fill="none"
+					d="M0 0H32V32H0z"
+					data-name="Rectangle 1"
+					transform="translate(73 448)"
 				></path>
-				<path
-					fill="#207710"
-					d="M12 1.885L9.615 5.696 5.364 4.33l.587 4.484-4.133 1.732 3.3 3.062-2.067 4.018 4.463.192.958 4.411L12 19.474l3.528 2.755.958-4.41 4.463-.193-2.066-4.018 3.3-3.062-4.134-1.732.587-4.484-4.251 1.366L12 1.886M12 0l2.82 4.506 5.012-1.612-.692 5.293L24 10.224l-3.881 3.602 2.434 4.732-5.254.226-1.131 5.214L12 20.743l-4.168 3.255-1.131-5.214-5.254-.226 2.434-4.732L0 10.224l4.86-2.037-.692-5.293L9.18 4.506 12 0z"
-					transform="translate(76.096 557.616)"
-				></path>
+				<g fill="#125f04" data-name="Group 5" transform="translate(0 -.263)">
+					<path
+						d="M7.565 6A3.576 3.576 0 004 9.565c0 1.961 7.13 1.961 7.13 0A3.576 3.576 0 007.565 6z"
+						transform="translate(70.74 443.263)"
+					></path>
+					<path
+						d="M16.656 8.139v2.674h15.865V8.139z"
+						data-name="list"
+						transform="translate(70.74 442.305)"
+					></path>
+				</g>
+				<g fill="#057857" data-name="Group 6" transform="translate(0 12.219)">
+					<path
+						d="M7.565 6A3.576 3.576 0 004 9.565c0 1.961 7.13 1.961 7.13 0A3.576 3.576 0 007.565 6z"
+						data-name="list"
+						transform="translate(70.74 443.263)"
+					></path>
+					<path
+						d="M16.656 8.139v2.674h15.865V8.139z"
+						data-name="list"
+						transform="translate(70.74 442.305)"
+					></path>
+				</g>
+				<g fill="#b2d38c" data-name="Group 7" transform="translate(0 24.737)">
+					<path
+						d="M7.565 6A3.576 3.576 0 004 9.565c0 1.961 7.13 1.961 7.13 0A3.576 3.576 0 007.565 6z"
+						data-name="list"
+						transform="translate(70.74 443.263)"
+					></path>
+					<path
+						d="M16.656 8.139v2.674h15.865V8.139z"
+						data-name="list"
+						transform="translate(70.74 442.305)"
+					></path>
+				</g>
 			</g>
-			<path
-				d="M4 4v.832h8.879V4zm4.44 4.717h4.44v-.832H8.44zM4 12.879h8.879v-.832H4zM6.22 8.44a1.11 1.11 0 10-1.11 1.11 1.113 1.113 0 001.11-1.11z"
-				transform="translate(79.657 561.175)"
-			></path>
 		</g>
 	</svg>
 );
