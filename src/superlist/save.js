@@ -23,10 +23,12 @@ import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
  * @return {WPElement} Element to render.
  */
 export default function save({ attributes }) {
-	const { listStyle } = attributes;
-	const ListContainer = "none" !== listStyle ? listStyle : "ul";
+	const { listStyle, orientation } = attributes;
+	const ListContainer = "none" !== listStyle ? listStyle : "div";
 	return (
-		<ListContainer {...useBlockProps.save({ className: listStyle })}>
+		<ListContainer
+			{...useBlockProps.save({ className: listStyle + " " + orientation })}
+		>
 			<InnerBlocks.Content />
 		</ListContainer>
 	);

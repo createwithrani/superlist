@@ -18,8 +18,17 @@ import {
 	// __experimentalUseInnerBlocksProps as useInnerBlocksProps,
 	useInnerBlocksProps,
 	store as blockEditorStore,
+	InspectorControls,
 } from "@wordpress/block-editor";
-import { Toolbar, ToolbarButton } from "@wordpress/components";
+import {
+	Toolbar,
+	ToolbarButton,
+	Panel,
+	PanelBody,
+	PanelRow,
+} from "@wordpress/components";
+import { useSelect } from "@wordpress/data";
+import { arrowRight, arrowDown } from "@wordpress/icons";
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -47,23 +56,58 @@ const LIST_TEMPLATE = [
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({ attributes, setAttributes }) {
-	const { listStyle } = attributes;
-	const blockProps = useBlockProps({ className: listStyle });
+export default function Edit(props) {
+	const { attributes, setAttributes, clientId } = props;
+	const { listStyle, orientation } = attributes;
+	const blockProps = useBlockProps({
+		className: listStyle + " " + orientation,
+	});
+	const hasInnerBlocks = useSelect([clientId]);
 	const innerBlockProps = useInnerBlocksProps(blockProps, {
 		allowedBlocks: ALLOWED_BLOCKS,
 		template: LIST_TEMPLATE,
+		orientation: `${orientation}`,
 		templateInsertUpdateSelection: true,
+		// renderAppender: hasInnerBlocks
+		// 	? undefined
+		// 	: InnerBlocks.ButtonBlockAppender,
 	});
 	function switchStyle(style) {
 		setAttributes({ listStyle: style });
 	}
-	const ListContainer = "none" !== listStyle ? listStyle : "ul";
+	const ListContainer = "none" !== listStyle ? listStyle : "div";
 	return (
 		<>
 			<BlockControls>
-				<ListStyleUI value={listStyle} onChange={switchStyle} />
+				<ListStyleUI
+					value={listStyle}
+					onChange={switchStyle}
+					placement="toolbar"
+				/>
+				<ToolbarButton
+					icon={arrowDown}
+					label="Vertical Orientation"
+					onClick={() => setAttributes({ orientation: "vertical" })}
+				/>
+				<ToolbarButton
+					icon={arrowRight}
+					label="Horizontal orientation"
+					onClick={() => setAttributes({ orientation: "horizontal" })}
+				/>
 			</BlockControls>
+			<InspectorControls>
+				<Panel>
+					<PanelBody initialOpen={true} title="List Settings">
+						<PanelRow>
+							<ListStyleUI
+								value={listStyle}
+								onChange={switchStyle}
+								placement="inspector"
+							/>
+						</PanelRow>
+					</PanelBody>
+				</Panel>
+			</InspectorControls>
 			<ListContainer {...innerBlockProps} />
 		</>
 	);

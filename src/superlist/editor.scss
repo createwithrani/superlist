@@ -4,10 +4,30 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-createwithrani-superlist-block {
+.editor-styles-wrapper .wp-block-createwithrani-superlist-block {
+	&.horizontal {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+		gap: 2rem;
+		grid-template-rows: auto 1fr auto;
+		li {
+			margin: 0;
+		}
+	}
 	&.none {
 		list-style: none;
 		padding: 0;
-		// margin: 0;
+		li {
+			list-style: none;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+}
+
+ul.wp-block-createwithrani-superlist-block {
+	padding-left: 0;
+	li {
+		flex: 1;
 	}
 }

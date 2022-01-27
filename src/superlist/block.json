@@ -11,13 +11,23 @@
 		"listStyle":{
 			"type": "string",
 			"default": "ul"
+		},
+		"orientation": {
+			"type": "string",
+			"default": "vertical"
 		}
 	},
 	"supports": {
-		"html": true
+		"html": true,
+		"align": true,
+		"color": {
+			"background": true,
+			"gradients": true,
+			"text": true
+		}
 	},
 	"textdomain": "superlist",
 	"editorScript": "file:../../build/index.js",
 	"editorStyle": "file:../../build/index.css",
-	"style": "file:./build/style-index.css"
+	"style": "file:../../build/style-index.css"
 }

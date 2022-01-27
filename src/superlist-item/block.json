@@ -11,10 +11,15 @@
 	"icon": "editor-insertmore",
 	"description": "A list item that allows you to nest as many other blocks as you like inside it.",
 	"supports": {
-		"html": true
+		"html": true,
+		"color": {
+			"background": true,
+			"gradients": true,
+			"text": true
+		}
 	},
 	"textdomain": "superlist",
 	"editorScript": "file:../../build/index.js",
 	"editorStyle": "file:../../build/index.css",
-	"style": "file:./build/style-index.css"
+	"style": "file:../../build/style-index.css"
 }

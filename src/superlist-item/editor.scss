@@ -9,13 +9,66 @@
 		display: flex;
 	}
 	.block-list-appender {
-		display: none;
-		margin: 0;
+		// display: none;
+		// margin: 0;
+		button.block-list-appender__toggle {
+			width: auto;
+			height: auto;
+			padding: 0.5rem !important;
+			&:after {
+				content: attr(aria-label);
+			}
+		}
 	}
+	// button.block-editor-inserter__toggle {
+	// 	width: auto;
+	// 	height: auto;
+	// 	padding: 0.5rem !important;
+	// 	&:after {
+	// 		content: attr(aria-label);
+	// 	}
+	// }
 	&.is-selected,
 	&.has-child-selected {
 		.block-list-appender {
 			display: block;
 		}
+	}
+}
+
+// [data-type="createwithrani/superlist-item"] {
+// 	.block-editor-inserter {
+// 		display: flex;
+// 	}
+// 	.block-list-appender {
+// 		// display: none;
+// 		// margin: 0;
+// 		button.block-editor-inserter__toggle.components-button.has-icon,
+// 		button.block-list-appender__toggle {
+// 			width: max-content;
+// 			height: auto;
+// 			padding: 0 0.5rem !important;
+// 			&:after {
+// 				content: attr(aria-label);
+// 			}
+// 		}
+// 	}
+// 	&.is-selected,
+// 	&.has-child-selected {
+// 		.block-list-appender {
+// 			display: block;
+// 		}
+// 	}
+// }
+
+.editor-styles-wrapper .wp-block[data-align="wide"] {
+	& > [data-type="createwithrani/superlist-block"] > li {
+		max-width: var(--responsive--alignwide-width);
+	}
+}
+
+.editor-styles-wrapper .wp-block[data-align="full"] {
+	& > [data-type="createwithrani/superlist-block"] > li {
+		max-width: var(--responsive--alignfull-width);
 	}
 }

@@ -5,8 +5,31 @@
  * Replace them with your own styles or remove the file completely.
  */
 
+// .wp-block-createwithrani-superlist-block {
+// 	&.none {
+// 		list-style: none;
+// 	}
+// }
+
 .wp-block-createwithrani-superlist-block {
+	&.horizontal {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+		gap: 2rem;
+		grid-template-rows: auto 1fr auto;
+	}
 	&.none {
 		list-style: none;
+		li {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+}
+
+ul.wp-block-createwithrani-superlist-block {
+	padding-left: 0;
+	li {
+		flex: 1;
 	}
 }

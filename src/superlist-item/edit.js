@@ -19,7 +19,19 @@ import {
 	useInnerBlocksProps,
 	store as blockEditorStore,
 } from "@wordpress/block-editor";
-import { useSelect } from "@wordpress/data";
+import { ToolbarButton, ToolbarGroup } from "@wordpress/components";
+import { useSelect, useDispatch } from "@wordpress/data";
+import {
+	getBlockType,
+	store as blocksStore,
+	createBlock,
+} from "@wordpress/blocks";
+import {
+	formatListBullets,
+	formatListNumbered,
+	menu,
+	plusCircle,
+} from "@wordpress/icons";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -39,7 +51,8 @@ const LISTITEM_TEMPLATE = [["core/paragraph"]];
  * @return {WPElement} Element to render.
  */
 export default function Edit(props) {
-	const { clientId } = props;
+	const { clientId, name, isSelected } = props;
+	const { selectBlock, toggleBlockHighlight } = useDispatch(blockEditorStore);
 	const { hasInnerBlocks } = useSelect(
 		(select) => {
 			const { getBlock } = select(blockEditorStore);
@@ -50,18 +63,73 @@ export default function Edit(props) {
 		},
 		[clientId]
 	);
-	const blockProps = useBlockProps({});
+	const { parentBlockType, firstParentClientId, settings } = useSelect(
+		(select) => {
+			const {
+				getBlockName,
+				getBlockParents,
+				getSelectedBlockClientId,
+				getSettings,
+			} = select(blockEditorStore);
+			const { hasBlockSupport } = select(blocksStore);
+			const selectedBlockClientId = getSelectedBlockClientId();
+			const parents = getBlockParents(selectedBlockClientId);
+			const _firstParentClientId = parents[parents.length - 1];
+			const parentBlockName = getBlockName(_firstParentClientId);
+			const _parentBlockType = getBlockType(parentBlockName);
+			const settings = getSettings();
+			return {
+				parentBlockType: _parentBlockType,
+				firstParentClientId: _firstParentClientId,
+				settings: settings,
+			};
+		},
+		[]
+	);
 
+	const blockProps = useBlockProps({});
+	const { insertBlock } = useDispatch("core/block-editor");
+	const { parentinnerBlocks } = useSelect((select) => ({
+		parentinnerBlocks: select("core/block-editor").getBlocks(
+			firstParentClientId
+		),
+	}));
+	const insertListItem = () => {
+		const block = createBlock(name);
+		insertBlock(block, parentinnerBlocks.length, firstParentClientId);
+	};
 	const innerBlockProps = useInnerBlocksProps(blockProps, {
 		template: LISTITEM_TEMPLATE,
 		renderAppender: hasInnerBlocks
 			? undefined
 			: InnerBlocks.ButtonBlockAppender,
-		// templateInsertUpdateSelection: true,
 	});
 	return (
 		<>
-			<BlockControls></BlockControls>
+			<BlockControls>
+				<ToolbarGroup>
+					<ToolbarButton
+						className="block-editor-block-parent-selector__button"
+						onClick={() => selectBlock(firstParentClientId)}
+						label={sprintf(
+							/* translators: %s: Settings of the block's parent. */
+							__(" %s Settings"),
+							parentBlockType ? parentBlockType.title : ""
+						)}
+						showTooltip
+					>
+						{__("Settings")}
+					</ToolbarButton>
+				</ToolbarGroup>
+				<ToolbarGroup>
+					<ToolbarButton
+						className="HALLO"
+						onClick={insertListItem}
+						icon={plusCircle}
+						label={__("Add another list item")}
+					/>
+				</ToolbarGroup>
+			</BlockControls>
 			<li {...innerBlockProps} />
 		</>
 	);

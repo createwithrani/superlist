@@ -7,8 +7,15 @@ import { find } from "lodash";
  * WordPress dependencies
  */
 import { __, isRTL } from "@wordpress/i18n";
-import { DropdownMenu, ToolbarGroup } from "@wordpress/components";
+import {
+	DropdownMenu,
+	ToolbarGroup,
+	Flex,
+	FlexItem,
+	Button,
+} from "@wordpress/components";
 import { formatListBullets, formatListNumbered, menu } from "@wordpress/icons";
+// import { Button } from "@wordpress/block-editor";
 
 const DEFAULT_LIST_CONTROLS = [
 	{
@@ -42,6 +49,7 @@ function ListStyleUI({
 	isCollapsed = true,
 	isToolbar = true,
 	isToolbarButton = true,
+	placement,
 }) {
 	function applyOrUnset(listStyle) {
 		return () => onChange(value === listStyle ? undefined : listStyle);
@@ -56,10 +64,18 @@ function ListStyleUI({
 		if (activeStyle) return activeStyle.icon;
 	}
 
+	function setPlacement() {
+		if ("toolbar" === placement) {
+			return isToolbar ? ToolbarGroup : DropdownMenu;
+		} else {
+			isToolbar ? ToolbarGroup : DropdownMenu;
+		}
+	}
+
 	const UIComponent = isToolbar ? ToolbarGroup : DropdownMenu;
 	const extraProps = isToolbar ? { isCollapsed } : { isToolbarButton };
 
-	return (
+	return "toolbar" === placement ? (
 		<UIComponent
 			icon={setIcon()}
 			label={label}
@@ -78,6 +94,23 @@ function ListStyleUI({
 			})}
 			{...extraProps}
 		/>
+	) : (
+		<fieldset className="block-editor-hooks__flex-layout-justification-controls">
+			<legend>{__(`${describedBy}`)}</legend>
+			<div>
+				{listControls.map(({ icon, listStyle, title }) => {
+					return (
+						<Button
+							key={listStyle}
+							label={title}
+							icon={icon}
+							isPressed={listStyle === value}
+							onClick={applyOrUnset(listStyle)}
+						/>
+					);
+				})}
+			</div>
+		</fieldset>
 	);
 }
 
