@@ -12,8 +12,6 @@ Nest multiple blocks inside lists of any kind of list (ordered, unordered, no ma
 
 A handy little block that can be used in a variety of ways. Use it to nest other blocks inside list items, to create simple grid layouts ( like a properly responsive pricing table, or a wrapping icon list), or other use cases I haven't yet thought of!
 
-
-
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/` directory, install the plugin through the WordPress plugins screen directly, or search for `Super List Block` in the Block Library.
