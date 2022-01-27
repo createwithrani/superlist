@@ -19,6 +19,7 @@ import {
 	useInnerBlocksProps,
 	store as blockEditorStore,
 	InspectorControls,
+	useSetting,
 } from "@wordpress/block-editor";
 import {
 	Toolbar,
@@ -26,6 +27,7 @@ import {
 	Panel,
 	PanelBody,
 	PanelRow,
+	Button,
 } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
 import { arrowRight, arrowDown } from "@wordpress/icons";
@@ -59,10 +61,11 @@ const LIST_TEMPLATE = [
 export default function Edit(props) {
 	const { attributes, setAttributes, clientId } = props;
 	const { listStyle, orientation } = attributes;
+	const hasInnerBlocks = useSelect([clientId]);
 	const blockProps = useBlockProps({
 		className: listStyle + " " + orientation,
 	});
-	const hasInnerBlocks = useSelect([clientId]);
+
 	const innerBlockProps = useInnerBlocksProps(blockProps, {
 		allowedBlocks: ALLOWED_BLOCKS,
 		template: LIST_TEMPLATE,
@@ -85,14 +88,16 @@ export default function Edit(props) {
 					placement="toolbar"
 				/>
 				<ToolbarButton
-					icon={arrowDown}
-					label="Vertical Orientation"
-					onClick={() => setAttributes({ orientation: "vertical" })}
-				/>
-				<ToolbarButton
 					icon={arrowRight}
 					label="Horizontal orientation"
 					onClick={() => setAttributes({ orientation: "horizontal" })}
+					isActive={orientation === "horizontal"}
+				/>
+				<ToolbarButton
+					icon={arrowDown}
+					label="Vertical Orientation"
+					onClick={() => setAttributes({ orientation: "vertical" })}
+					isActive={orientation === "vertical"}
 				/>
 			</BlockControls>
 			<InspectorControls>
@@ -104,6 +109,25 @@ export default function Edit(props) {
 								onChange={switchStyle}
 								placement="inspector"
 							/>
+						</PanelRow>
+						<PanelRow>
+							<fieldset className="block-editor-hooks__flex-layout-justification-controls">
+								<legend>{__("Orientation")}</legend>
+								<div>
+									<Button
+										icon={arrowRight}
+										label="Horizontal orientation"
+										onClick={() => setAttributes({ orientation: "horizontal" })}
+										isPressed={orientation === "horizontal"}
+									/>
+									<Button
+										icon={arrowDown}
+										label="Vertical Orientation"
+										onClick={() => setAttributes({ orientation: "vertical" })}
+										isPressed={orientation === "vertical"}
+									/>
+								</div>
+							</fieldset>
 						</PanelRow>
 					</PanelBody>
 				</Panel>
