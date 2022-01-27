@@ -19,6 +19,7 @@ import "./style.scss";
  */
 import Edit from "./edit";
 import save from "./save";
+import { example } from "./example";
 import { SuperList as icon } from "./icons";
 
 /**
@@ -37,4 +38,5 @@ registerBlockType("createwithrani/superlist-block", {
 	 * @see ./save.js
 	 */
 	save,
+	example,
 });

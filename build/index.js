@@ -632,6 +632,72 @@ function Edit(props) {
 
 /***/ }),
 
+/***/ "./src/superlist/example.js":
+/*!**********************************!*\
+  !*** ./src/superlist/example.js ***!
+  \**********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "example": function() { return /* binding */ example; }
+/* harmony export */ });
+const example = {
+  attributes: {
+    listStyle: "none",
+    orientation: "horizontal",
+    align: "wide",
+    itemWidth: "175px",
+    style: {
+      spacing: {
+        padding: {
+          top: "1rem",
+          right: "1rem",
+          bottom: "1rem",
+          left: "1rem"
+        }
+      }
+    },
+    backgroundColor: "light-green-cyan"
+  },
+  innerBlocks: [{
+    name: "createwithrani/superlist-item",
+    innerBlocks: [{
+      name: "core/image",
+      attributes: {
+        sizeSlug: "large",
+        linkDestination: "none",
+        className: "is-style-default",
+        url: "https://storage.googleapis.com/pd.w.org/2021/12/49361c223ae560047.71766345-2048x1152.jpg"
+      }
+    }, {
+      name: "core/heading",
+      attributes: {
+        content: "In a list item, you can add any block",
+        level: 3
+      }
+    }]
+  }, {
+    name: "createwithrani/superlist-item",
+    innerBlocks: [{
+      name: "core/image",
+      attributes: {
+        sizeSlug: "large",
+        linkDestination: "none",
+        className: "is-style-default",
+        url: "https://storage.googleapis.com/pd.w.org/2022/01/32661ecf0061ae4e7.10847000-2048x1365.jpg"
+      }
+    }, {
+      name: "core/paragraph",
+      attributes: {
+        content: "This is a list item that can have multiple blocks, feel free to change the list style: bullets, numbered, or no list style at all"
+      }
+    }]
+  }]
+};
+
+/***/ }),
+
 /***/ "./src/superlist/icons.js":
 /*!********************************!*\
   !*** ./src/superlist/icons.js ***!
@@ -647,26 +713,55 @@ __webpack_require__.r(__webpack_exports__);
 
 const SuperList = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
-  width: "24",
-  height: "23.998",
-  viewBox: "0 0 24 23.998"
+  width: "32",
+  height: "32",
+  viewBox: "0 0 32 32"
 }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
-  "data-name": "Group 3",
-  transform: "translate(-76.096 -557.616)"
+  "data-name": "Group 8",
+  transform: "translate(-73 -448)"
 }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
-  fill: "none",
-  "data-name": "Polygon 1"
+  "data-name": "Group 4"
 }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-  d: "M12 0l2.82 4.506 5.013-1.612-.693 5.293L24 10.224l-3.881 3.6 2.434 4.732-5.253.226L16.168 24 12 20.743 7.832 24 6.7 18.784l-5.253-.226 2.434-4.732L0 10.224l4.86-2.037-.692-5.293L9.18 4.506z",
-  transform: "translate(76.096 557.616)"
+  fill: "none",
+  d: "M0 0H32V32H0z",
+  "data-name": "Rectangle 1",
+  transform: "translate(73 448)"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
+  fill: "#125f04",
+  "data-name": "Group 5",
+  transform: "translate(0 -.263)"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M7.565 6A3.576 3.576 0 004 9.565c0 1.961 7.13 1.961 7.13 0A3.576 3.576 0 007.565 6z",
+  transform: "translate(70.74 443.263)"
 }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-  fill: "#207710",
-  d: "M12 1.885L9.615 5.696 5.364 4.33l.587 4.484-4.133 1.732 3.3 3.062-2.067 4.018 4.463.192.958 4.411L12 19.474l3.528 2.755.958-4.41 4.463-.193-2.066-4.018 3.3-3.062-4.134-1.732.587-4.484-4.251 1.366L12 1.886M12 0l2.82 4.506 5.012-1.612-.692 5.293L24 10.224l-3.881 3.602 2.434 4.732-5.254.226-1.131 5.214L12 20.743l-4.168 3.255-1.131-5.214-5.254-.226 2.434-4.732L0 10.224l4.86-2.037-.692-5.293L9.18 4.506 12 0z",
-  transform: "translate(76.096 557.616)"
-})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-  d: "M4 4v.832h8.879V4zm4.44 4.717h4.44v-.832H8.44zM4 12.879h8.879v-.832H4zM6.22 8.44a1.11 1.11 0 10-1.11 1.11 1.113 1.113 0 001.11-1.11z",
-  transform: "translate(79.657 561.175)"
-})));
+  d: "M16.656 8.139v2.674h15.865V8.139z",
+  "data-name": "list",
+  transform: "translate(70.74 442.305)"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
+  fill: "#057857",
+  "data-name": "Group 6",
+  transform: "translate(0 12.219)"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M7.565 6A3.576 3.576 0 004 9.565c0 1.961 7.13 1.961 7.13 0A3.576 3.576 0 007.565 6z",
+  "data-name": "list",
+  transform: "translate(70.74 443.263)"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M16.656 8.139v2.674h15.865V8.139z",
+  "data-name": "list",
+  transform: "translate(70.74 442.305)"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
+  fill: "#b2d38c",
+  "data-name": "Group 7",
+  transform: "translate(0 24.737)"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M7.565 6A3.576 3.576 0 004 9.565c0 1.961 7.13 1.961 7.13 0A3.576 3.576 0 007.565 6z",
+  "data-name": "list",
+  transform: "translate(70.74 443.263)"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M16.656 8.139v2.674h15.865V8.139z",
+  "data-name": "list",
+  transform: "translate(70.74 442.305)"
+})))));
 
 /***/ }),
 
@@ -682,7 +777,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/superlist/style.scss");
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/superlist/edit.js");
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/superlist/save.js");
-/* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./icons */ "./src/superlist/icons.js");
+/* harmony import */ var _example__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./example */ "./src/superlist/example.js");
+/* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./icons */ "./src/superlist/icons.js");
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
@@ -705,6 +801,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /**
  * Every block starts by registering a new block type definition.
  *
@@ -712,7 +809,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)("createwithrani/superlist-block", {
-  icon: _icons__WEBPACK_IMPORTED_MODULE_4__.SuperList,
+  icon: _icons__WEBPACK_IMPORTED_MODULE_5__.SuperList,
 
   /**
    * @see ./edit.js
@@ -722,7 +819,8 @@ __webpack_require__.r(__webpack_exports__);
   /**
    * @see ./save.js
    */
-  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
+  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"],
+  example: _example__WEBPACK_IMPORTED_MODULE_4__.example
 });
 
 /***/ }),
