@@ -277,10 +277,8 @@ function Edit(props) {
       getBlockParents,
       getSelectedBlockClientId,
       getSettings
-    } = select(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.store);
-    const {
-      hasBlockSupport
-    } = select(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_5__.store);
+    } = select(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.store); // const { hasBlockSupport } = select(blocksStore);
+
     const selectedBlockClientId = getSelectedBlockClientId();
     const parents = getBlockParents(selectedBlockClientId);
     const _firstParentClientId = parents[parents.length - 1];
@@ -323,12 +321,12 @@ function Edit(props) {
     onClick: () => selectBlock(firstParentClientId),
     label: sprintf(
     /* translators: %s: Settings of the block's parent. */
-    (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(" %s Settings"), parentBlockType ? parentBlockType.title : ""),
+    (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(" %s Settings", "superlist-block"), parentBlockType ? parentBlockType.title : ""),
     showTooltip: true
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Settings"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToolbarGroup, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToolbarButton, {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Settings", "superlist-block"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToolbarGroup, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToolbarButton, {
     onClick: insertListItem,
     icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__["default"],
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Add another list item")
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Add another list item", "superlist-block")
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", innerBlockProps));
 }
 
@@ -588,23 +586,23 @@ function Edit(props) {
     placement: "toolbar"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToolbarButton, {
     icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_8__["default"],
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Horizontal orientation"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Horizontal orientation", "superlist-block"),
     onClick: () => setAttributes({
       orientation: "horizontal"
     }),
     isActive: orientation === "horizontal"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToolbarButton, {
     icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_9__["default"],
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Vertical Orientation"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Vertical Orientation", "superlist-block"),
     onClick: () => setAttributes({
       orientation: "vertical"
     }),
     isActive: orientation === "vertical"
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     initialOpen: true,
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Repeater Settings")
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Repeater Settings", "superlist-block")
   }, orientation === "horizontal" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalUnitControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Sub-item max-width"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Sub-item max-width", "superlist-block"),
     onChange: setItemWidth,
     value: width
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_list_style__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -830,15 +828,15 @@ __webpack_require__.r(__webpack_exports__);
 
 const DEFAULT_LIST_CONTROLS = [{
   icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__["default"],
-  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Unordered list"),
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Unordered list", "superlist-block"),
   listStyle: "ul"
 }, {
   icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__["default"],
-  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Ordered List"),
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Ordered List", "superlist-block"),
   listStyle: "ol"
 }, {
   icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__["default"],
-  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("No marker"),
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("No marker", "superlist-block"),
   listStyle: "none"
 }];
 const POPOVER_PROPS = {
@@ -885,10 +883,8 @@ function ListStyleUI(_ref) {
   };
   return "toolbar" === placement ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(UIComponent, (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
     icon: setIcon(),
-    label: label,
-    toggleProps: {
-      describedBy
-    },
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)(label, "superlist-block"),
+    toggleProps: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)(describedBy, "superlist-block"),
     popoverProps: POPOVER_PROPS,
     controls: listControls.map(control => {
       const {
@@ -903,7 +899,7 @@ function ListStyleUI(_ref) {
     })
   }, extraProps)) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("fieldset", {
     className: "block-editor-hooks__flex-layout-justification-controls"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("legend", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)(`${describedBy}`)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, listControls.map(_ref2 => {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("legend", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)(`${describedBy}`, "superlist-block")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, listControls.map(_ref2 => {
     let {
       icon,
       listStyle,
@@ -911,7 +907,7 @@ function ListStyleUI(_ref) {
     } = _ref2;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
       key: listStyle,
-      label: title,
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)(title, "superlist-block"),
       icon: icon,
       isPressed: listStyle === value,
       onClick: applyOrUnset(listStyle)

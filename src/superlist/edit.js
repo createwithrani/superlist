@@ -96,23 +96,26 @@ export default function Edit(props) {
 				/>
 				<ToolbarButton
 					icon={arrowRight}
-					label={__("Horizontal orientation")}
+					label={__("Horizontal orientation", "superlist-block")}
 					onClick={() => setAttributes({ orientation: "horizontal" })}
 					isActive={orientation === "horizontal"}
 				/>
 				<ToolbarButton
 					icon={arrowDown}
-					label={__("Vertical Orientation")}
+					label={__("Vertical Orientation", "superlist-block")}
 					onClick={() => setAttributes({ orientation: "vertical" })}
 					isActive={orientation === "vertical"}
 				/>
 			</BlockControls>
 			<InspectorControls>
-				<PanelBody initialOpen={true} title={__("Repeater Settings")}>
+				<PanelBody
+					initialOpen={true}
+					title={__("Repeater Settings", "superlist-block")}
+				>
 					{orientation === "horizontal" && (
 						<PanelRow>
 							<UnitControl
-								label={__("Sub-item max-width")}
+								label={__("Sub-item max-width", "superlist-block")}
 								onChange={setItemWidth}
 								value={width}
 							/>

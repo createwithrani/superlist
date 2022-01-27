@@ -20,17 +20,17 @@ import { formatListBullets, formatListNumbered, menu } from "@wordpress/icons";
 const DEFAULT_LIST_CONTROLS = [
 	{
 		icon: formatListBullets,
-		title: __("Unordered list"),
+		title: __("Unordered list", "superlist-block"),
 		listStyle: "ul",
 	},
 	{
 		icon: formatListNumbered,
-		title: __("Ordered List"),
+		title: __("Ordered List", "superlist-block"),
 		listStyle: "ol",
 	},
 	{
 		icon: menu,
-		title: __("No marker"),
+		title: __("No marker", "superlist-block"),
 		listStyle: "none",
 	},
 ];
@@ -78,8 +78,8 @@ function ListStyleUI({
 	return "toolbar" === placement ? (
 		<UIComponent
 			icon={setIcon()}
-			label={label}
-			toggleProps={{ describedBy }}
+			label={__(label, "superlist-block")}
+			toggleProps={__(describedBy, "superlist-block")}
 			popoverProps={POPOVER_PROPS}
 			controls={listControls.map((control) => {
 				const { listStyle } = control;
@@ -96,13 +96,13 @@ function ListStyleUI({
 		/>
 	) : (
 		<fieldset className="block-editor-hooks__flex-layout-justification-controls">
-			<legend>{__(`${describedBy}`)}</legend>
+			<legend>{__(`${describedBy}`, "superlist-block")}</legend>
 			<div>
 				{listControls.map(({ icon, listStyle, title }) => {
 					return (
 						<Button
 							key={listStyle}
-							label={title}
+							label={__(title, "superlist-block")}
 							icon={icon}
 							isPressed={listStyle === value}
 							onClick={applyOrUnset(listStyle)}

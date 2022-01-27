@@ -71,7 +71,7 @@ export default function Edit(props) {
 				getSelectedBlockClientId,
 				getSettings,
 			} = select(blockEditorStore);
-			const { hasBlockSupport } = select(blocksStore);
+			// const { hasBlockSupport } = select(blocksStore);
 			const selectedBlockClientId = getSelectedBlockClientId();
 			const parents = getBlockParents(selectedBlockClientId);
 			const _firstParentClientId = parents[parents.length - 1];
@@ -121,19 +121,19 @@ export default function Edit(props) {
 						onClick={() => selectBlock(firstParentClientId)}
 						label={sprintf(
 							/* translators: %s: Settings of the block's parent. */
-							__(" %s Settings"),
+							__(" %s Settings", "superlist-block"),
 							parentBlockType ? parentBlockType.title : ""
 						)}
 						showTooltip
 					>
-						{__("Settings")}
+						{__("Settings", "superlist-block")}
 					</ToolbarButton>
 				</ToolbarGroup>
 				<ToolbarGroup>
 					<ToolbarButton
 						onClick={insertListItem}
 						icon={plusCircle}
-						label={__("Add another list item")}
+						label={__("Add another list item", "superlist-block")}
 					/>
 				</ToolbarGroup>
 			</BlockControls>
