@@ -713,62 +713,24 @@ __webpack_require__.r(__webpack_exports__);
 
 const SuperList = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
-  width: "32",
-  height: "32",
-  viewBox: "0 0 32 32"
-}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
-  "data-name": "Group 9",
-  transform: "translate(-34 -448)"
-}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-  fill: "none",
-  d: "M0 0H32V32H0z",
-  "data-name": "Rectangle 1",
-  transform: "translate(34 448)"
-}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
-  fill: "none",
-  "data-name": "Polygon 2"
-}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-  d: "M4.5 0l1.125 3.347L9 3.438 6.32 5.6 7.281 9 4.5 6.988 1.719 9l.961-3.4L0 3.438l3.375-.091z",
-  transform: "translate(35 448)"
-}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-  fill: "#125f04",
-  d: "M4.5 3.139l-.4 1.189-1.356.036 1.078.869-.36 1.27 1.038-.75 1.037.75-.359-1.27 1.078-.869L4.9 4.328l-.4-1.19M4.5 0l1.125 3.347L9 3.437l-2.68 2.16L7.281 9 4.5 6.988 1.719 9l.96-3.403L0 3.437l3.375-.09L4.5 0z",
-  transform: "translate(35 448)"
-})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-  fill: "#125f04",
-  d: "M16.656 8.139v2.674h15.865V8.139z",
-  transform: "translate(31.74 443.024)"
-}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-  fill: "#057b85",
-  d: "M16.656 8.139v2.674h15.865V8.139z",
-  "data-name": "list",
-  transform: "translate(31.74 454.524)"
-}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
-  fill: "none",
-  "data-name": "Polygon 3"
-}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-  d: "M4.5 0l1.125 3.347L9 3.438 6.32 5.6 7.281 9 4.5 6.988 1.719 9l.961-3.4L0 3.438l3.375-.091z",
-  transform: "translate(35 459)"
-}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-  fill: "#057b85",
-  d: "M4.5 3.139l-.4 1.189-1.356.036 1.078.869-.36 1.27 1.038-.75 1.037.75-.359-1.27 1.078-.869L4.9 4.328l-.4-1.19M4.5 0l1.125 3.347L9 3.437l-2.68 2.16L7.281 9 4.5 6.988 1.719 9l.96-3.403L0 3.437l3.375-.09L4.5 0z",
-  transform: "translate(35 459)"
-})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  width: "47",
+  height: "47",
+  "data-name": "Group 17",
+  viewBox: "0 0 47 47"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+  cx: "23.5",
+  cy: "23.5",
+  r: "23.5",
   fill: "#b2d38c",
-  d: "M16.656 8.139v2.674h15.865V8.139z",
-  "data-name": "list",
-  transform: "translate(31.74 467.042)"
+  "data-name": "Ellipse 1"
 }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
-  fill: "none",
-  "data-name": "Path 1"
+  "data-name": "Group 16",
+  transform: "translate(5.485 10.011)"
 }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-  d: "M4.5 0l1.125 3.347L9 3.438 6.32 5.6 7.281 9 4.5 6.988 1.719 9l.961-3.4L0 3.438l3.375-.091z",
-  transform: "translate(35 471)"
-}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-  fill: "#b2d38c",
-  d: "M4.5 3.139l-.4 1.189-1.356.036 1.078.869-.36 1.27 1.038-.75 1.037.75-.359-1.27 1.078-.869L4.9 4.328l-.4-1.19M4.5 0l1.125 3.347L9 3.437l-2.68 2.16L7.281 9 4.5 6.988 1.719 9l.96-3.403L0 3.437l3.375-.09L4.5 0z",
-  transform: "translate(35 471)"
-}))));
+  fillRule: "evenodd",
+  d: "M131.047 192h14.984v26.423a1.2 1.2 0 11-2.4 0V194.4H112.4v24.021a1.2 1.2 0 11-2.4 0V192h21.047zm7.778 7.206h-21.619v19.217a1.2 1.2 0 11-2.4 0V196.8h26.423v21.619a1.2 1.2 0 11-2.4 0zm-4.8 4.8H122.01v14.413a1.2 1.2 0 11-2.4 0v-16.811h16.815v16.815a1.2 1.2 0 11-2.4 0z",
+  transform: "translate(-110 -192)"
+})));
 
 /***/ }),
 
@@ -1012,7 +974,6 @@ function save(_ref) {
     orientation,
     itemWidth
   } = attributes;
-  console.log(itemWidth);
   const subItemWidth = {
     gridTemplateColumns: `repeat(auto-fill, minmax(${itemWidth}, 1fr))`
   };
