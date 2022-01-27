@@ -27,7 +27,7 @@ export default function save({ attributes }) {
 	const ListContainer = "none" !== listStyle ? listStyle : "div";
 	return (
 		<ListContainer
-			{...useBlockProps.save({ className: listStyle + " " + orientation })}
+			{...useBlockProps.save({ className: `${listStyle} ${orientation}` })}
 		>
 			<InnerBlocks.Content />
 		</ListContainer>
