@@ -94,9 +94,17 @@ export default function Edit(props) {
 			firstParentClientId
 		),
 	}));
+
+	function getCurrentBlockPosition(block) {
+		return block.clientId === clientId;
+	}
 	const insertListItem = () => {
 		const block = createBlock(name);
-		insertBlock(block, parentinnerBlocks.length, firstParentClientId);
+		insertBlock(
+			block,
+			parentinnerBlocks.findIndex(getCurrentBlockPosition) + 1,
+			firstParentClientId
+		);
 	};
 	const innerBlockProps = useInnerBlocksProps(blockProps, {
 		template: LISTITEM_TEMPLATE,
@@ -123,7 +131,6 @@ export default function Edit(props) {
 				</ToolbarGroup>
 				<ToolbarGroup>
 					<ToolbarButton
-						className="HALLO"
 						onClick={insertListItem}
 						icon={plusCircle}
 						label={__("Add another list item")}

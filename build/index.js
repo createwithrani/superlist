@@ -305,9 +305,13 @@ function Edit(props) {
     parentinnerBlocks: select("core/block-editor").getBlocks(firstParentClientId)
   }));
 
+  function getCurrentBlockPosition(block) {
+    return block.clientId === clientId;
+  }
+
   const insertListItem = () => {
     const block = (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_5__.createBlock)(name);
-    insertBlock(block, parentinnerBlocks.length, firstParentClientId);
+    insertBlock(block, parentinnerBlocks.findIndex(getCurrentBlockPosition) + 1, firstParentClientId);
   };
 
   const innerBlockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useInnerBlocksProps)(blockProps, {
@@ -322,7 +326,6 @@ function Edit(props) {
     (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(" %s Settings"), parentBlockType ? parentBlockType.title : ""),
     showTooltip: true
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Settings"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToolbarGroup, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToolbarButton, {
-    className: "HALLO",
     onClick: insertListItem,
     icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__["default"],
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Add another list item")
@@ -549,18 +552,14 @@ function Edit(props) {
     listStyle,
     orientation
   } = attributes;
-  const hasInnerBlocks = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useSelect)([clientId]);
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
-    className: listStyle + " " + orientation
+    className: `${listStyle} ${orientation}`
   });
   const innerBlockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useInnerBlocksProps)(blockProps, {
     allowedBlocks: ALLOWED_BLOCKS,
     template: LIST_TEMPLATE,
     orientation: `${orientation}`,
-    templateInsertUpdateSelection: true // renderAppender: hasInnerBlocks
-    // 	? undefined
-    // 	: InnerBlocks.ButtonBlockAppender,
-
+    templateInsertUpdateSelection: true
   });
 
   function switchStyle(style) {
@@ -588,9 +587,9 @@ function Edit(props) {
       orientation: "vertical"
     }),
     isActive: orientation === "vertical"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Panel, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-    initialOpen: true,
-    title: "List Settings"
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    initialOpen: false,
+    title: "Repeater Settings"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_list_style__WEBPACK_IMPORTED_MODULE_6__["default"], {
     value: listStyle,
     onChange: switchStyle,
@@ -611,7 +610,7 @@ function Edit(props) {
       orientation: "vertical"
     }),
     isPressed: orientation === "vertical"
-  }))))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ListContainer, innerBlockProps));
+  })))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ListContainer, innerBlockProps));
 }
 
 /***/ }),
@@ -892,7 +891,7 @@ function save(_ref) {
   } = attributes;
   const ListContainer = "none" !== listStyle ? listStyle : "div";
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ListContainer, _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save({
-    className: listStyle + " " + orientation
+    className: `${listStyle} ${orientation}`
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks.Content, null));
 }
 
@@ -1062,7 +1061,7 @@ function _extends() {
   \***************************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"$schema":"https://json.schemastore.org/block.json","apiVersion":2,"name":"createwithrani/superlist-item","parent":["createwithrani/superlist"],"version":"0.1.0","title":"Super List Item","category":"text","icon":"editor-insertmore","description":"A list item that allows you to nest as many other blocks as you like inside it.","supports":{"html":true,"color":{"background":true,"gradients":true,"text":true}},"textdomain":"superlist","editorScript":"file:../../build/index.js","editorStyle":"file:../../build/index.css","style":"file:../../build/style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://json.schemastore.org/block.json","apiVersion":2,"name":"createwithrani/superlist-item","parent":["createwithrani/superlist"],"version":"0.1.0","title":"Super List Item","category":"text","icon":"editor-insertmore","description":"A list item that allows you to nest as many other blocks as you like inside it.","supports":{"html":true,"color":{"background":true,"gradients":true,"text":true},"spacing":{"margin":true,"padding":true}},"textdomain":"superlist","editorScript":"file:../../build/index.js","editorStyle":"file:../../build/index.css","style":"file:../../build/style-index.css"}');
 
 /***/ })
 
