@@ -717,51 +717,58 @@ const SuperList = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createEleme
   height: "32",
   viewBox: "0 0 32 32"
 }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
-  "data-name": "Group 8",
-  transform: "translate(-73 -448)"
-}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
-  "data-name": "Group 4"
+  "data-name": "Group 9",
+  transform: "translate(-34 -448)"
 }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
   fill: "none",
   d: "M0 0H32V32H0z",
   "data-name": "Rectangle 1",
-  transform: "translate(73 448)"
+  transform: "translate(34 448)"
 }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
+  fill: "none",
+  "data-name": "Polygon 2"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M4.5 0l1.125 3.347L9 3.438 6.32 5.6 7.281 9 4.5 6.988 1.719 9l.961-3.4L0 3.438l3.375-.091z",
+  transform: "translate(35 448)"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
   fill: "#125f04",
-  "data-name": "Group 5",
-  transform: "translate(0 -.263)"
-}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-  d: "M7.565 6A3.576 3.576 0 004 9.565c0 1.961 7.13 1.961 7.13 0A3.576 3.576 0 007.565 6z",
-  transform: "translate(70.74 443.263)"
+  d: "M4.5 3.139l-.4 1.189-1.356.036 1.078.869-.36 1.27 1.038-.75 1.037.75-.359-1.27 1.078-.869L4.9 4.328l-.4-1.19M4.5 0l1.125 3.347L9 3.437l-2.68 2.16L7.281 9 4.5 6.988 1.719 9l.96-3.403L0 3.437l3.375-.09L4.5 0z",
+  transform: "translate(35 448)"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  fill: "#125f04",
+  d: "M16.656 8.139v2.674h15.865V8.139z",
+  transform: "translate(31.74 443.024)"
 }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  fill: "#057b85",
   d: "M16.656 8.139v2.674h15.865V8.139z",
   "data-name": "list",
-  transform: "translate(70.74 442.305)"
-})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
-  fill: "#057857",
-  "data-name": "Group 6",
-  transform: "translate(0 12.219)"
+  transform: "translate(31.74 454.524)"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
+  fill: "none",
+  "data-name": "Polygon 3"
 }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-  d: "M7.565 6A3.576 3.576 0 004 9.565c0 1.961 7.13 1.961 7.13 0A3.576 3.576 0 007.565 6z",
-  "data-name": "list",
-  transform: "translate(70.74 443.263)"
+  d: "M4.5 0l1.125 3.347L9 3.438 6.32 5.6 7.281 9 4.5 6.988 1.719 9l.961-3.4L0 3.438l3.375-.091z",
+  transform: "translate(35 459)"
 }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-  d: "M16.656 8.139v2.674h15.865V8.139z",
-  "data-name": "list",
-  transform: "translate(70.74 442.305)"
-})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
+  fill: "#057b85",
+  d: "M4.5 3.139l-.4 1.189-1.356.036 1.078.869-.36 1.27 1.038-.75 1.037.75-.359-1.27 1.078-.869L4.9 4.328l-.4-1.19M4.5 0l1.125 3.347L9 3.437l-2.68 2.16L7.281 9 4.5 6.988 1.719 9l.96-3.403L0 3.437l3.375-.09L4.5 0z",
+  transform: "translate(35 459)"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
   fill: "#b2d38c",
-  "data-name": "Group 7",
-  transform: "translate(0 24.737)"
-}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-  d: "M7.565 6A3.576 3.576 0 004 9.565c0 1.961 7.13 1.961 7.13 0A3.576 3.576 0 007.565 6z",
-  "data-name": "list",
-  transform: "translate(70.74 443.263)"
-}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
   d: "M16.656 8.139v2.674h15.865V8.139z",
   "data-name": "list",
-  transform: "translate(70.74 442.305)"
-})))));
+  transform: "translate(31.74 467.042)"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
+  fill: "none",
+  "data-name": "Path 1"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M4.5 0l1.125 3.347L9 3.438 6.32 5.6 7.281 9 4.5 6.988 1.719 9l.961-3.4L0 3.438l3.375-.091z",
+  transform: "translate(35 471)"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  fill: "#b2d38c",
+  d: "M4.5 3.139l-.4 1.189-1.356.036 1.078.869-.36 1.27 1.038-.75 1.037.75-.359-1.27 1.078-.869L4.9 4.328l-.4-1.19M4.5 0l1.125 3.347L9 3.437l-2.68 2.16L7.281 9 4.5 6.988 1.719 9l.96-3.403L0 3.437l3.375-.09L4.5 0z",
+  transform: "translate(35 471)"
+}))));
 
 /***/ }),
 
