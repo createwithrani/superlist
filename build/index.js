@@ -517,6 +517,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -545,15 +546,20 @@ const LIST_TEMPLATE = [["createwithrani/superlist-item"], ["createwithrani/super
 function Edit(props) {
   const {
     attributes,
-    setAttributes,
-    clientId
+    setAttributes
   } = props;
   const {
     listStyle,
-    orientation
+    orientation,
+    itemWidth
   } = attributes;
+  const [width, setWidth] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(itemWidth);
+  const subItemWidth = {
+    gridTemplateColumns: `repeat(auto-fill, minmax(${width}, 1fr))`
+  };
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
-    className: `${listStyle} ${orientation}`
+    className: `${listStyle} ${orientation}`,
+    style: "horizontal" === orientation ? subItemWidth : {}
   });
   const innerBlockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useInnerBlocksProps)(blockProps, {
     allowedBlocks: ALLOWED_BLOCKS,
@@ -568,6 +574,13 @@ function Edit(props) {
     });
   }
 
+  function setItemWidth(value) {
+    setWidth(value);
+    setAttributes({
+      itemWidth: value
+    });
+  }
+
   const ListContainer = "none" !== listStyle ? listStyle : "div";
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_list_style__WEBPACK_IMPORTED_MODULE_6__["default"], {
     value: listStyle,
@@ -575,22 +588,26 @@ function Edit(props) {
     placement: "toolbar"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToolbarButton, {
     icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_8__["default"],
-    label: "Horizontal orientation",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Horizontal orientation"),
     onClick: () => setAttributes({
       orientation: "horizontal"
     }),
     isActive: orientation === "horizontal"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToolbarButton, {
     icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_9__["default"],
-    label: "Vertical Orientation",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Vertical Orientation"),
     onClick: () => setAttributes({
       orientation: "vertical"
     }),
     isActive: orientation === "vertical"
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-    initialOpen: false,
-    title: "Repeater Settings"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_list_style__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    initialOpen: true,
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Repeater Settings")
+  }, orientation === "horizontal" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalUnitControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Sub-item max-width"),
+    onChange: setItemWidth,
+    value: width
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_list_style__WEBPACK_IMPORTED_MODULE_6__["default"], {
     value: listStyle,
     onChange: switchStyle,
     placement: "inspector"
@@ -598,14 +615,14 @@ function Edit(props) {
     className: "block-editor-hooks__flex-layout-justification-controls"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("legend", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Orientation")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
     icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_8__["default"],
-    label: "Horizontal orientation",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Horizontal orientation"),
     onClick: () => setAttributes({
       orientation: "horizontal"
     }),
     isPressed: orientation === "horizontal"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
     icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_9__["default"],
-    label: "Vertical Orientation",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Vertical Orientation"),
     onClick: () => setAttributes({
       orientation: "vertical"
     }),
@@ -887,11 +904,17 @@ function save(_ref) {
   } = _ref;
   const {
     listStyle,
-    orientation
+    orientation,
+    itemWidth
   } = attributes;
+  console.log(itemWidth);
+  const subItemWidth = {
+    gridTemplateColumns: `repeat(auto-fill, minmax(${itemWidth}, 1fr))`
+  };
   const ListContainer = "none" !== listStyle ? listStyle : "div";
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ListContainer, _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save({
-    className: `${listStyle} ${orientation}`
+    className: `${listStyle} ${orientation}`,
+    style: "horizontal" === orientation ? subItemWidth : {}
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks.Content, null));
 }
 

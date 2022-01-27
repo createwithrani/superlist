@@ -28,9 +28,11 @@ import {
 	PanelBody,
 	PanelRow,
 	Button,
+	__experimentalUnitControl as UnitControl,
 } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
 import { arrowRight, arrowDown } from "@wordpress/icons";
+import { useState } from "@wordpress/element";
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -59,10 +61,15 @@ const LIST_TEMPLATE = [
  * @return {WPElement} Element to render.
  */
 export default function Edit(props) {
-	const { attributes, setAttributes, clientId } = props;
-	const { listStyle, orientation } = attributes;
+	const { attributes, setAttributes } = props;
+	const { listStyle, orientation, itemWidth } = attributes;
+	const [width, setWidth] = useState(itemWidth);
+	const subItemWidth = {
+		gridTemplateColumns: `repeat(auto-fill, minmax(${width}, 1fr))`,
+	};
 	const blockProps = useBlockProps({
 		className: `${listStyle} ${orientation}`,
+		style: "horizontal" === orientation ? subItemWidth : {},
 	});
 
 	const innerBlockProps = useInnerBlocksProps(blockProps, {
@@ -73,6 +80,10 @@ export default function Edit(props) {
 	});
 	function switchStyle(style) {
 		setAttributes({ listStyle: style });
+	}
+	function setItemWidth(value) {
+		setWidth(value);
+		setAttributes({ itemWidth: value });
 	}
 	const ListContainer = "none" !== listStyle ? listStyle : "div";
 	return (
@@ -85,19 +96,29 @@ export default function Edit(props) {
 				/>
 				<ToolbarButton
 					icon={arrowRight}
-					label="Horizontal orientation"
+					label={__("Horizontal orientation")}
 					onClick={() => setAttributes({ orientation: "horizontal" })}
 					isActive={orientation === "horizontal"}
 				/>
 				<ToolbarButton
 					icon={arrowDown}
-					label="Vertical Orientation"
+					label={__("Vertical Orientation")}
 					onClick={() => setAttributes({ orientation: "vertical" })}
 					isActive={orientation === "vertical"}
 				/>
 			</BlockControls>
 			<InspectorControls>
-				<PanelBody initialOpen={false} title="Repeater Settings">
+				<PanelBody initialOpen={true} title={__("Repeater Settings")}>
+					{orientation === "horizontal" && (
+						<PanelRow>
+							<UnitControl
+								label={__("Sub-item max-width")}
+								onChange={setItemWidth}
+								value={width}
+							/>
+						</PanelRow>
+					)}
+					<br />
 					<PanelRow>
 						<ListStyleUI
 							value={listStyle}
@@ -111,13 +132,13 @@ export default function Edit(props) {
 							<div>
 								<Button
 									icon={arrowRight}
-									label="Horizontal orientation"
+									label={__("Horizontal orientation")}
 									onClick={() => setAttributes({ orientation: "horizontal" })}
 									isPressed={orientation === "horizontal"}
 								/>
 								<Button
 									icon={arrowDown}
-									label="Vertical Orientation"
+									label={__("Vertical Orientation")}
 									onClick={() => setAttributes({ orientation: "vertical" })}
 									isPressed={orientation === "vertical"}
 								/>

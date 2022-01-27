@@ -23,11 +23,18 @@ import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
  * @return {WPElement} Element to render.
  */
 export default function save({ attributes }) {
-	const { listStyle, orientation } = attributes;
+	const { listStyle, orientation, itemWidth } = attributes;
+	console.log(itemWidth);
+	const subItemWidth = {
+		gridTemplateColumns: `repeat(auto-fill, minmax(${itemWidth}, 1fr))`,
+	};
 	const ListContainer = "none" !== listStyle ? listStyle : "div";
 	return (
 		<ListContainer
-			{...useBlockProps.save({ className: `${listStyle} ${orientation}` })}
+			{...useBlockProps.save({
+				className: `${listStyle} ${orientation}`,
+				style: "horizontal" === orientation ? subItemWidth : {},
+			})}
 		>
 			<InnerBlocks.Content />
 		</ListContainer>
