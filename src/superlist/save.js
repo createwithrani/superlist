@@ -24,7 +24,6 @@ import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
  */
 export default function save({ attributes }) {
 	const { listStyle, orientation, itemWidth } = attributes;
-	console.log(itemWidth);
 	const subItemWidth = {
 		gridTemplateColumns: `repeat(auto-fill, minmax(${itemWidth}, 1fr))`,
 	};
