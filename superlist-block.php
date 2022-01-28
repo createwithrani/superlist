@@ -4,7 +4,7 @@
  * Description:       Nest multiple blocks inside lists of any kind of list (ordered, unordered, no marker, etc), or do away with list markers and use it like a repeater!
  * Requires at least: 5.9
  * Requires PHP:      7.0
- * Version:           0.1.0
+ * Version:           1.0.0
  * Author:            Aurooba Ahmed
  * Author URI:        https://aurooba.com
  * License:           GPL-2.0-or-later
