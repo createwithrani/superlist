@@ -19,7 +19,7 @@ This block is very light on styles (and avoids unnecessary div soup!). It aims t
 
 If you enjoy the block, please leave a review! ⭐
 
-If you have a feature request, please create an issue in the [GitHub repository](https://github.com/createwithrani/superlist) ➕
+If you have a feature request, please create an issue in the [GitHub repository](https://github.com/createwithrani/superlist). ➕
 
 If you need support, please use the support forum to reach out. 🆘
 
@@ -45,12 +45,13 @@ If you need support, please use the support forum to reach out. 🆘
 2. Activate the plugin through the 'Plugins' screen in WordPress if installed manually or through the WordPress plugins screen.
 3. Use the `Super List` block in the Block Editor
 
+== Screenshots ==
+
+1. Super List is a flexible list block that let's you nest blocks inside each list item!
+2. Nesting blocks is easy and works just like it does in group, column, or cover blocks.
+3. You can easily re-order list items and even add more list items wherever you need from the list item toolbar.
+
 == Changelog ==
 
 = 0.1.0 =
 * Release
-
-== Screenshots ==
-
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Screenshots are stored in the /assets directory.
-2. This is the second screen shot
