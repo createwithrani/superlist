@@ -21,7 +21,6 @@ import Edit from "./edit";
 import save from "./save";
 import { example } from "./example";
 import { SuperList as icon } from "./icons";
-
 /**
  * Every block starts by registering a new block type definition.
  *
