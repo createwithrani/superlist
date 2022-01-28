@@ -1,6 +1,6 @@
 {
 	"name": "superlist-block",
-	"version": "1.0.0",
+	"version": "0.1.0",
 	"description": "A list block that allows you to nest other blocks in each list item.",
 	"author": "Aurooba Ahmed",
 	"license": "GPL-2.0-or-later",
