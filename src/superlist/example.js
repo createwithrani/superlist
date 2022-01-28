@@ -1,3 +1,6 @@
+import example1 from "./example1.jpg";
+import example2 from "./example2.jpg";
+
 export const example = {
 	attributes: {
 		listStyle: "none",
@@ -21,8 +24,7 @@ export const example = {
 						sizeSlug: "large",
 						linkDestination: "none",
 						className: "is-style-default",
-						url:
-							"https://pd.w.org/2021/12/49361c223ae560047.71766345-2048x1152.jpg",
+						url: example1,
 					},
 				},
 				{
@@ -43,8 +45,7 @@ export const example = {
 						sizeSlug: "large",
 						linkDestination: "none",
 						className: "is-style-default",
-						url:
-							"https://pd.w.org/2022/01/32661ecf0061ae4e7.10847000-2048x1365.jpg",
+						url: example2,
 					},
 				},
 				{
