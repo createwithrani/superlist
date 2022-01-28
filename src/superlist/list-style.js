@@ -6,16 +6,9 @@ import { find } from "lodash";
 /**
  * WordPress dependencies
  */
-import { __, isRTL } from "@wordpress/i18n";
-import {
-	DropdownMenu,
-	ToolbarGroup,
-	Flex,
-	FlexItem,
-	Button,
-} from "@wordpress/components";
+import { __ } from "@wordpress/i18n";
+import { ToolbarGroup, Button } from "@wordpress/components";
 import { formatListBullets, formatListNumbered, menu } from "@wordpress/icons";
-// import { Button } from "@wordpress/block-editor";
 
 const DEFAULT_LIST_CONTROLS = [
 	{
@@ -47,8 +40,6 @@ function ListStyleUI({
 	label = __("Superlist"),
 	describedBy = __("Change list style"),
 	isCollapsed = true,
-	isToolbar = true,
-	isToolbarButton = true,
 	placement,
 }) {
 	function applyOrUnset(listStyle) {
@@ -64,23 +55,12 @@ function ListStyleUI({
 		if (activeStyle) return activeStyle.icon;
 	}
 
-	function setPlacement() {
-		if ("toolbar" === placement) {
-			return isToolbar ? ToolbarGroup : DropdownMenu;
-		} else {
-			isToolbar ? ToolbarGroup : DropdownMenu;
-		}
-	}
-
-	const UIComponent = isToolbar ? ToolbarGroup : DropdownMenu;
-	const extraProps = isToolbar ? { isCollapsed } : { isToolbarButton };
-
 	return "toolbar" === placement ? (
-		<UIComponent
+		<ToolbarGroup
 			icon={setIcon()}
-			label={__(label, "superlist-block")}
-			toggleProps={__(describedBy, "superlist-block")}
+			label={__(describedBy, "superlist-block")}
 			popoverProps={POPOVER_PROPS}
+			isCollapsed
 			controls={listControls.map((control) => {
 				const { listStyle } = control;
 				const isActive = value === listStyle;
@@ -92,7 +72,6 @@ function ListStyleUI({
 					onClick: applyOrUnset(listStyle),
 				};
 			})}
-			{...extraProps}
 		/>
 	) : (
 		<fieldset className="block-editor-hooks__flex-layout-justification-controls">
