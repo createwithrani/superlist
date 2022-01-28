@@ -22,16 +22,11 @@ import {
 	useSetting,
 } from "@wordpress/block-editor";
 import {
-	Toolbar,
-	ToolbarButton,
-	Panel,
 	PanelBody,
 	PanelRow,
-	Button,
 	__experimentalUnitControl as UnitControl,
 } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
-import { arrowRight, arrowDown } from "@wordpress/icons";
 import { useState } from "@wordpress/element";
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -41,6 +36,7 @@ import { useState } from "@wordpress/element";
  */
 import "./editor.scss";
 import ListStyleUI from "./list-style";
+import { Orientation } from "./orientation";
 
 /**
  * Internal Dependencies
@@ -94,17 +90,10 @@ export default function Edit(props) {
 					onChange={switchStyle}
 					placement="toolbar"
 				/>
-				<ToolbarButton
-					icon={arrowRight}
-					label={__("Horizontal orientation", "superlist-block")}
-					onClick={() => setAttributes({ orientation: "horizontal" })}
-					isActive={orientation === "horizontal"}
-				/>
-				<ToolbarButton
-					icon={arrowDown}
-					label={__("Vertical Orientation", "superlist-block")}
-					onClick={() => setAttributes({ orientation: "vertical" })}
-					isActive={orientation === "vertical"}
+				<Orientation
+					orientation={orientation}
+					setAttributes={setAttributes}
+					placement="toolbar"
 				/>
 			</BlockControls>
 			<InspectorControls>
@@ -130,23 +119,11 @@ export default function Edit(props) {
 						/>
 					</PanelRow>
 					<PanelRow>
-						<fieldset className="block-editor-hooks__flex-layout-justification-controls">
-							<legend>{__("Orientation")}</legend>
-							<div>
-								<Button
-									icon={arrowRight}
-									label={__("Horizontal orientation")}
-									onClick={() => setAttributes({ orientation: "horizontal" })}
-									isPressed={orientation === "horizontal"}
-								/>
-								<Button
-									icon={arrowDown}
-									label={__("Vertical Orientation")}
-									onClick={() => setAttributes({ orientation: "vertical" })}
-									isPressed={orientation === "vertical"}
-								/>
-							</div>
-						</fieldset>
+						<Orientation
+							orientation={orientation}
+							setAttributes={setAttributes}
+							placement="inspector"
+						/>
 					</PanelRow>
 				</PanelBody>
 			</InspectorControls>

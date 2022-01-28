@@ -490,11 +490,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/arrow-right.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/arrow-down.js");
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/superlist/editor.scss");
 /* harmony import */ var _list_style__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./list-style */ "./src/superlist/list-style.js");
-/* harmony import */ var _superlist_item__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../superlist-item */ "./src/superlist-item/index.js");
+/* harmony import */ var _orientation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./orientation */ "./src/superlist/orientation.js");
+/* harmony import */ var _superlist_item__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../superlist-item */ "./src/superlist-item/index.js");
 
 
 /**
@@ -514,7 +513,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -524,12 +522,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /**
  * Internal Dependencies
  */
 
 
-const ALLOWED_BLOCKS = [_superlist_item__WEBPACK_IMPORTED_MODULE_7__.name];
+const ALLOWED_BLOCKS = [_superlist_item__WEBPACK_IMPORTED_MODULE_8__.name];
 const LIST_TEMPLATE = [["createwithrani/superlist-item"], ["createwithrani/superlist-item"]];
 /**
  * The edit function describes the structure of your block in the context of the
@@ -583,20 +582,10 @@ function Edit(props) {
     value: listStyle,
     onChange: switchStyle,
     placement: "toolbar"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToolbarButton, {
-    icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_8__["default"],
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Horizontal orientation", "superlist-block"),
-    onClick: () => setAttributes({
-      orientation: "horizontal"
-    }),
-    isActive: orientation === "horizontal"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToolbarButton, {
-    icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_9__["default"],
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Vertical Orientation", "superlist-block"),
-    onClick: () => setAttributes({
-      orientation: "vertical"
-    }),
-    isActive: orientation === "vertical"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_orientation__WEBPACK_IMPORTED_MODULE_7__.Orientation, {
+    orientation: orientation,
+    setAttributes: setAttributes,
+    placement: "toolbar"
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     initialOpen: true,
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Repeater Settings", "superlist-block")
@@ -608,23 +597,11 @@ function Edit(props) {
     value: listStyle,
     onChange: switchStyle,
     placement: "inspector"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("fieldset", {
-    className: "block-editor-hooks__flex-layout-justification-controls"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("legend", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Orientation")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-    icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_8__["default"],
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Horizontal orientation"),
-    onClick: () => setAttributes({
-      orientation: "horizontal"
-    }),
-    isPressed: orientation === "horizontal"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-    icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_9__["default"],
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Vertical Orientation"),
-    onClick: () => setAttributes({
-      orientation: "vertical"
-    }),
-    isPressed: orientation === "vertical"
-  })))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ListContainer, innerBlockProps));
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_orientation__WEBPACK_IMPORTED_MODULE_7__.Orientation, {
+    orientation: orientation,
+    setAttributes: setAttributes,
+    placement: "inspector"
+  })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ListContainer, innerBlockProps));
 }
 
 /***/ }),
@@ -639,6 +616,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "example": function() { return /* binding */ example; }
 /* harmony export */ });
+/* harmony import */ var _example1_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./example1.jpg */ "./src/superlist/example1.jpg");
+/* harmony import */ var _example2_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./example2.jpg */ "./src/superlist/example2.jpg");
+
+
 const example = {
   attributes: {
     listStyle: "none",
@@ -665,7 +646,7 @@ const example = {
         sizeSlug: "large",
         linkDestination: "none",
         className: "is-style-default",
-        url: "https://pd.w.org/2021/12/49361c223ae560047.71766345-2048x1152.jpg"
+        url: _example1_jpg__WEBPACK_IMPORTED_MODULE_0__
       }
     }, {
       name: "core/heading",
@@ -682,7 +663,7 @@ const example = {
         sizeSlug: "large",
         linkDestination: "none",
         className: "is-style-default",
-        url: "https://pd.w.org/2022/01/32661ecf0061ae4e7.10847000-2048x1365.jpg"
+        url: _example2_jpg__WEBPACK_IMPORTED_MODULE_1__
       }
     }, {
       name: "core/paragraph",
@@ -798,19 +779,17 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash */ "lodash");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/format-list-bullets.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/format-list-numbered.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/menu.js");
-
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/format-list-bullets.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/format-list-numbered.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/menu.js");
 
 
 /**
@@ -823,19 +802,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // import { Button } from "@wordpress/block-editor";
 
 const DEFAULT_LIST_CONTROLS = [{
-  icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__["default"],
-  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Unordered list", "superlist-block"),
+  icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_4__["default"],
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Unordered list", "superlist-block"),
   listStyle: "ul"
 }, {
-  icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__["default"],
-  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Ordered List", "superlist-block"),
+  icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__["default"],
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Ordered List", "superlist-block"),
   listStyle: "ol"
 }, {
-  icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__["default"],
-  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("No marker", "superlist-block"),
+  icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__["default"],
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("No marker", "superlist-block"),
   listStyle: "none"
 }];
 const POPOVER_PROPS = {
@@ -848,11 +826,9 @@ function ListStyleUI(_ref) {
     value,
     onChange,
     listControls = DEFAULT_LIST_CONTROLS,
-    label = (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Superlist"),
-    describedBy = (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Change list style"),
+    label = (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Superlist"),
+    describedBy = (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Change list style"),
     isCollapsed = true,
-    isToolbar = true,
-    isToolbarButton = true,
     placement
   } = _ref;
 
@@ -860,31 +836,17 @@ function ListStyleUI(_ref) {
     return () => onChange(value === listStyle ? undefined : listStyle);
   }
 
-  const activeStyle = (0,lodash__WEBPACK_IMPORTED_MODULE_2__.find)(listControls, control => control.listStyle === value);
+  const activeStyle = (0,lodash__WEBPACK_IMPORTED_MODULE_1__.find)(listControls, control => control.listStyle === value);
 
   function setIcon() {
     if (activeStyle) return activeStyle.icon;
   }
 
-  function setPlacement() {
-    if ("toolbar" === placement) {
-      return isToolbar ? _wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToolbarGroup : _wordpress_components__WEBPACK_IMPORTED_MODULE_4__.DropdownMenu;
-    } else {
-      isToolbar ? _wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToolbarGroup : _wordpress_components__WEBPACK_IMPORTED_MODULE_4__.DropdownMenu;
-    }
-  }
-
-  const UIComponent = isToolbar ? _wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToolbarGroup : _wordpress_components__WEBPACK_IMPORTED_MODULE_4__.DropdownMenu;
-  const extraProps = isToolbar ? {
-    isCollapsed
-  } : {
-    isToolbarButton
-  };
-  return "toolbar" === placement ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(UIComponent, (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  return "toolbar" === placement ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToolbarGroup, {
     icon: setIcon(),
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)(label, "superlist-block"),
-    toggleProps: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)(describedBy, "superlist-block"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)(describedBy, "superlist-block"),
     popoverProps: POPOVER_PROPS,
+    isCollapsed: true,
     controls: listControls.map(control => {
       const {
         listStyle
@@ -896,17 +858,17 @@ function ListStyleUI(_ref) {
         onClick: applyOrUnset(listStyle)
       };
     })
-  }, extraProps)) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("fieldset", {
+  }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("fieldset", {
     className: "block-editor-hooks__flex-layout-justification-controls"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("legend", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)(`${describedBy}`, "superlist-block")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, listControls.map(_ref2 => {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("legend", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)(`${describedBy}`, "superlist-block")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, listControls.map(_ref2 => {
     let {
       icon,
       listStyle,
       title
     } = _ref2;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
       key: listStyle,
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)(title, "superlist-block"),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)(title, "superlist-block"),
       icon: icon,
       isPressed: listStyle === value,
       onClick: applyOrUnset(listStyle)
@@ -915,6 +877,69 @@ function ListStyleUI(_ref) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (ListStyleUI);
+
+/***/ }),
+
+/***/ "./src/superlist/orientation.js":
+/*!**************************************!*\
+  !*** ./src/superlist/orientation.js ***!
+  \**************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Orientation": function() { return /* binding */ Orientation; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/arrow-right.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/arrow-down.js");
+
+
+
+
+const Orientation = _ref => {
+  let {
+    orientation,
+    setAttributes,
+    placement
+  } = _ref;
+  return "toolbar" === placement ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToolbarButton, {
+    icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_3__["default"],
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Horizontal orientation", "superlist-block"),
+    onClick: () => setAttributes({
+      orientation: "horizontal"
+    }),
+    isActive: orientation === "horizontal"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToolbarButton, {
+    icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_4__["default"],
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Vertical Orientation", "superlist-block"),
+    onClick: () => setAttributes({
+      orientation: "vertical"
+    }),
+    isActive: orientation === "vertical"
+  })) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("fieldset", {
+    className: "block-editor-hooks__flex-layout-justification-controls"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("legend", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Orientation")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+    icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_3__["default"],
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Horizontal orientation"),
+    onClick: () => setAttributes({
+      orientation: "horizontal"
+    }),
+    isPressed: orientation === "horizontal"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+    icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_4__["default"],
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Vertical Orientation"),
+    onClick: () => setAttributes({
+      orientation: "vertical"
+    }),
+    isPressed: orientation === "vertical"
+  })));
+};
 
 /***/ }),
 
@@ -1029,6 +1054,26 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/superlist/example1.jpg":
+/*!************************************!*\
+  !*** ./src/superlist/example1.jpg ***!
+  \************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "images/example1.c0f4985a.jpg";
+
+/***/ }),
+
+/***/ "./src/superlist/example2.jpg":
+/*!************************************!*\
+  !*** ./src/superlist/example2.jpg ***!
+  \************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "images/example2.8fa03af3.jpg";
+
+/***/ }),
+
 /***/ "lodash":
 /*!*************************!*\
   !*** external "lodash" ***!
@@ -1106,36 +1151,6 @@ module.exports = window["wp"]["i18n"];
 /***/ (function(module) {
 
 module.exports = window["wp"]["primitives"];
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/extends.js":
-/*!************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/extends.js ***!
-  \************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ _extends; }
-/* harmony export */ });
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
 
 /***/ }),
 
@@ -1237,6 +1252,18 @@ module.exports = JSON.parse('{"$schema":"https://json.schemastore.org/block.json
 /******/ 		};
 /******/ 	}();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	!function() {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	}();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	!function() {
 /******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
@@ -1251,6 +1278,26 @@ module.exports = JSON.parse('{"$schema":"https://json.schemastore.org/block.json
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	!function() {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) scriptUrl = scripts[scripts.length - 1].src
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
