@@ -1146,7 +1146,7 @@ function _extends() {
   \***************************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"$schema":"https://json.schemastore.org/block.json","apiVersion":2,"name":"createwithrani/superlist-item","parent":["createwithrani/superlist"],"version":"0.1.0","title":"Super List Item","category":"text","icon":"editor-insertmore","description":"A list item that allows you to nest as many other blocks as you like inside it.","supports":{"html":true,"color":{"background":true,"gradients":true,"text":true},"spacing":{"margin":true,"padding":true}},"textdomain":"superlist","editorScript":"file:../../build/index.js","editorStyle":"file:../../build/index.css","style":"file:../../build/style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://json.schemastore.org/block.json","apiVersion":2,"name":"createwithrani/superlist-item","parent":["createwithrani/superlist"],"version":"0.1.0","title":"Super List Item","category":"design","description":"A list item that allows you to nest as many other blocks as you like inside it.","supports":{"html":true,"color":{"background":true,"gradients":true,"text":true},"spacing":{"margin":true,"padding":true}},"textdomain":"superlist-block"}');
 
 /***/ })
 

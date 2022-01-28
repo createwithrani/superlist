@@ -7,8 +7,7 @@
 	],
 	"version": "0.1.0",
 	"title": "Super List Item",
-	"category": "text",
-	"icon": "editor-insertmore",
+	"category": "design",
 	"description": "A list item that allows you to nest as many other blocks as you like inside it.",
 	"supports": {
 		"html": true,
@@ -22,8 +21,5 @@
 			"padding": true
 		}
 	},
-	"textdomain": "superlist",
-	"editorScript": "file:../../build/index.js",
-	"editorStyle": "file:../../build/index.css",
-	"style": "file:../../build/style-index.css"
+	"textdomain": "superlist-block"
 }
