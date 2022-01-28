@@ -5,7 +5,6 @@
 	"version": "0.1.0",
 	"title": "Super List",
 	"category": "design",
-	"icon": "editor-ul",
 	"description": "Nest multiple blocks inside list items in any kind of list (ordered, unordered, no marker, etc)",
 	"attributes": {
 		"listStyle":{

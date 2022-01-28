@@ -21,17 +21,8 @@ import {
 } from "@wordpress/block-editor";
 import { ToolbarButton, ToolbarGroup } from "@wordpress/components";
 import { useSelect, useDispatch } from "@wordpress/data";
-import {
-	getBlockType,
-	store as blocksStore,
-	createBlock,
-} from "@wordpress/blocks";
-import {
-	formatListBullets,
-	formatListNumbered,
-	menu,
-	plusCircle,
-} from "@wordpress/icons";
+import { getBlockType, createBlock } from "@wordpress/blocks";
+import { plusCircle } from "@wordpress/icons";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -71,7 +62,6 @@ export default function Edit(props) {
 				getSelectedBlockClientId,
 				getSettings,
 			} = select(blockEditorStore);
-			// const { hasBlockSupport } = select(blocksStore);
 			const selectedBlockClientId = getSelectedBlockClientId();
 			const parents = getBlockParents(selectedBlockClientId);
 			const _firstParentClientId = parents[parents.length - 1];

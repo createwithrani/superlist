@@ -1,2 +1,41 @@
-.wp-block-createwithrani-superlist-block.horizontal{-ms-grid-rows:auto 1fr auto;display:-ms-grid;display:grid;gap:2rem;grid-template-rows:auto 1fr auto}.wp-block-createwithrani-superlist-block.none{list-style:none}.wp-block-createwithrani-superlist-block.none li{margin-bottom:0;margin-top:0}ul.wp-block-createwithrani-superlist-block{padding-left:0}ul.wp-block-createwithrani-superlist-block li{flex:1}
-.wp-block-superlist-block-superlist-block{background-color:#21759b;color:#fff;padding:2px}
+/*!*************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/superlist/style.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-createwithrani-superlist-block.horizontal {
+  display: -ms-grid;
+  display: grid;
+  gap: 2rem;
+  -ms-grid-rows: auto 1fr auto;
+  grid-template-rows: auto 1fr auto;
+}
+.wp-block-createwithrani-superlist-block.none {
+  list-style: none;
+}
+.wp-block-createwithrani-superlist-block.none li {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul.wp-block-createwithrani-superlist-block {
+  padding-left: 0;
+}
+ul.wp-block-createwithrani-superlist-block li {
+  flex: 1;
+}
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/superlist-item/style.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+/*# sourceMappingURL=style-index.css.map*/
