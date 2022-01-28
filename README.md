@@ -15,7 +15,7 @@ This block is very light on styles (and avoids unnecessary div soup!). It aims t
 
 If you enjoy the block, please leave a review! ⭐
 
-If you have a feature request, please create an issue in the [GitHub repository](https://github.com/createwithrani/superlist) ➕
+If you have a feature request, please create an issue in the [GitHub repository](https://github.com/createwithrani/superlist). ➕
 
 If you need support, please use the support forum to reach out. 🆘
 
