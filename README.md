@@ -9,8 +9,6 @@ Nest multiple blocks inside lists of any kind of list (ordered, unordered, no ma
 
 A handy little block that can be used in a variety of ways. Use it to nest other blocks inside list items, to create simple grid layouts ( like a properly responsive pricing table, or a wrapping icon list), or other use cases I haven't yet thought of!
 
-A handy little block that can be used in a variety of ways. Use it to nest other blocks inside list items, to create simple grid layouts ( like a properly responsive pricing table, or a wrapping icon list), or however you please.
-
 This block is very light on styles (and avoids unnecessary div soup!). It aims to provide you with as much flexibility as possible, so you can harness it to create the content structure and layout you like.
 
 If you enjoy the block, please leave a review! ⭐
