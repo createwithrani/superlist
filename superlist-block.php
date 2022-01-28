@@ -29,6 +29,27 @@ function create_block_superlist_block_block_init() {
 	register_block_type( plugin_dir_path( SUPERLIST_BLOCK_PLUGIN_FILE ) . 'src/superlist' );
 	register_block_type( plugin_dir_path( SUPERLIST_BLOCK_PLUGIN_FILE ) . 'src/superlist-item' );
 
+	$asset_file = include plugin_dir_path( SUPERLIST_BLOCK_PLUGIN_FILE ) . 'build/index.asset.php';
+
+	wp_register_script(
+		'superlistblock-js',
+		plugins_url( 'build/index.js', SUPERLIST_BLOCK_PLUGIN_FILE ),
+		$asset_file['dependencies'],
+		$asset_file['version'],
+		true,
+	);
+
+	wp_localize_script(
+		'superlistblock-js',
+		'superlist_data',
+		array(
+			'example1'  => plugins_url( 'assets/example1.jpg', SUPERLIST_BLOCK_PLUGIN_FILE ),
+			'example2'  => plugins_url( 'assets/example2.jpg', SUPERLIST_BLOCK_PLUGIN_FILE ),
+		)
+	);
+
+	wp_enqueue_script('superlistblock-js');
+
 	// Load available translations.
 	wp_set_script_translations( 'createwithrani-superlist-block-editor-script-js', 'superlist-block' );
 }
