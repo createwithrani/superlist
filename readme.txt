@@ -1,10 +1,10 @@
 === Super List Block ===
 Contributors:      aurooba
-Tags:              block, list, nesting, repeater
+Tags:              block, list, nesting, repeater, superlist
 Requires at least: 5.9
 Tested up to:      5.9
 Requires PHP:      7.0
-Stable tag:        1.0.0
+Stable tag:        0.1.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://github.com/sponsors/aurooba
@@ -47,7 +47,7 @@ If you need support, please use the support forum to reach out. 🆘
 
 == Screenshots ==
 
-1. Super List is a flexible list block that let's you nest blocks inside each list item!
+1. Super List is a flexible list block that lets you nest blocks inside each list item!
 2. Nesting blocks is easy and works just like it does in group, column, or cover blocks.
 3. You can easily re-order list items and even add more list items wherever you need from the list item toolbar.
 
