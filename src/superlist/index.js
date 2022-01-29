@@ -4,6 +4,7 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 import { registerBlockType } from "@wordpress/blocks";
+import { __ } from "@wordpress/i18n";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -17,7 +18,7 @@ import "./style.scss";
 /**
  * Internal dependencies
  */
-import Edit from "./edit";
+import edit from "./edit";
 import save from "./save";
 import { example } from "./example";
 import { SuperList as icon } from "./icons";
@@ -27,11 +28,12 @@ import { SuperList as icon } from "./icons";
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType("createwithrani/superlist-block", {
+	title: __("Super List", "superlist-block"),
 	icon,
 	/**
 	 * @see ./edit.js
 	 */
-	edit: Edit,
+	edit,
 
 	/**
 	 * @see ./save.js

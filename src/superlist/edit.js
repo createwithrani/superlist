@@ -56,7 +56,7 @@ const LIST_TEMPLATE = [
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit(props) {
+export default function edit(props) {
 	const { attributes, setAttributes } = props;
 	const { listStyle, orientation, itemWidth } = attributes;
 	const [width, setWidth] = useState(itemWidth);
