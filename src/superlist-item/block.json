@@ -22,7 +22,7 @@
 		}
 	},
 	"textdomain": "superlist-block",
-	"editorScript": "file:../../build/index.js",
-	"editorStyle": "file:../../build/index.css",
-	"style": "file:../../build/style-index.css"
+	"editorScript": "file:../../build/superlist-item.js",
+	"editorStyle": "file:../../build/superlist-item.css",
+	"style": "file:../../build/style-superlist-item.css"
 }

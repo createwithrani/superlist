@@ -34,7 +34,7 @@
 		}
 	},
 	"textdomain": "superlist-block",
-	"editorScript": "file:../../build/index.js",
-	"editorStyle": "file:../../build/index.css",
-	"style": "file:../../build/style-index.css"
+	"editorScript": "file:../../build/superlist.js",
+	"editorStyle": "file:../../build/superlist.css",
+	"style": "file:../../build/style-superlist.css"
 }
