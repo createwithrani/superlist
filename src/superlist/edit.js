@@ -41,8 +41,7 @@ import { Orientation } from "./orientation";
 /**
  * Internal Dependencies
  */
-import { name as allowedBlock } from "../superlist-item";
-const ALLOWED_BLOCKS = [allowedBlock];
+const ALLOWED_BLOCKS = ["createwithrani/superlist-item"];
 const LIST_TEMPLATE = [
 	["createwithrani/superlist-item"],
 	["createwithrani/superlist-item"],
@@ -56,7 +55,7 @@ const LIST_TEMPLATE = [
  *
  * @return {WPElement} Element to render.
  */
-export default function edit(props) {
+export default function Edit(props) {
 	const { attributes, setAttributes } = props;
 	const { listStyle, orientation, itemWidth } = attributes;
 	const [width, setWidth] = useState(itemWidth);
