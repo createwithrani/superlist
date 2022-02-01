@@ -255,8 +255,8 @@ const {
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)('createwithrani/superlist-item', {
-  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Super List Item', 'superlist-block'),
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)("createwithrani/superlist-item", {
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Superlist Item", "superlist-block"),
   icon: _icons__WEBPACK_IMPORTED_MODULE_6__.ListItem,
 
   /**
@@ -420,7 +420,7 @@ module.exports = window["wp"]["primitives"];
   \***************************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"$schema":"https://json.schemastore.org/block.json","apiVersion":2,"name":"createwithrani/superlist-item","parent":["createwithrani/superlist"],"version":"0.1.0","title":"Super List Item","category":"design","description":"A list item that allows you to nest as many other blocks as you like inside it.","supports":{"html":true,"color":{"background":true,"gradients":true,"text":true},"spacing":{"margin":true,"padding":true}},"textdomain":"superlist-block","editorScript":"file:../../build/superlist-item.js","editorStyle":"file:../../build/superlist-item.css","style":"file:../../build/style-superlist-item.css"}');
+module.exports = JSON.parse('{"$schema":"https://json.schemastore.org/block.json","apiVersion":2,"name":"createwithrani/superlist-item","parent":["createwithrani/superlist"],"version":"0.1.0","title":"Superlist Item","category":"design","description":"A list item that allows you to nest as many other blocks as you like inside it.","supports":{"html":true,"color":{"background":true,"gradients":true,"text":true},"spacing":{"margin":true,"padding":true}},"textdomain":"superlist-block","editorScript":"file:../../build/superlist-item.js","editorStyle":"file:../../build/superlist-item.css","style":"file:../../build/style-superlist-item.css"}');
 
 /***/ })
 

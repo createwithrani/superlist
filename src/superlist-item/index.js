@@ -3,8 +3,8 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-import { registerBlockType } from '@wordpress/blocks';
-import { __ } from '@wordpress/i18n';
+import { registerBlockType } from "@wordpress/blocks";
+import { __ } from "@wordpress/i18n";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -13,15 +13,15 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import './style.scss';
+import "./style.scss";
 
 /**
  * Internal dependencies
  */
-import edit from './edit';
-import save from './save';
-import metadata from './block.json';
-import { ListItem as icon } from './icons';
+import edit from "./edit";
+import save from "./save";
+import metadata from "./block.json";
+import { ListItem as icon } from "./icons";
 
 const { name } = metadata;
 export { name };
@@ -30,8 +30,8 @@ export { name };
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType('createwithrani/superlist-item', {
-	title: __('Super List Item', 'superlist-block'),
+registerBlockType("createwithrani/superlist-item", {
+	title: __("Superlist Item", "superlist-block"),
 	icon,
 	/**
 	 * @see ./edit.js

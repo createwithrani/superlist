@@ -1,4 +1,4 @@
-=== Super List Block ===
+=== Superlist Block ===
 Contributors:      aurooba
 Tags:              block, list, nesting, repeater, superlist
 Requires at least: 5.9
@@ -41,13 +41,13 @@ If you need support, please use the support forum to reach out. 🆘
 
 == Installation ==
 
-1. Upload the plugin files to the `/wp-content/plugins/` directory, install the plugin through the WordPress plugins screen directly, or search for `Super List Block` in the Block Library.
+1. Upload the plugin files to the `/wp-content/plugins/` directory, install the plugin through the WordPress plugins screen directly, or search for `Superlist Block` in the Block Library.
 2. Activate the plugin through the 'Plugins' screen in WordPress if installed manually or through the WordPress plugins screen.
-3. Use the `Super List` block in the Block Editor
+3. Use the `Superlist` block in the Block Editor
 
 == Screenshots ==
 
-1. Super List is a flexible list block that lets you nest blocks inside each list item!
+1. Superlist is a flexible list block that lets you nest blocks inside each list item!
 2. Nesting blocks is easy and works just like it does in group, column, or cover blocks.
 3. You can easily re-order list items and even add more list items wherever you need from the list item toolbar.
 

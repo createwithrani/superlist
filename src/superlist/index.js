@@ -28,7 +28,7 @@ import { SuperList as icon } from "./icons";
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType("createwithrani/superlist-block", {
-	title: __("Super List", "superlist-block"),
+	title: __("Superlist", "superlist-block"),
 	icon,
 	/**
 	 * @see ./edit.js

@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Super List Block
+ * Plugin Name:       Superlist Block
  * Description:       Nest multiple blocks inside lists of any kind of list (ordered, unordered, no marker, etc), or do away with list markers and use it like a repeater!
  * Requires at least: 5.9
  * Requires PHP:      7.0

@@ -1,7 +1,7 @@
-# Super List Block
+# Superlist Block
 [![License](https://img.shields.io/badge/license-GPL--2.0%2B-black.svg)](https://github.com/createwithrani/superlist/blob/main/license.txt)
 
-![Super List Block](https://github.com/createwithrani/superlist/blob/main/assets/banner-1544x500.png?raw=true)
+![Superlist Block](https://github.com/createwithrani/superlist/blob/main/assets/banner-1544x500.png?raw=true)
 
 Nest multiple blocks inside lists of any kind of list (ordered, unordered, no marker, etc), or do away with list markers and use it like a repeater!
 
