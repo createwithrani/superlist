@@ -6,7 +6,7 @@
 		"createwithrani/superlist"
 	],
 	"version": "0.1.0",
-	"title": "Superlist Item",
+	"title": "Super List Item",
 	"category": "design",
 	"description": "A list item that allows you to nest as many other blocks as you like inside it.",
 	"supports": {

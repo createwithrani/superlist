@@ -3,7 +3,7 @@
 	"apiVersion": 2,
 	"name": "createwithrani/superlist-block",
 	"version": "0.1.0",
-	"title": "Superlist",
+	"title": "Super List",
 	"category": "design",
 	"description": "Nest multiple blocks inside list items in any kind of list (ordered, unordered, no marker, etc)",
 	"attributes": {

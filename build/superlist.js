@@ -429,7 +429,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)("createwithrani/superlist-block", {
-  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Superlist", "superlist-block"),
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Super List", "superlist-block"),
   icon: _icons__WEBPACK_IMPORTED_MODULE_6__.SuperList,
 
   /**
