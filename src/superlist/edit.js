@@ -98,12 +98,12 @@ export default function Edit(props) {
 			<InspectorControls>
 				<PanelBody
 					initialOpen={true}
-					title={__("Repeater Settings", "superlist-block")}
+					title={__("List Settings", "superlist-block")}
 				>
 					{orientation === "horizontal" && (
 						<PanelRow>
 							<UnitControl
-								label={__("Sub-item max-width", "superlist-block")}
+								label={__("List-item max-width", "superlist-block")}
 								onChange={setItemWidth}
 								value={width}
 							/>
