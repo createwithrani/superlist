@@ -22,9 +22,16 @@
   margin-bottom: 0;
 }
 
-ul.wp-block-createwithrani-superlist-block {
-  padding-left: 0;
+:not(li) > ul.wp-block-createwithrani-superlist-block {
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+  -webkit-margin-start: 0;
+          margin-inline-start: 0;
 }
+:not(li) > ul.wp-block-createwithrani-superlist-block li {
+  flex: 1;
+}
+
 ul.wp-block-createwithrani-superlist-block li {
   flex: 1;
 }
