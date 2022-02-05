@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
+import { __ } from "@wordpress/i18n";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -23,16 +23,17 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
  * @return {WPElement} Element to render.
  */
 export default function save({ attributes }) {
-	const { listStyle, orientation, itemWidth } = attributes;
+	const { listStyle, orientation, itemWidth, verticalAlignment } = attributes;
 	const subItemWidth = {
 		gridTemplateColumns: `repeat(auto-fill, minmax(${itemWidth}, 1fr))`,
 	};
-	const ListContainer = 'none' !== listStyle ? listStyle : 'div';
+	const ListContainer = "none" !== listStyle ? listStyle : "div";
+	const alignmentClass = `is-vertically-aligned-${verticalAlignment}`;
 	return (
 		<ListContainer
 			{...useBlockProps.save({
-				className: `${listStyle} ${orientation}`,
-				style: 'horizontal' === orientation ? subItemWidth : {},
+				className: `${listStyle} ${orientation} ${alignmentClass}`,
+				style: "horizontal" === orientation ? subItemWidth : {},
 			})}
 		>
 			<InnerBlocks.Content />
