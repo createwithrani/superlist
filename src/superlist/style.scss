@@ -22,8 +22,8 @@
 
 // allow indentation via padding to occur when a super list is nested inside a super list item, otherwise, remove the unnecessary padding-left.
 :not(li) > ul.wp-block-createwithrani-superlist-block {
-	padding-left: 0;
-	margin-left: 0;
+	padding-inline-start: 0;
+	margin-inline-start: 0;
 	li {
 		flex: 1;
 	}
