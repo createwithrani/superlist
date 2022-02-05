@@ -19,7 +19,7 @@ export const transforms = {
 		{
 			type: "block",
 			blocks: [ "core/list" ],
-			transform: ( { ordered, values } ) => {
+			transform: ( { ordered, values, ...rest } ) => {
 				/**
 				 * Mostly borrowed from core/list transform to core/paragraph.
 				 *
@@ -34,7 +34,8 @@ export const transforms = {
 					LINE_SEPARATOR
 				).map( ( piece ) =>
 					/**
-					 * For each list item, create a createwithrani/superlist-item with a nested core/paragraph with the item content.
+					 * For each list item, create a superlist-item with a nested
+					 * core/paragraph with the item content.
 					 */
 					createBlock(
 						"createwithrani/superlist-item",
@@ -42,6 +43,8 @@ export const transforms = {
 						[
 							createBlock( 'core/paragraph', {
 								content: toHTMLString( { value: piece } ),
+								// Apply the rest of the list attribtues to each paragraph (for typography settings, etc).
+								...rest,
 							} )
 						]
 					)

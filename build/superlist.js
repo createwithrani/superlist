@@ -713,7 +713,8 @@ const transforms = {
     transform: _ref => {
       let {
         ordered,
-        values
+        values,
+        ...rest
       } = _ref;
 
       /**
@@ -727,12 +728,15 @@ const transforms = {
         multilineWrapperTags: ["ul", "ol"]
       }), LINE_SEPARATOR).map(piece =>
       /**
-       * For each list item, create a createwithrani/superlist-item with a nested core/paragraph with the item content.
+       * For each list item, create a superlist-item with a nested
+       * core/paragraph with the item content.
        */
       (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.createBlock)("createwithrani/superlist-item", {}, [(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.createBlock)('core/paragraph', {
         content: (0,_wordpress_rich_text__WEBPACK_IMPORTED_MODULE_1__.toHTMLString)({
           value: piece
-        })
+        }),
+        // Apply the rest of the list attribtues to each paragraph (for typography settings, etc).
+        ...rest
       })]));
       return (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.createBlock)("createwithrani/superlist-block", {
         listStyle: ordered ? 'ol' : 'ul'
