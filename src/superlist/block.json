@@ -18,9 +18,13 @@
 		"itemWidth": {
 			"type": "string",
 			"default": "350px"
+		},
+		"verticalAlignment": {
+			"type": "string"
 		}
 	},
 	"supports": {
+		"anchor": true,
 		"html": true,
 		"align": true,
 		"color": {

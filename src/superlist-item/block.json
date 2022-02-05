@@ -10,6 +10,7 @@
 	"category": "design",
 	"description": "A list item that allows you to nest as many other blocks as you like inside it.",
 	"supports": {
+		"anchor": true,
 		"html": true,
 		"color": {
 			"background": true,
