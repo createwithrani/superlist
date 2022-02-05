@@ -91,7 +91,6 @@ export default function Edit(props) {
 	function updateAlignment(verticalAlignment) {
 		setAttributes({ verticalAlignment: verticalAlignment });
 	}
-	console.log(blockProps);
 	const ListContainer = "none" !== listStyle ? listStyle : "div";
 	return (
 		<>
