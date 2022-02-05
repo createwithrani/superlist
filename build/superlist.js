@@ -397,7 +397,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./edit */ "./src/superlist/edit.js");
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./save */ "./src/superlist/save.js");
 /* harmony import */ var _example__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./example */ "./src/superlist/example.js");
-/* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./icons */ "./src/superlist/icons.js");
+/* harmony import */ var _transforms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./transforms */ "./src/superlist/transforms.js");
+/* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./icons */ "./src/superlist/icons.js");
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
@@ -422,6 +423,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /**
  * Every block starts by registering a new block type definition.
  *
@@ -430,7 +432,7 @@ __webpack_require__.r(__webpack_exports__);
 
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)("createwithrani/superlist-block", {
   title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Super List", "superlist-block"),
-  icon: _icons__WEBPACK_IMPORTED_MODULE_6__.SuperList,
+  icon: _icons__WEBPACK_IMPORTED_MODULE_7__.SuperList,
 
   /**
    * @see ./edit.js
@@ -441,7 +443,8 @@ __webpack_require__.r(__webpack_exports__);
    * @see ./save.js
    */
   save: _save__WEBPACK_IMPORTED_MODULE_4__["default"],
-  example: _example__WEBPACK_IMPORTED_MODULE_5__.example
+  example: _example__WEBPACK_IMPORTED_MODULE_5__.example,
+  transforms: _transforms__WEBPACK_IMPORTED_MODULE_6__.transforms
 });
 
 /***/ }),
@@ -680,6 +683,66 @@ function save(_ref) {
 
 /***/ }),
 
+/***/ "./src/superlist/transforms.js":
+/*!*************************************!*\
+  !*** ./src/superlist/transforms.js ***!
+  \*************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "transforms": function() { return /* binding */ transforms; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_rich_text__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/rich-text */ "@wordpress/rich-text");
+/* harmony import */ var _wordpress_rich_text__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_rich_text__WEBPACK_IMPORTED_MODULE_1__);
+/**
+ * Block Transforms.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-transforms/
+ */
+
+ // TODO: replace with LINE_SEPARATOR from @wordpress/rich-text when it is no longer unstable (__UNSTABLE_LINE_SEPARATOR).
+
+const LINE_SEPARATOR = "\u2028";
+const transforms = {
+  from: [{
+    type: "block",
+    blocks: ["core/list"],
+    transform: _ref => {
+      let {
+        ordered,
+        values
+      } = _ref;
+
+      /**
+       * Mostly borrowed from core/list transform to core/paragraph.
+       *
+       * @see https://github.com/WordPress/gutenberg/blob/trunk/packages/block-library/src/list/transforms.js
+       */
+      const innerBlocks = (0,_wordpress_rich_text__WEBPACK_IMPORTED_MODULE_1__.split)((0,_wordpress_rich_text__WEBPACK_IMPORTED_MODULE_1__.create)({
+        html: values,
+        multilineTag: "li",
+        multilineWrapperTags: ["ul", "ol"]
+      }), LINE_SEPARATOR).map(piece =>
+      /**
+       * For each list item, create a createwithrani/superlist-item with a nested core/paragraph with the item content.
+       */
+      (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.createBlock)("createwithrani/superlist-item", {}, [(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.createBlock)('core/paragraph', {
+        content: (0,_wordpress_rich_text__WEBPACK_IMPORTED_MODULE_1__.toHTMLString)({
+          value: piece
+        })
+      })]));
+      return (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.createBlock)("createwithrani/superlist-block", {
+        listStyle: ordered ? 'ol' : 'ul'
+      }, innerBlocks);
+    }
+  }]
+};
+
+/***/ }),
+
 /***/ "./src/superlist/editor.scss":
 /*!***********************************!*\
   !*** ./src/superlist/editor.scss ***!
@@ -801,6 +864,16 @@ module.exports = window["wp"]["i18n"];
 /***/ (function(module) {
 
 module.exports = window["wp"]["primitives"];
+
+/***/ }),
+
+/***/ "@wordpress/rich-text":
+/*!**********************************!*\
+  !*** external ["wp","richText"] ***!
+  \**********************************/
+/***/ (function(module) {
+
+module.exports = window["wp"]["richText"];
 
 /***/ })
 
