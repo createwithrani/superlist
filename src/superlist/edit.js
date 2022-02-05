@@ -1,4 +1,9 @@
 /**
+ * External dependencies
+ */
+import classnames from "classnames";
+
+/**
  * Retrieves the translation of text.
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
@@ -63,9 +68,10 @@ export default function Edit(props) {
 	const subItemWidth = {
 		gridTemplateColumns: `repeat(auto-fill, minmax(${width}, 1fr))`,
 	};
-	const alignmentClass = `is-vertically-aligned-${verticalAlignment}`;
 	const blockProps = useBlockProps({
-		className: `${listStyle} ${orientation} ${alignmentClass}`,
+		className: classnames(listStyle, orientation, {
+			[`is-vertically-aligned-${verticalAlignment}`]: verticalAlignment,
+		}),
 		style: "horizontal" === orientation ? subItemWidth : {},
 	});
 
@@ -85,7 +91,6 @@ export default function Edit(props) {
 	function updateAlignment(verticalAlignment) {
 		setAttributes({ verticalAlignment: verticalAlignment });
 	}
-	console.log(alignmentClass);
 	console.log(blockProps);
 	const ListContainer = "none" !== listStyle ? listStyle : "div";
 	return (

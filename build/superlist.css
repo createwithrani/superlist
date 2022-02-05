@@ -10,8 +10,6 @@
   display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  -ms-grid-rows: auto 1fr auto;
-  grid-template-rows: auto 1fr auto;
 }
 .editor-styles-wrapper .wp-block-createwithrani-superlist-block.horizontal li {
   margin: 0;

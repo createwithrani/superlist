@@ -1,4 +1,8 @@
 /**
+ * External dependencies
+ */
+import classnames from "classnames";
+/**
  * Retrieves the translation of text.
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
@@ -28,11 +32,12 @@ export default function save({ attributes }) {
 		gridTemplateColumns: `repeat(auto-fill, minmax(${itemWidth}, 1fr))`,
 	};
 	const ListContainer = "none" !== listStyle ? listStyle : "div";
-	const alignmentClass = `is-vertically-aligned-${verticalAlignment}`;
 	return (
 		<ListContainer
 			{...useBlockProps.save({
-				className: `${listStyle} ${orientation} ${alignmentClass}`,
+				className: classnames(listStyle, orientation, {
+					[`is-vertically-aligned-${verticalAlignment}`]: verticalAlignment,
+				}),
 				style: "horizontal" === orientation ? subItemWidth : {},
 			})}
 		>
