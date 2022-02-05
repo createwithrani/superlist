@@ -734,12 +734,16 @@ const transforms = {
       (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.createBlock)("createwithrani/superlist-item", {}, [(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.createBlock)('core/paragraph', {
         content: (0,_wordpress_rich_text__WEBPACK_IMPORTED_MODULE_1__.toHTMLString)({
           value: piece
-        }),
-        // Apply the rest of the list attribtues to each paragraph (for typography settings, etc).
-        ...rest
+        })
       })]));
       return (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.createBlock)("createwithrani/superlist-block", {
-        listStyle: ordered ? 'ol' : 'ul'
+        listStyle: ordered ? 'ol' : 'ul',
+
+        /**
+         * Apply the rest of the original list attribtues to the
+         * super list (for typography settings, etc).
+         */
+        ...rest
       }, innerBlocks);
     }
   }]

@@ -43,8 +43,6 @@ export const transforms = {
 						[
 							createBlock( 'core/paragraph', {
 								content: toHTMLString( { value: piece } ),
-								// Apply the rest of the list attribtues to each paragraph (for typography settings, etc).
-								...rest,
 							} )
 						]
 					)
@@ -54,6 +52,11 @@ export const transforms = {
 					"createwithrani/superlist-block",
 					{
 						listStyle: ordered ? 'ol' : 'ul',
+						/**
+						 * Apply the rest of the original list attribtues to the
+						 * super list (for typography settings, etc).
+						 */
+						...rest,
 					},
 					innerBlocks
 				);
