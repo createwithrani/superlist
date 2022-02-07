@@ -18,17 +18,22 @@ import "./style.scss";
 /**
  * Internal dependencies
  */
+import metadata from "./block.json";
 import edit from "./edit";
 import save from "./save";
 import { example } from "./example";
 import { SuperList as icon } from "./icons";
+
+const { name, attributes } = metadata;
+
 /**
  * Every block starts by registering a new block type definition.
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType("createwithrani/superlist-block", {
-	title: __("Super List", "superlist-block"),
+	title: __(name, "superlist-block"),
+	attributes,
 	icon,
 	/**
 	 * @see ./edit.js

@@ -394,10 +394,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/superlist/style.scss");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./edit */ "./src/superlist/edit.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./save */ "./src/superlist/save.js");
-/* harmony import */ var _example__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./example */ "./src/superlist/example.js");
-/* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./icons */ "./src/superlist/icons.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/superlist/block.json");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./edit */ "./src/superlist/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./save */ "./src/superlist/save.js");
+/* harmony import */ var _example__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./example */ "./src/superlist/example.js");
+/* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./icons */ "./src/superlist/icons.js");
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
@@ -422,6 +423,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+const {
+  name,
+  attributes
+} = _block_json__WEBPACK_IMPORTED_MODULE_3__;
 /**
  * Every block starts by registering a new block type definition.
  *
@@ -429,19 +435,20 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)("createwithrani/superlist-block", {
-  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Super List", "superlist-block"),
-  icon: _icons__WEBPACK_IMPORTED_MODULE_6__.SuperList,
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(name, "superlist-block"),
+  attributes,
+  icon: _icons__WEBPACK_IMPORTED_MODULE_7__.SuperList,
 
   /**
    * @see ./edit.js
    */
-  edit: _edit__WEBPACK_IMPORTED_MODULE_3__["default"],
+  edit: _edit__WEBPACK_IMPORTED_MODULE_4__["default"],
 
   /**
    * @see ./save.js
    */
-  save: _save__WEBPACK_IMPORTED_MODULE_4__["default"],
-  example: _example__WEBPACK_IMPORTED_MODULE_5__.example
+  save: _save__WEBPACK_IMPORTED_MODULE_5__["default"],
+  example: _example__WEBPACK_IMPORTED_MODULE_6__.example
 });
 
 /***/ }),
@@ -801,6 +808,16 @@ module.exports = window["wp"]["i18n"];
 /***/ (function(module) {
 
 module.exports = window["wp"]["primitives"];
+
+/***/ }),
+
+/***/ "./src/superlist/block.json":
+/*!**********************************!*\
+  !*** ./src/superlist/block.json ***!
+  \**********************************/
+/***/ (function(module) {
+
+module.exports = JSON.parse('{"$schema":"https://json.schemastore.org/block.json","apiVersion":2,"name":"createwithrani/superlist-block","version":"0.1.0","title":"Super List","category":"design","description":"Nest multiple blocks inside list items in any kind of list (ordered, unordered, no marker, etc)","attributes":{"listStyle":{"type":"string","default":"ul"},"orientation":{"type":"string","default":"vertical"},"itemWidth":{"type":"string","default":"350px"}},"supports":{"html":true,"align":true,"color":{"background":true,"gradients":true,"text":true},"spacing":{"margin":true,"padding":true},"typography":{"fontSize":true,"__experimentalFontFamily":true,"lineHeight":true,"__experimentalFontStyle":true,"__experimentalFontWeight":true,"__experimentalLetterSpacing":true,"__experimentalTextTransform":true,"__experimentalDefaultControls":{"fontSize":true}}},"textdomain":"superlist-block","editorScript":"file:../../build/superlist.js","editorStyle":"file:../../build/superlist.css","style":"file:../../build/style-superlist.css"}');
 
 /***/ })
 
