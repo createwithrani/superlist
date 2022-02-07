@@ -255,8 +255,8 @@ const {
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)('createwithrani/superlist-item', {
-  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Super List Item', 'superlist-block'),
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)("createwithrani/superlist-item", {
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(name, "superlist-block"),
   icon: _icons__WEBPACK_IMPORTED_MODULE_6__.ListItem,
 
   /**
