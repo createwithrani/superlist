@@ -16,13 +16,13 @@ export const transforms = {
 			blocks: [ "core/list" ],
 			transform: ( { ordered, values, ...rest } ) => {
 				// Parse list HTML string so we can natively traverse nested lists.
-				const listDOM = new DOMParser().parseFromString(values, 'text/html');
+				const listDOM = new DOMParser().parseFromString(values, "text/html");
 				const innerBlocks = nodeToInnerBlocks( listDOM.body ); // DOMParser creates an entire virtual document, the list elements are in `body`.
 
 				return createBlock(
 					"createwithrani/superlist-block",
 					{
-						listStyle: ordered ? 'ol' : 'ul',
+						listStyle: ordered ? "ol" : "ul",
 						/**
 						 * Apply the rest of the original list attributes to the
 						 * super list (for typography settings, etc).
@@ -60,7 +60,7 @@ function nodeToInnerBlocks(parentNode) {
 				n.nodeName === "#text"
 					? n.nodeValue
 					: n.outerHTML
-			).join('');
+			).join("");
 			// Create a paragraph block with the HTML string as content.
 			innerBlocks.push(
 				createBlock(
@@ -76,25 +76,27 @@ function nodeToInnerBlocks(parentNode) {
 	// Walk through child nodes and take action based on whether they are a list, list item, or anything else.
 	for ( const node of nodes ) {
 		switch( node.nodeName ) {
-			case 'LI':
-			case 'OL':
-			case 'UL':
-				// If we've reached one of these elements, stitch together previous nodes in `stitching` and return a paragraph block.
+			case "LI":
+			case "OL":
+			case "UL":
+				// If we"ve reached one of these elements, stitch together previous nodes in `stitching` and return a paragraph block.
 				stitch();
 
 				// Create either a superlist-block or a superlist-item, and recurse to create their innerBlocks.
 				switch (node.nodeName) {
-					case 'OL':
-					case 'UL':
+					case "OL":
+					case "UL":
 						innerBlocks.push(
 							createBlock(
 								"createwithrani/superlist-block",
-								{}, // Nested lists don't have any of their own attributes as of 5.9
+								{
+									listStyle: node.nodeName === "OL" ? "ol" : "ul",
+								},
 								nodeToInnerBlocks( node )
 							)
 						);
 						break;
-					case 'LI':
+					case "LI":
 						innerBlocks.push(
 							createBlock(
 								"createwithrani/superlist-item",
