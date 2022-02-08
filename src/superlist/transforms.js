@@ -79,7 +79,7 @@ function nodeToInnerBlocks(parentNode) {
 			case "LI":
 			case "OL":
 			case "UL":
-				// If we"ve reached one of these elements, stitch together previous nodes in `stitching` and return a paragraph block.
+				// If we've reached one of these elements, stitch together previous nodes in `stitching` and return a paragraph block.
 				stitch();
 
 				// Create either a superlist-block or a superlist-item, and recurse to create their innerBlocks.
