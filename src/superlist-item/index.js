@@ -18,9 +18,9 @@ import "./style.scss";
 /**
  * Internal dependencies
  */
+import metadata from "./block.json";
 import edit from "./edit";
 import save from "./save";
-import metadata from "./block.json";
 import { ListItem as icon } from "./icons";
 
 const { name } = metadata;
@@ -31,7 +31,7 @@ export { name };
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType("createwithrani/superlist-item", {
-	title: __(name, "superlist-block"),
+	...metadata,
 	icon,
 	/**
 	 * @see ./edit.js

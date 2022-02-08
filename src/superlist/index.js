@@ -25,25 +25,15 @@ import { example } from "./example";
 import { transforms } from "./transforms";
 import { SuperList as icon } from "./icons";
 
-const { name, attributes } = metadata;
-
 /**
  * Every block starts by registering a new block type definition.
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType("createwithrani/superlist-block", {
-	title: __(name, "superlist-block"),
-	attributes,
+	...metadata,
 	icon,
-	/**
-	 * @see ./edit.js
-	 */
 	edit,
-
-	/**
-	 * @see ./save.js
-	 */
 	save,
 	example,
 	transforms,
