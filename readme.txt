@@ -1,5 +1,5 @@
 === Super List Block ===
-Contributors:      aurooba
+Contributors:      aurooba, cr0ybot
 Tags:              block, list, nesting, repeater, superlist
 Requires at least: 5.9
 Tested up to:      5.9
