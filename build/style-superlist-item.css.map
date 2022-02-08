@@ -1,1 +1,0 @@
-{"version":3,"file":"style-superlist-item.css","mappings":";;;AAAA;;;;;EAAA,C","sources":["webpack://superlist-block/./src/superlist-item/style.scss"],"sourcesContent":["/**\n * The following styles get applied both on the front of your site\n * and in the editor.\n *\n * Replace them with your own styles or remove the file completely.\n */\n"],"names":[],"sourceRoot":""}
