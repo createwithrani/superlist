@@ -21,6 +21,7 @@ import "./style.scss";
 import edit from "./edit";
 import save from "./save";
 import { example } from "./example";
+import { transforms } from "./transforms";
 import { SuperList as icon } from "./icons";
 /**
  * Every block starts by registering a new block type definition.
@@ -40,4 +41,5 @@ registerBlockType("createwithrani/superlist-block", {
 	 */
 	save,
 	example,
+	transforms,
 });
