@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-01-28T01:03:50+00:00\n"
+"POT-Creation-Date: 2022-02-08T04:24:42+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: superlist-block\n"
@@ -30,98 +30,83 @@ msgstr ""
 msgid "https://aurooba.com"
 msgstr ""
 
-#: build/index.js:1
-#: src/superlist/list-style.js:23
-#: superlist-block/build/index.js:1
-#: superlist-block/src/superlist/list-style.js:23
-msgid "Unordered list"
-msgstr ""
-
-#: build/index.js:1
-#: src/superlist/list-style.js:28
-#: superlist-block/build/index.js:1
-#: superlist-block/src/superlist/list-style.js:28
-msgid "Ordered List"
-msgstr ""
-
-#: build/index.js:1
-#: src/superlist/list-style.js:33
-#: superlist-block/build/index.js:1
-#: superlist-block/src/superlist/list-style.js:33
-msgid "No marker"
-msgstr ""
-
 #. translators: %s: Settings of the block's parent.
-#: build/index.js:3
-#: src/superlist-item/edit.js:124
-#: superlist-block/build/index.js:3
-#: superlist-block/src/superlist-item/edit.js:124
+#: build/superlist-item.js:169
+#: src/superlist-item/edit.js:114
+#: build/superlist-item.js:128
 msgid " %s Settings"
 msgstr ""
 
-#. translators: %s: Settings of the block's parent.
-#: build/index.js:3
-#: src/superlist-item/edit.js:129
-#: superlist-block/build/index.js:3
-#: superlist-block/src/superlist-item/edit.js:129
+#: build/superlist-item.js:171
+#: src/superlist-item/edit.js:119
+#: build/superlist-item.js:133
 msgid "Settings"
 msgstr ""
 
-#: build/index.js:3
-#: src/superlist-item/edit.js:136
-#: superlist-block/build/index.js:3
-#: superlist-block/src/superlist-item/edit.js:136
+#: build/superlist-item.js:174
+#: src/superlist-item/edit.js:126
+#: build/superlist-item.js:140
 msgid "Add another list item"
 msgstr ""
 
-#: build/index.js:3
-#: src/superlist/edit.js:99
-#: superlist-block/build/index.js:3
-#: superlist-block/src/superlist/edit.js:99
+#: build/superlist.js:261
+#: src/superlist/edit.js:101
+#: build/superlist.js:171
+msgid "List Settings"
+msgstr ""
+
+#: build/superlist.js:263
+#: src/superlist/edit.js:106
+#: build/superlist.js:176
+msgid "List-item max-width"
+msgstr ""
+
+#: build/superlist.js:478
+#: src/superlist/list-style.js:16
+#: build/superlist.js:352
+msgid "Unordered list"
+msgstr ""
+
+#: build/superlist.js:482
+#: src/superlist/list-style.js:21
+#: build/superlist.js:357
+msgid "Ordered List"
+msgstr ""
+
+#: build/superlist.js:486
+#: src/superlist/list-style.js:26
+#: build/superlist.js:362
+msgid "No marker"
+msgstr ""
+
+#: build/superlist.js:583
+#: src/superlist/orientation.js:10
+#: build/superlist.js:443
 msgid "Horizontal orientation"
 msgstr ""
 
-#: build/index.js:3
-#: src/superlist/edit.js:105
-#: superlist-block/build/index.js:3
-#: superlist-block/src/superlist/edit.js:105
+#: build/superlist.js:590
+#: src/superlist/orientation.js:16
+#: build/superlist.js:449
 msgid "Vertical Orientation"
 msgstr ""
 
-#: build/index.js:3
-#: src/superlist/edit.js:113
-#: superlist-block/build/index.js:3
-#: superlist-block/src/superlist/edit.js:113
-msgid "Repeater Settings"
-msgstr ""
-
-#: build/index.js:3
-#: src/superlist/edit.js:118
-#: superlist-block/build/index.js:3
-#: superlist-block/src/superlist/edit.js:118
-msgid "Sub-item max-width"
-msgstr ""
-
 #: src/superlist-item/block.json
-#: superlist-block/src/superlist-item/block.json
 msgctxt "block title"
 msgid "Super List Item"
 msgstr ""
 
 #: src/superlist-item/block.json
-#: superlist-block/src/superlist-item/block.json
 msgctxt "block description"
 msgid "A list item that allows you to nest as many other blocks as you like inside it."
 msgstr ""
 
 #: src/superlist/block.json
-#: superlist-block/src/superlist/block.json
 msgctxt "block title"
 msgid "Super List"
 msgstr ""
 
 #: src/superlist/block.json
-#: superlist-block/src/superlist/block.json
 msgctxt "block description"
 msgid "Nest multiple blocks inside list items in any kind of list (ordered, unordered, no marker, etc)"
 msgstr ""
