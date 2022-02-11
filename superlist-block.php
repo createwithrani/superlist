@@ -26,8 +26,8 @@ if ( ! defined( 'SUPERLIST_BLOCK_PLUGIN_FILE' ) ) {
  * @see https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/writing-your-first-block-type/
  */
 function create_block_superlist_block_block_init() {
-	register_block_type( plugin_dir_path( SUPERLIST_BLOCK_PLUGIN_FILE ) . 'src/superlist' );
-	register_block_type( plugin_dir_path( SUPERLIST_BLOCK_PLUGIN_FILE ) . 'src/superlist-item' );
+	register_block_type( plugin_dir_path( SUPERLIST_BLOCK_PLUGIN_FILE ) . 'build/superlist' );
+	register_block_type( plugin_dir_path( SUPERLIST_BLOCK_PLUGIN_FILE ) . 'build/superlist-item' );
 
 	// Load available translations.
 	wp_set_script_translations( 'createwithrani-superlist-block-editor-script-js', 'superlist-block' );
