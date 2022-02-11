@@ -9,7 +9,7 @@
 	&.horizontal {
 		display: grid;
 		gap: 2rem;
-		grid-template-rows: auto 1fr auto;
+		grid-template-rows: auto;
 	}
 	&.none {
 		list-style: none;
@@ -17,6 +17,15 @@
 			margin-top: 0;
 			margin-bottom: 0;
 		}
+	}
+	&.is-vertically-aligned-center {
+		align-items: center;
+	}
+	&.is-vertically-aligned-top {
+		align-items: flex-start;
+	}
+	&.is-vertically-aligned-bottom {
+		align-items: flex-end;
 	}
 }
 

@@ -1,4 +1,9 @@
 /**
+ * External dependencies
+ */
+import classnames from "classnames";
+
+/**
  * Retrieves the translation of text.
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
@@ -20,6 +25,7 @@ import {
 	store as blockEditorStore,
 	InspectorControls,
 	useSetting,
+	BlockVerticalAlignmentToolbar,
 } from "@wordpress/block-editor";
 import {
 	PanelBody,
@@ -57,13 +63,15 @@ const LIST_TEMPLATE = [
  */
 export default function Edit(props) {
 	const { attributes, setAttributes } = props;
-	const { listStyle, orientation, itemWidth } = attributes;
+	const { listStyle, orientation, itemWidth, verticalAlignment } = attributes;
 	const [width, setWidth] = useState(itemWidth);
 	const subItemWidth = {
 		gridTemplateColumns: `repeat(auto-fill, minmax(${width}, 1fr))`,
 	};
 	const blockProps = useBlockProps({
-		className: `${listStyle} ${orientation}`,
+		className: classnames(listStyle, orientation, {
+			[`is-vertically-aligned-${verticalAlignment}`]: verticalAlignment,
+		}),
 		style: "horizontal" === orientation ? subItemWidth : {},
 	});
 
@@ -80,10 +88,17 @@ export default function Edit(props) {
 		setWidth(value);
 		setAttributes({ itemWidth: value });
 	}
+	function updateAlignment(verticalAlignment) {
+		setAttributes({ verticalAlignment: verticalAlignment });
+	}
 	const ListContainer = "none" !== listStyle ? listStyle : "div";
 	return (
 		<>
 			<BlockControls>
+				<BlockVerticalAlignmentToolbar
+					onChange={updateAlignment}
+					value={verticalAlignment}
+				/>
 				<ListStyleUI
 					value={listStyle}
 					onChange={switchStyle}
