@@ -23,7 +23,12 @@ If you have a feature request, please create an issue in the [GitHub repository]
 
 If you need support, please use the support forum to reach out. 🆘
 
+
 === Key Features ===
+
+### A video tutorial to guide you through the features
+
+https://youtu.be/wqzw-XrwuQE
 
 * Nest blocks inside ordered and unordered lists.
 * Nest blocks inside lists without any markers.
