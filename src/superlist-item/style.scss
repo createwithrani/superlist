@@ -4,3 +4,43 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+.wp-block-createwithrani-superlist-item {
+	--textColor: var(--wp--custom--superlist-item--color--text, inherit);
+	--linkColor: var(--wp--custom--superlist-item--color--link, inherit);
+	--backgroundColor: var(
+		--wp--custom--superlist-item--color--background-color,
+		inherit
+	);
+	--fontSize: var(--wp--custom--superlist-item--typography--font-size, inherit);
+	--fontFamily: var(
+		--wp--custom--superlist-item--typography--font-family,
+		inherit
+	);
+	--lineHeight: var(
+		--wp--custom--superlist-item--typography--line-height,
+		inherit
+	);
+	--textTransform: var(
+		--wp--custom--superlist-item--typography--text-transform,
+		inherit
+	);
+	--fontWeight: var(
+		--wp--custom--superlist-item--typography--font-weight,
+		inherit
+	);
+
+	--margin: var(--wp--custom--superlist-item--spacing--margin, inherit);
+	--padding: var(--wp--custom--superlist-item--spacing--padding, inherit);
+	color: var(--textColor);
+	background-color: var(--backgroundColor);
+	font-size: var(--fontSize);
+	font-family: var(--fontFamily);
+	font-weight: var(--fontWeight);
+	line-height: var(--lineHeight);
+	text-transform: var(--textTransform);
+	margin: var(--margin);
+	padding: var(--padding);
+	a {
+		color: var(--linkColor);
+	}
+}
