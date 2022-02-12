@@ -17,8 +17,9 @@
 				"margin": "1.5rem",
 				"padding": "1rem"
 			},
-			"item": {
-				"width":"320px"
+			"listSettings": {
+				"width":"320px",
+				"orientation": "horizontal"
 			}
 		},
 		"superlist-item": {
