@@ -31,6 +31,9 @@ import { SuperList as icon } from "./icons";
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType("createwithrani/superlist-block", {
+	/**
+	 * Pulling the metadata in just in case something weird happens with client-side installation through the Block Library search again.
+	 */
 	...metadata,
 	icon,
 	edit,
