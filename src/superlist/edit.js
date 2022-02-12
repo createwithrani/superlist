@@ -67,7 +67,7 @@ export default function Edit(props) {
 
 	// check if theme.json has set a preferred list orientation
 	const themeListOrientation = useSetting(
-		"custom.superlist-block.listSettings.orientation"
+		"custom.createwithrani/superlist-block.listSettings.orientation"
 	);
 
 	// set the default list orientation to theme.json preference but if there's no theme.json preference, set it to vertical
