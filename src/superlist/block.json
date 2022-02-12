@@ -16,8 +16,7 @@
 			"default": "vertical"
 		},
 		"itemWidth": {
-			"type": "string",
-			"default": "350px"
+			"type": "string"
 		},
 		"verticalAlignment": {
 			"type": "string"
@@ -30,7 +29,8 @@
 		"color": {
 			"background": true,
 			"gradients": true,
-			"text": true
+			"text": true,
+			"link": true
 		},
 		"spacing": {
 			"margin": true,
