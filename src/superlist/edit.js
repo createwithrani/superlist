@@ -50,7 +50,7 @@ import { Orientation } from "./orientation";
 const ALLOWED_BLOCKS = ["createwithrani/superlist-item"];
 const LIST_TEMPLATE = [
 	["createwithrani/superlist-item"],
-	// ["createwithrani/superlist-item"],
+	["createwithrani/superlist-item"],
 ];
 
 /**

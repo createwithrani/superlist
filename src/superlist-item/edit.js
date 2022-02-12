@@ -15,7 +15,6 @@ import {
 	useBlockProps,
 	InnerBlocks,
 	BlockControls,
-	// __experimentalUseInnerBlocksProps as useInnerBlocksProps,
 	useInnerBlocksProps,
 	store as blockEditorStore,
 } from "@wordpress/block-editor";
@@ -23,7 +22,6 @@ import { ToolbarButton, ToolbarGroup } from "@wordpress/components";
 import { useSelect, useDispatch } from "@wordpress/data";
 import { getBlockType, createBlock } from "@wordpress/blocks";
 import { plusCircle } from "@wordpress/icons";
-import { useEffect } from "@wordpress/element";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -43,8 +41,8 @@ const LISTITEM_TEMPLATE = [["core/paragraph"]];
  * @return {WPElement} Element to render.
  */
 export default function Edit(props) {
-	const { clientId, name, isSelected } = props;
-	const { selectBlock, toggleBlockHighlight } = useDispatch(blockEditorStore);
+	const { clientId, name } = props;
+	const { selectBlock } = useDispatch(blockEditorStore);
 	const { hasInnerBlocks } = useSelect(
 		(select) => {
 			const { getBlock } = select(blockEditorStore);
@@ -55,28 +53,19 @@ export default function Edit(props) {
 		},
 		[clientId]
 	);
-	const { parentBlockType, firstParentClientId, settings } = useSelect(
-		(select) => {
-			const {
-				getBlockName,
-				getBlockParents,
-				getSelectedBlockClientId,
-				getSettings,
-			} = select(blockEditorStore);
-			const selectedBlockClientId = getSelectedBlockClientId();
-			const parents = getBlockParents(selectedBlockClientId);
-			const _firstParentClientId = parents[parents.length - 1];
-			const parentBlockName = getBlockName(_firstParentClientId);
-			const _parentBlockType = getBlockType(parentBlockName);
-			const settings = getSettings();
-			return {
-				parentBlockType: _parentBlockType,
-				firstParentClientId: _firstParentClientId,
-				settings: settings,
-			};
-		},
-		[]
-	);
+	const { parentBlockType, firstParentClientId } = useSelect((select) => {
+		const { getBlockName, getBlockParents, getSelectedBlockClientId } =
+			select(blockEditorStore);
+		const selectedBlockClientId = getSelectedBlockClientId();
+		const parents = getBlockParents(selectedBlockClientId);
+		const _firstParentClientId = parents[parents.length - 1];
+		const parentBlockName = getBlockName(_firstParentClientId);
+		const _parentBlockType = getBlockType(parentBlockName);
+		return {
+			parentBlockType: _parentBlockType,
+			firstParentClientId: _firstParentClientId,
+		};
+	}, []);
 
 	const blockProps = useBlockProps({});
 	const { insertBlock } = useDispatch("core/block-editor");
@@ -103,18 +92,6 @@ export default function Edit(props) {
 			? undefined
 			: InnerBlocks.ButtonBlockAppender,
 	});
-	if (hasInnerBlocks) {
-		// console.log(hasInnerBlocks);
-		// const { descendantClientId } = useSelect((select) => {
-		// 	const { getClientIdsOfDescendants, getBlock } = select(blockEditorStore);
-		// 	const descendantClientId = getClientIdsOfDescendants(clientId);
-		// 	console.log(descendantClientId);
-		// 	getBlock(descendantClientId).focus();
-		// 	return {
-		// 		descendantClientId: descendantClientId,
-		// 	};
-		// });
-	}
 
 	return (
 		<>
