@@ -6,18 +6,14 @@
 
 .editor-styles-wrapper .wp-block-createwithrani-superlist-block {
 	&.horizontal {
-		display: grid;
 		li {
 			margin: 0;
 		}
 	}
 	&.none {
-		list-style: none;
 		padding: 0;
 		li {
 			list-style: none;
-			margin-top: 0;
-			margin-bottom: 0;
 		}
 	}
 }
