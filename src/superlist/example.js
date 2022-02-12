@@ -1,7 +1,7 @@
 import example1 from "./example1.jpg";
 import example2 from "./example2.jpg";
 
-export const example = {
+const Example = {
 	attributes: {
 		listStyle: "none",
 		orientation: "horizontal",
@@ -64,3 +64,4 @@ export const example = {
 		},
 	],
 };
+export default Example;
