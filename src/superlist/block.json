@@ -12,8 +12,7 @@
 			"default": "ul"
 		},
 		"orientation": {
-			"type": "string",
-			"default": "vertical"
+			"type": "string"
 		},
 		"itemWidth": {
 			"type": "string"
