@@ -2,11 +2,7 @@ import { __ } from "@wordpress/i18n";
 import { ToolbarButton, Button } from "@wordpress/components";
 import { arrowRight, arrowDown } from "@wordpress/icons";
 
-export const Orientation = ({
-	listOrientation,
-	placement,
-	updateOrientation,
-}) => {
+const Orientation = ({ listOrientation, placement, updateOrientation }) => {
 	return "toolbar" === placement ? (
 		<>
 			<ToolbarButton
@@ -50,3 +46,5 @@ export const Orientation = ({
 		</fieldset>
 	);
 };
+
+export default Orientation;
