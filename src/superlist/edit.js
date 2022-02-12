@@ -64,21 +64,37 @@ const LIST_TEMPLATE = [
 export default function Edit(props) {
 	const { attributes, setAttributes } = props;
 	const { listStyle, orientation, itemWidth, verticalAlignment } = attributes;
+
+	// check if theme.json has set a preferred list orientation
+	const themeListOrientation = useSetting(
+		"custom.superlist-block.listSettings.orientation"
+	);
+
+	// set the default list orientation to theme.json preference but if there's no theme.json preference, set it to vertical
+	const defaultListOrientation =
+		undefined === themeListOrientation ? "vertical" : themeListOrientation;
+
+	// set up a state variable for list orientation, use the orientation attribute if it is set, otherwise  use the smart default
+	const [listOrientation, setListOrientation] = useState(
+		undefined !== orientation ? orientation : defaultListOrientation
+	);
+
 	const [width, setWidth] = useState(itemWidth);
+
 	const subItemWidth = {
-		"--wp--custom--superlist-block--item--width": width,
+		"--wp--custom--superlist-block--list-settings--width": width,
 	};
 	const blockProps = useBlockProps({
-		className: classnames(listStyle, orientation, {
+		className: classnames(listStyle, listOrientation, {
 			[`is-vertically-aligned-${verticalAlignment}`]: verticalAlignment,
 		}),
-		style: "horizontal" === orientation ? subItemWidth : {},
+		style: "horizontal" === listOrientation ? subItemWidth : {},
 	});
 
 	const innerBlockProps = useInnerBlocksProps(blockProps, {
 		allowedBlocks: ALLOWED_BLOCKS,
 		template: LIST_TEMPLATE,
-		orientation: `${orientation}`,
+		orientation: `${listOrientation}`,
 		templateInsertUpdateSelection: true,
 	});
 	function switchStyle(style) {
@@ -90,6 +106,10 @@ export default function Edit(props) {
 	}
 	function updateAlignment(verticalAlignment) {
 		setAttributes({ verticalAlignment: verticalAlignment });
+	}
+	function updateOrientation(orientation) {
+		setListOrientation(orientation);
+		setAttributes({ orientation: orientation });
 	}
 	const ListContainer = "none" !== listStyle ? listStyle : "div";
 	return (
@@ -105,8 +125,8 @@ export default function Edit(props) {
 					placement="toolbar"
 				/>
 				<Orientation
-					orientation={orientation}
-					setAttributes={setAttributes}
+					listOrientation={listOrientation}
+					updateOrientation={updateOrientation}
 					placement="toolbar"
 				/>
 			</BlockControls>
@@ -115,7 +135,7 @@ export default function Edit(props) {
 					initialOpen={true}
 					title={__("List Settings", "superlist-block")}
 				>
-					{orientation === "horizontal" && (
+					{listOrientation === "horizontal" && (
 						<PanelRow>
 							<UnitControl
 								label={__("List-item max-width", "superlist-block")}
@@ -134,8 +154,8 @@ export default function Edit(props) {
 					</PanelRow>
 					<PanelRow>
 						<Orientation
-							orientation={orientation}
-							setAttributes={setAttributes}
+							listOrientation={listOrientation}
+							updateOrientation={updateOrientation}
 							placement="inspector"
 						/>
 					</PanelRow>
