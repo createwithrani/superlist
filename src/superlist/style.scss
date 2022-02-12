@@ -6,6 +6,47 @@
  */
 .wp-block-createwithrani-superlist-block {
 	--listItemWidth: var(--wp--custom--superlist-block--item--width, 250px);
+	--textColor: var(--wp--custom--superlist-block--color--text, inherit);
+	--linkColor: var(--wp--custom--superlist-block--color--link, inherit);
+	--backgroundColor: var(
+		--wp--custom--superlist-block--color--background-color,
+		inherit
+	);
+	--fontSize: var(
+		--wp--custom--superlist-block--typography--font-size,
+		inherit
+	);
+	--fontFamily: var(
+		--wp--custom--superlist-block--typography--font-family,
+		inherit
+	);
+	--lineHeight: var(
+		--wp--custom--superlist-block--typography--line-height,
+		inherit
+	);
+	--textTransform: var(
+		--wp--custom--superlist-block--typography--text-transform,
+		inherit
+	);
+	--fontWeight: var(
+		--wp--custom--superlist-block--typography--font-weight,
+		inherit
+	);
+
+	--margin: var(--wp--custom--superlist-block--spacing--margin, inherit);
+	--padding: var(--wp--custom--superlist-block--spacing--padding, inherit);
+	color: var(--textColor);
+	background-color: var(--backgroundColor);
+	font-size: var(--fontSize);
+	font-family: var(--fontFamily);
+	font-weight: var(--fontWeight);
+	line-height: var(--lineHeight);
+	text-transform: var(--textTransform);
+	margin: var(--margin);
+	padding: var(--padding);
+	a {
+		color: var(--linkColor);
+	}
 	&.horizontal {
 		display: grid;
 		gap: 2rem;

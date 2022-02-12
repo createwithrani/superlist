@@ -1,6 +1,13 @@
 {
 	"custom": {
 		"superlist-block": {
+			"color": {
+				"text": "#115463"
+			},
+			"typography": {
+				"fontSize": "18px",
+				"fontFamily": "serif"
+			},
 			"item": {
 				"width":"320px"
 			}
