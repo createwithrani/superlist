@@ -29,7 +29,6 @@ import {
 	PanelRow,
 	__experimentalUnitControl as UnitControl,
 } from "@wordpress/components";
-import { useSelect } from "@wordpress/data";
 import { useState } from "@wordpress/element";
 
 /**
