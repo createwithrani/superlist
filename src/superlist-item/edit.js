@@ -23,6 +23,7 @@ import { ToolbarButton, ToolbarGroup } from "@wordpress/components";
 import { useSelect, useDispatch } from "@wordpress/data";
 import { getBlockType, createBlock } from "@wordpress/blocks";
 import { plusCircle } from "@wordpress/icons";
+import { useEffect } from "@wordpress/element";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -80,9 +81,8 @@ export default function Edit(props) {
 	const blockProps = useBlockProps({});
 	const { insertBlock } = useDispatch("core/block-editor");
 	const { parentinnerBlocks } = useSelect((select) => ({
-		parentinnerBlocks: select("core/block-editor").getBlocks(
-			firstParentClientId
-		),
+		parentinnerBlocks:
+			select("core/block-editor").getBlocks(firstParentClientId),
 	}));
 
 	function getCurrentBlockPosition(block) {
@@ -98,10 +98,24 @@ export default function Edit(props) {
 	};
 	const innerBlockProps = useInnerBlocksProps(blockProps, {
 		template: LISTITEM_TEMPLATE,
+		templateInsertUpdateSelection: true,
 		renderAppender: hasInnerBlocks
 			? undefined
 			: InnerBlocks.ButtonBlockAppender,
 	});
+	if (hasInnerBlocks) {
+		// console.log(hasInnerBlocks);
+		// const { descendantClientId } = useSelect((select) => {
+		// 	const { getClientIdsOfDescendants, getBlock } = select(blockEditorStore);
+		// 	const descendantClientId = getClientIdsOfDescendants(clientId);
+		// 	console.log(descendantClientId);
+		// 	getBlock(descendantClientId).focus();
+		// 	return {
+		// 		descendantClientId: descendantClientId,
+		// 	};
+		// });
+	}
+
 	return (
 		<>
 			<BlockControls>
