@@ -1,6 +1,6 @@
 {
 	"custom": {
-		"createwithrani/superlist-block": {
+		"superlist-block": {
 			"color": {
 				"text": "#115463",
 				"link": "#115463",
@@ -22,7 +22,7 @@
 				"orientation": "horizontal"
 			}
 		},
-		"createwithrani/superlist-item": {
+		"superlist-item": {
 			"color": {
 				"text": "#115463",
 				"link": "#115463",
