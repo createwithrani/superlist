@@ -4,12 +4,13 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-
 .wp-block-createwithrani-superlist-block {
+	--listItemWidth: var(--wp--custom--superlist-block--item--width, 250px);
 	&.horizontal {
 		display: grid;
 		gap: 2rem;
 		grid-template-rows: auto;
+		grid-template-columns: repeat(auto-fill, minmax(var(--listItemWidth), 1fr));
 	}
 	&.none {
 		list-style: none;
