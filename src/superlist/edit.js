@@ -66,7 +66,7 @@ export default function Edit(props) {
 	const { listStyle, orientation, itemWidth, verticalAlignment } = attributes;
 	const [width, setWidth] = useState(itemWidth);
 	const subItemWidth = {
-		gridTemplateColumns: `repeat(auto-fill, minmax(${width}, 1fr))`,
+		"--wp--custom--superlist-block--item--width": width,
 	};
 	const blockProps = useBlockProps({
 		className: classnames(listStyle, orientation, {
