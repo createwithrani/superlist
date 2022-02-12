@@ -5,7 +5,10 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-createwithrani-superlist-block {
-	--listItemWidth: var(--wp--custom--superlist-block--item--width, 250px);
+	--listItemWidth: var(
+		--wp--custom--superlist-block--list-settings--width,
+		250px
+	);
 	--textColor: var(--wp--custom--superlist-block--color--text, inherit);
 	--linkColor: var(--wp--custom--superlist-block--color--link, inherit);
 	--backgroundColor: var(
