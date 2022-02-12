@@ -34,15 +34,15 @@ import { useState } from "@wordpress/element";
 /**
  * Internal Dependencies
  */
-import ListStyleUI from "./list-style";
-import { Orientation } from "./orientation";
+import ListStyleUI from "./edit/list-style";
+import Orientation from "./edit/orientation";
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import "./editor.scss";
+import "./edit/editor.scss";
 
 /**
  * Constants
