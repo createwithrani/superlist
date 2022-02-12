@@ -61,8 +61,7 @@ const LIST_TEMPLATE = [
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit(props) {
-	const { attributes, setAttributes } = props;
+export default function Edit({ attributes, setAttributes }) {
 	const { listStyle, orientation, itemWidth, verticalAlignment } = attributes;
 
 	// check if theme.json has set a preferred list orientation
@@ -79,39 +78,72 @@ export default function Edit(props) {
 		undefined !== orientation ? orientation : defaultListOrientation
 	);
 
+	// set state for list item width from the attribute
 	const [width, setWidth] = useState(itemWidth);
 
+	// set inline CSS Custom Property for list item width
 	const subItemWidth = {
 		"--wp--custom--superlist-block--list-settings--width": width,
 	};
+
 	const blockProps = useBlockProps({
+		// add class names to set list style, list orientation, and vertical alignment
 		className: classnames(listStyle, listOrientation, {
 			[`is-vertically-aligned-${verticalAlignment}`]: verticalAlignment,
 		}),
+		// add inline style if list orientation is horizontal and the user has set a custom list item width
 		style: "horizontal" === listOrientation ? subItemWidth : {},
 	});
 
 	const innerBlockProps = useInnerBlocksProps(blockProps, {
+		// we only allow one kind of inner block, and we automatically populate this block with two inner blocks
 		allowedBlocks: ALLOWED_BLOCKS,
 		template: LIST_TEMPLATE,
+		// we also set the inner block orientation based on the list orientation, this affects the in-between appender position
 		orientation: `${listOrientation}`,
+		// we also set the focus to newly added inner block when it's added
 		templateInsertUpdateSelection: true,
 	});
+
+	/**
+	 * onChange function to switch the list style
+	 * @param {string} style ul || ol || none
+	 */
 	function switchStyle(style) {
 		setAttributes({ listStyle: style });
 	}
+
+	/**
+	 * onChange function to set the user inputted item width including unit
+	 * @param {string} value
+	 */
 	function setItemWidth(value) {
 		setWidth(value);
 		setAttributes({ itemWidth: value });
 	}
+
+	/**
+	 * onChange function to set the vertical alignment attribute
+	 * @param {string} verticalAlignment
+	 */
 	function updateAlignment(verticalAlignment) {
 		setAttributes({ verticalAlignment: verticalAlignment });
 	}
+
+	/**
+	 * onChange function to update the list orientation
+	 * @param {string} orientation horizontal || vertical
+	 */
 	function updateOrientation(orientation) {
 		setListOrientation(orientation);
 		setAttributes({ orientation: orientation });
 	}
+
+	/**
+	 * Set container tag name based on list style, if the list style is none, set it to `div`
+	 */
 	const ListContainer = "none" !== listStyle ? listStyle : "div";
+
 	return (
 		<>
 			<BlockControls>
@@ -135,15 +167,22 @@ export default function Edit(props) {
 					initialOpen={true}
 					title={__("List Settings", "superlist-block")}
 				>
-					{listOrientation === "horizontal" && (
-						<PanelRow>
-							<UnitControl
-								label={__("List-item max-width", "superlist-block")}
-								onChange={setItemWidth}
-								value={width}
-							/>
-						</PanelRow>
-					)}
+					{
+						/**
+						 * Only show list item setting if the list orientation is
+						 * horizontal, because this setting is specifically for the basic
+						 * grid mode this block offers.
+						 */
+						listOrientation === "horizontal" && (
+							<PanelRow>
+								<UnitControl
+									label={__("List-item max-width", "superlist-block")}
+									onChange={setItemWidth}
+									value={width}
+								/>
+							</PanelRow>
+						)
+					}
 					<br />
 					<PanelRow>
 						<ListStyleUI
