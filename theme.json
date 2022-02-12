@@ -1,0 +1,44 @@
+{
+	"custom": {
+		"superlist-block": {
+			"color": {
+				"text": "#115463",
+				"link": "#115463",
+				"background": "#b2d38c"
+			},
+			"typography": {
+				"fontSize": "25px",
+				"fontFamily": "serif",
+				"lineHeight": "1.5",
+				"textTransform": "uppercase",
+				"fontWeight": "700"
+			},
+			"spacing": {
+				"margin": "1.5rem",
+				"padding": "1rem"
+			},
+			"listSettings": {
+				"width":"320px",
+				"orientation": "horizontal"
+			}
+		},
+		"superlist-item": {
+			"color": {
+				"text": "#115463",
+				"link": "#115463",
+				"background": "#b2d38c"
+			},
+			"typography": {
+				"fontSize": "35px",
+				"fontFamily": "serif",
+				"lineHeight": "1.5",
+				"textTransform": "uppercase",
+				"fontWeight": "700"
+			},
+			"spacing": {
+				"margin": "1.5rem",
+				"padding": "1rem"
+			}
+		}
+	}
+}

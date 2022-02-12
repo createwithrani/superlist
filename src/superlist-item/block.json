@@ -15,7 +15,8 @@
 		"color": {
 			"background": true,
 			"gradients": true,
-			"text": true
+			"text": true,
+			"link": true
 		},
 		"spacing": {
 			"margin": true,
