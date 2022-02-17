@@ -39,5 +39,5 @@ Alongside Aurooba, other folks are always welcome to contribute since this _is_ 
 [@cr0ybot](https://github.com/cr0ybot)
 
 ## Sponsors
-A big thank you to the lovely sponsors who help me make more time for open source contributions like this one! Especially to the folks sponsoring at a $10/tier or higher:
+A big thank you to the lovely [sponsors](https://aurooba.com/sponsors) who help me make more time for open source contributions like this one! Especially to the folks sponsoring at a $10/tier or higher:
 [Luehrsen // Heinrich](https://github.com/luehrsenheinrich)
