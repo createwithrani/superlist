@@ -19,10 +19,10 @@ import "./style.scss";
  * Internal dependencies
  */
 import metadata from "./block.json";
-import edit from "./edit";
+import edit from "./edit/edit";
 import save from "./save";
-import { example } from "./example";
-import { transforms } from "./transforms";
+import example from "./example/example";
+import transforms from "./transforms";
 import { SuperList as icon } from "./icons";
 
 /**
@@ -31,6 +31,9 @@ import { SuperList as icon } from "./icons";
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType("createwithrani/superlist-block", {
+	/**
+	 * Pulling the metadata in just in case something weird happens with client-side installation through the Block Library search again.
+	 */
 	...metadata,
 	icon,
 	edit,

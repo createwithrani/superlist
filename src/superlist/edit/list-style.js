@@ -1,35 +1,35 @@
 /**
  * External dependencies
  */
-import { find } from 'lodash';
+import { find } from "lodash";
 
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
-import { ToolbarGroup, Button } from '@wordpress/components';
-import { formatListBullets, formatListNumbered, menu } from '@wordpress/icons';
+import { __ } from "@wordpress/i18n";
+import { ToolbarGroup, Button } from "@wordpress/components";
+import { formatListBullets, formatListNumbered, menu } from "@wordpress/icons";
 
 const DEFAULT_LIST_CONTROLS = [
 	{
 		icon: formatListBullets,
-		title: __('Unordered list', 'superlist-block'),
-		listStyle: 'ul',
+		title: __("Unordered list", "superlist-block"),
+		listStyle: "ul",
 	},
 	{
 		icon: formatListNumbered,
-		title: __('Ordered List', 'superlist-block'),
-		listStyle: 'ol',
+		title: __("Ordered List", "superlist-block"),
+		listStyle: "ol",
 	},
 	{
 		icon: menu,
-		title: __('No marker', 'superlist-block'),
-		listStyle: 'none',
+		title: __("No marker", "superlist-block"),
+		listStyle: "none",
 	},
 ];
 
 const POPOVER_PROPS = {
-	position: 'bottom right',
+	position: "bottom right",
 	isAlternate: true,
 };
 
@@ -37,8 +37,7 @@ function ListStyleUI({
 	value,
 	onChange,
 	listControls = DEFAULT_LIST_CONTROLS,
-	label = __('Superlist'),
-	describedBy = __('Change list style'),
+	describedBy = __("Change list style"),
 	isCollapsed = true,
 	placement,
 }) {
@@ -55,10 +54,10 @@ function ListStyleUI({
 		if (activeStyle) return activeStyle.icon;
 	}
 
-	return 'toolbar' === placement ? (
+	return "toolbar" === placement ? (
 		<ToolbarGroup
 			icon={setIcon()}
-			label={__(describedBy, 'superlist-block')}
+			label={__(describedBy, "superlist-block")}
 			popoverProps={POPOVER_PROPS}
 			isCollapsed
 			controls={listControls.map((control) => {
@@ -68,20 +67,20 @@ function ListStyleUI({
 				return {
 					...control,
 					isActive,
-					role: isCollapsed ? 'menuitemradio' : undefined,
+					role: isCollapsed ? "menuitemradio" : undefined,
 					onClick: applyOrUnset(listStyle),
 				};
 			})}
 		/>
 	) : (
 		<fieldset className="block-editor-hooks__flex-layout-justification-controls">
-			<legend>{__(`${describedBy}`, 'superlist-block')}</legend>
+			<legend>{__(`${describedBy}`, "superlist-block")}</legend>
 			<div>
 				{listControls.map(({ icon, listStyle, title }) => {
 					return (
 						<Button
 							key={listStyle}
-							label={__(title, 'superlist-block')}
+							label={__(title, "superlist-block")}
 							icon={icon}
 							isPressed={listStyle === value}
 							onClick={applyOrUnset(listStyle)}
