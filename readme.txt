@@ -60,6 +60,14 @@ https://youtu.be/wqzw-XrwuQE
 
 = 0.1.1 =
 * Fix registration bug that was causing the block to not install correctly
+* Clarify Panel and List Item Max Width labels
+* Allow indentation for super lists nested inside a list item
+* Add typography support to both blocks
+* Add transform from core/list block (by @cr0ybot)
+* Add fix to ensure Super List is installable from the Block Library search
+* Update language .pot file
+* Add Anchor Block Support and Vertical Alignment capability
+* Add theme.json support
 
 = 0.1.0 =
 * Release
