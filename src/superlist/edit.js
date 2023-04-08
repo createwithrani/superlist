@@ -111,7 +111,7 @@ export default function Edit(props) {
 		setListOrientation(orientation);
 		setAttributes({ orientation: orientation });
 	}
-	const ListContainer = "none" !== listStyle ? listStyle : "div";
+	const ListContainer = "none" !== listStyle ? listStyle : "ol";
 	return (
 		<>
 			<BlockControls>

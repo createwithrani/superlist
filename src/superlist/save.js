@@ -31,7 +31,7 @@ export default function save({ attributes }) {
 	const subItemWidth = {
 		gridTemplateColumns: `repeat(auto-fill, minmax(${itemWidth}, 1fr))`,
 	};
-	const ListContainer = "none" !== listStyle ? listStyle : "div";
+	const ListContainer = "none" !== listStyle ? listStyle : "ol";
 	return (
 		<ListContainer
 			{...useBlockProps.save({
