@@ -2,9 +2,9 @@
 Contributors:      aurooba, cr0ybot
 Tags:              block, list, nesting, repeater, superlist
 Requires at least: 5.9
-Tested up to:      6.0
+Tested up to:      6.2
 Requires PHP:      7.0
-Stable tag:        0.1.0
+Stable tag:        0.1.1
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://github.com/sponsors/aurooba
@@ -57,6 +57,9 @@ https://youtu.be/wqzw-XrwuQE
 3. You can easily re-order list items and even add more list items wherever you need from the list item toolbar.
 
 == Changelog ==
+
+= 0.1.1 =
+* Fix registration bug that was causing the block to not install correctly
 
 = 0.1.0 =
 * Release
