@@ -1,12 +1,15 @@
 {
-    "landingPage": "/wp-admin/post.php?post=5&action=edit",
+    "landingPage": "/wp-admin/edit.php",
     "preferredVersions": {
         "php": "7.4",
-        "wp": "5.9"
+        "wp": "6.7"
     },
     "phpExtensionBundles": [
         "kitchen-sink"
     ],
+	"features": {
+		"networking": true
+	  },
     "steps": [
         {
             "step": "login",
@@ -22,6 +25,16 @@
             "options": {
                 "activate": true
             }
-        }
+        },
+		{
+            "step": "writeFile",
+            "path": "/wordpress/wp-content/mu-plugins/playground-notice.php",
+            "data": "<?php add_action( 'admin_notices', function() { echo '<div class=\"notice notice-info is-dismissible\"><p>This is a live preview of <strong>Super List Block</strong>, powered by <a href=\"https://wordpress.org/playground/\" target=\"_blank\">WordPress Playground</a>.</p></div>'; } );"
+        },
+		{
+		    "step": "writeFile",
+		    "path": "/wordpress/wp-content/mu-plugins/super-list-post.php",
+		    "data": "<?php add_action( 'init', function() { wp_insert_post(array('post_title' => 'Super List Block','post_content' => '<!-- wp:createwithrani/superlist --><ul><li><!-- wp:createwithrani/superlist-item --></li></ul><!-- /wp:createwithrani/superlist-item --><!-- /wp:createwithrani/superlist -->','post_status' => 'publish','post_type' => 'post','post_author' => 1,'post_excerpt' => 'This is a live preview of Super List Block, powered by WordPress Playground.',)} );"
+		}
     ]
 }
