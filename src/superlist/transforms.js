@@ -9,15 +9,15 @@ import { createBlock } from "@wordpress/blocks";
 // TODO: replace with LINE_SEPARATOR from @wordpress/rich-text when it is no longer unstable (__UNSTABLE_LINE_SEPARATOR).
 const LINE_SEPARATOR = "\u2028";
 
-export const transforms = {
+const Transforms = {
 	from: [
 		{
 			type: "block",
-			blocks: [ "core/list" ],
-			transform: ( { ordered, values, ...rest } ) => {
+			blocks: ["core/list"],
+			transform: ({ ordered, values, ...rest }) => {
 				// Parse list HTML string so we can natively traverse nested lists.
 				const listDOM = new DOMParser().parseFromString(values, "text/html");
-				const innerBlocks = nodeToInnerBlocks( listDOM.body ); // DOMParser creates an entire virtual document, the list elements are in `body`.
+				const innerBlocks = nodeToInnerBlocks(listDOM.body); // DOMParser creates an entire virtual document, the list elements are in `body`.
 
 				return createBlock(
 					"createwithrani/superlist-block",
@@ -32,7 +32,7 @@ export const transforms = {
 					innerBlocks
 				);
 			},
-		}
+		},
 	],
 };
 
@@ -55,27 +55,20 @@ function nodeToInnerBlocks(parentNode) {
 	 * block, and empty the array.
 	 */
 	const stitch = () => {
-		if ( stitching.length ) {
-			const content = stitching.map((n) =>
-				n.nodeName === "#text"
-					? n.nodeValue
-					: n.outerHTML
-			).join("");
+		if (stitching.length) {
+			const content = stitching
+				.map((n) => (n.nodeName === "#text" ? n.nodeValue : n.outerHTML))
+				.join("");
 			// Create a paragraph block with the HTML string as content.
-			innerBlocks.push(
-				createBlock(
-					"core/paragraph",
-					{ content }
-				)
-			);
+			innerBlocks.push(createBlock("core/paragraph", { content }));
 			// Reset stitching.
 			stitching = [];
 		}
-	}
+	};
 
 	// Walk through child nodes and take action based on whether they are a list, list item, or anything else.
-	for ( const node of nodes ) {
-		switch( node.nodeName ) {
+	for (const node of nodes) {
+		switch (node.nodeName) {
 			case "LI":
 			case "OL":
 			case "UL":
@@ -92,7 +85,7 @@ function nodeToInnerBlocks(parentNode) {
 								{
 									listStyle: node.nodeName === "OL" ? "ol" : "ul",
 								},
-								nodeToInnerBlocks( node )
+								nodeToInnerBlocks(node)
 							)
 						);
 						break;
@@ -101,7 +94,7 @@ function nodeToInnerBlocks(parentNode) {
 							createBlock(
 								"createwithrani/superlist-item",
 								{},
-								nodeToInnerBlocks( node )
+								nodeToInnerBlocks(node)
 							)
 						);
 						break;
@@ -119,3 +112,5 @@ function nodeToInnerBlocks(parentNode) {
 
 	return innerBlocks;
 }
+
+export default Transforms;
