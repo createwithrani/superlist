@@ -15,8 +15,8 @@
         },
         {
             "step": "installPlugin",
-            "pluginZipFile": {
-                "resource": "downloads.wordpress.org\/plugin\/superlist-block.zip",
+            "pluginData": {
+                "resource": "wordpress.org/plugins",
                 "slug": "superlist-block"
             },
             "options": {
