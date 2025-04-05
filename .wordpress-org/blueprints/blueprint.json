@@ -1,9 +1,5 @@
 {
     "landingPage": "/wp-admin/edit.php",
-    "preferredVersions": {
-        "php": "7.4",
-        "wp": "6.7"
-    },
     "phpExtensionBundles": [
         "kitchen-sink"
     ],
