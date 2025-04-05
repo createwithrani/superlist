@@ -58,6 +58,10 @@ https://youtu.be/wqzw-XrwuQE
 
 == Changelog ==
 
+= 0.1.3 =
+* Fix semantic output for lists without markers
+* Mark plugin as tested with WordPress 6.7.2
+
 = 0.1.1 =
 * Fix registration bug that was causing the block to not install correctly
 * Clarify Panel and List Item Max Width labels
