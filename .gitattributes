@@ -8,3 +8,5 @@ package-lock.json export-ignore
 package.json export-ignore
 phpcs.xml export-ignore
 README.md export-ignore
+CONTRIBUTING.md export-ignore
+theme.json export-ignore
