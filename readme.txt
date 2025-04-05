@@ -2,9 +2,9 @@
 Contributors:      aurooba, cr0ybot
 Tags:              block, list, nesting, repeater, superlist
 Requires at least: 5.9
-Tested up to:      5.9
+Tested up to:      6.7.2
 Requires PHP:      7.0
-Stable tag:        0.1.0
+Stable tag:        0.1.1
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://github.com/sponsors/aurooba
@@ -57,6 +57,17 @@ https://youtu.be/wqzw-XrwuQE
 3. You can easily re-order list items and even add more list items wherever you need from the list item toolbar.
 
 == Changelog ==
+
+= 0.1.1 =
+* Fix registration bug that was causing the block to not install correctly
+* Clarify Panel and List Item Max Width labels
+* Allow indentation for super lists nested inside a list item
+* Add typography support to both blocks
+* Add transform from core/list block (by @cr0ybot)
+* Add fix to ensure Super List is installable from the Block Library search
+* Update language .pot file
+* Add Anchor Block Support and Vertical Alignment capability
+* Add theme.json support
 
 = 0.1.0 =
 * Release

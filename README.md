@@ -32,3 +32,16 @@ If you need support, please use the support forum to reach out. 🆘
 
 - WordPress 5.9+
 - PHP 7.0+
+
+## Contributors
+Alongside Aurooba, other folks are always welcome to contribute since this _is_ an open source project. Contributors to this project:
+[@aurooba](https://github.com/aurooba)
+[@cr0ybot](https://github.com/cr0ybot)
+
+## Screenshots
+<img src=".wordpress-org/screenshot-1.png" width="30%" alt="screenshot of the super list block in the WordPress Block Editor" />
+<img src=".wordpress-org/screenshot-2.gif" width="30%" alt="gif of adding content to the super list block list items" />
+<img src=".wordpress-org/screenshot-3.gif" width="30%" alt="gif of the toolbar options available in the superl list block list items" />
+
+## Sponsors
+A big thank you to the lovely [sponsors](https://aurooba.com/sponsors) who help me make more time for open source contributions like this one!
