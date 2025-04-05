@@ -1,4 +1,4 @@
-# Contributing to Superlist Block
+# Contributing to Super List Block
 
 Thank you for considering contributing to the Superlist Block project! We welcome contributions of all kinds, including bug fixes, feature development, documentation improvements, and more.
 
