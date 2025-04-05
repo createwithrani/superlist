@@ -5,6 +5,8 @@
 
 Nest multiple blocks inside lists of any kind of list (ordered, unordered, no marker, etc), or do away with list markers and use it like a repeater!
 
+_Super List is open for contributions! If you would like to contribute to the project, please check out the [Contributing Guide](CONTRIBUTING.md)._
+
 ## Description
 
 A handy little block that can be used in a variety of ways. Use it to nest other blocks inside list items, to create simple grid layouts ( like a properly responsive pricing table, or a wrapping icon list), or other use cases I haven't yet thought of!
