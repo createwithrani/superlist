@@ -1,14 +1,14 @@
 {
 	"$schema": "https://json.schemastore.org/block.json",
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"name": "createwithrani/superlist-item",
-	"parent": [
-		"createwithrani/superlist"
-	],
-	"version": "0.1.1",
+	"version": "0.1.3",
 	"title": "Super List Item",
 	"category": "design",
 	"description": "A list item that allows you to nest as many other blocks as you like inside it.",
+	"parent": [
+		"createwithrani/superlist-block"
+	],
 	"supports": {
 		"anchor": true,
 		"html": true,
@@ -30,6 +30,7 @@
 			"__experimentalFontWeight": true,
 			"__experimentalLetterSpacing": true,
 			"__experimentalTextTransform": true,
+			"textAlign": true,
 			"__experimentalDefaultControls": {
 				"fontSize": true
 			}
