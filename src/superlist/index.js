@@ -39,5 +39,5 @@ registerBlockType("createwithrani/superlist-block", {
 	edit,
 	save,
 	example,
-	transforms,
+	// transforms,
 });

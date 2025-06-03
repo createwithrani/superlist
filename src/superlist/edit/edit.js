@@ -21,7 +21,7 @@ import {
 	BlockControls,
 	useInnerBlocksProps,
 	InspectorControls,
-	useSetting,
+	useSettings,
 	BlockVerticalAlignmentToolbar,
 } from "@wordpress/block-editor";
 import {
@@ -50,7 +50,6 @@ import "./editor.scss";
 const ALLOWED_BLOCKS = ["createwithrani/superlist-item"];
 const LIST_TEMPLATE = [
 	["createwithrani/superlist-item"],
-	["createwithrani/superlist-item"],
 ];
 
 /**
@@ -65,7 +64,7 @@ export default function Edit({ attributes, setAttributes }) {
 	const { listStyle, orientation, itemWidth, verticalAlignment } = attributes;
 
 	// check if theme.json has set a preferred list orientation
-	const themeListOrientation = useSetting(
+	const [themeListOrientation] = useSettings(
 		"custom.superlist-block.listSettings.orientation"
 	);
 

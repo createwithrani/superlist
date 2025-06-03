@@ -1,10 +1,10 @@
 === Super List Block ===
 Contributors:      aurooba, cr0ybot
 Tags:              block, list, nesting, repeater, superlist
-Requires at least: 5.9
+Requires at least: 6.3
 Tested up to:      6.7.2
 Requires PHP:      7.0
-Stable tag:        0.1.3
+Stable tag:        0.1.4
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://github.com/sponsors/aurooba
