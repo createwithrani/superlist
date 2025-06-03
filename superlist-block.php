@@ -4,7 +4,7 @@
  * Description:       Nest multiple blocks inside lists of any kind of list (ordered, unordered, no marker, etc), or do away with list markers and use it like a repeater!
  * Requires at least: 5.9
  * Requires PHP:      7.0
- * Version:           0.1.3
+ * Version:           0.1.4
  * Author:            Aurooba Ahmed
  * Author URI:        https://aurooba.com
  * License:           GPL-2.0-or-later
@@ -33,4 +33,4 @@ function create_block_superlist_block_block_init()
     // Load available translations.
     wp_set_script_translations('createwithrani-superlist-block-editor-script-js', 'superlist-block');
 }
-add_action('init', 'create_block_superlist_block_block_init');
+
