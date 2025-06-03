@@ -20,7 +20,7 @@ import {
 } from "@wordpress/block-editor";
 import { ToolbarButton, ToolbarGroup } from "@wordpress/components";
 import { useSelect, useDispatch } from "@wordpress/data";
-import { getBlockType, createBlock } from "@wordpress/blocks";
+import { createBlock, store as blocksStore } from "@wordpress/blocks";
 import { plusCircle } from "@wordpress/icons";
 
 /**
@@ -42,56 +42,48 @@ const LISTITEM_TEMPLATE = [["core/paragraph"]];
  */
 export default function Edit(props) {
 	const { clientId, name } = props;
-	const { selectBlock } = useDispatch(blockEditorStore);
-	const { hasInnerBlocks } = useSelect(
-		(select) => {
-			const { getBlock } = select(blockEditorStore);
-			const block = getBlock(clientId);
-			return {
-				hasInnerBlocks: !!(block && block.innerBlocks.length),
-			};
-		},
-		[clientId]
-	);
-	const { parentBlockType, firstParentClientId } = useSelect((select) => {
-		const { getBlockName, getBlockParents, getSelectedBlockClientId } =
-			select(blockEditorStore);
-		const selectedBlockClientId = getSelectedBlockClientId();
-		const parents = getBlockParents(selectedBlockClientId);
-		const _firstParentClientId = parents[parents.length - 1];
-		const parentBlockName = getBlockName(_firstParentClientId);
-		const _parentBlockType = getBlockType(parentBlockName);
-		return {
-			parentBlockType: _parentBlockType,
-			firstParentClientId: _firstParentClientId,
-		};
-	}, []);
-
-	const blockProps = useBlockProps({});
-	const { insertBlock } = useDispatch("core/block-editor");
-	const { parentinnerBlocks } = useSelect((select) => ({
-		parentinnerBlocks:
-			select("core/block-editor").getBlocks(firstParentClientId),
-	}));
-
-	function getCurrentBlockPosition(block) {
-		return block.clientId === clientId;
-	}
-	const insertListItem = () => {
-		const block = createBlock(name);
-		insertBlock(
-			block,
-			parentinnerBlocks.findIndex(getCurrentBlockPosition) + 1,
-			firstParentClientId
+	const { insertBlock, selectBlock } = useDispatch("core/block-editor");
+	const { parentBlock, parentClientId, parentBlockType, hasInnerBlocks } = useSelect((select) => {
+		const parentClientId = select(blockEditorStore).getBlockParentsByBlockName(
+			clientId,
+			"createwithrani/superlist-block",
+		)[0];
+		const parentBlock = select(blockEditorStore).getBlock(parentClientId);
+		const parentBlockType = select(blocksStore).getBlockType(
+			parentBlock ? parentBlock.name : "",
 		);
-	};
+		const { getBlock } = select(blockEditorStore);
+			const block = getBlock(clientId);
+		return {
+			parentClientId,
+			parentBlock,
+			parentBlockType,
+			hasInnerBlocks: !!(block && block.innerBlocks.length),
+		};
+	}, [clientId, name]);
+
+	// set up block properties and inner blocks settings
+	const blockProps = useBlockProps({});
 	const innerBlockProps = useInnerBlocksProps(blockProps, {
-		template: LISTITEM_TEMPLATE,
 		templateInsertUpdateSelection: true,
 		renderAppender: hasInnerBlocks
 			? undefined
 			: InnerBlocks.ButtonBlockAppender,
 	});
+
+	// Insert a new list item block after the current block
+	const insertListItem = () => {
+		const newListItem = createBlock(name);
+
+		// Get the index of the current block in the parent block's inner blocks
+		const currentIndex = parentBlock.innerBlocks.findIndex(
+			(block) => block.clientId === clientId,
+		);
+
+		// Insert the new list item block after the current block
+		const insertIndex = currentIndex === -1 ? parentBlock.innerBlocks.length : currentIndex + 1;
+		insertBlock(newListItem, insertIndex, parentClientId);
+	};
 
 	return (
 		<>
@@ -99,9 +91,9 @@ export default function Edit(props) {
 				<ToolbarGroup>
 					<ToolbarButton
 						className="block-editor-block-parent-selector__button"
-						onClick={() => selectBlock(firstParentClientId)}
+						onClick={() => selectBlock(parentClientId)}
 						label={sprintf(
-							/* translators: %s: Settings of the block's parent. */
+							/* translators: %s: Settings of the block's parent Super List. */
 							__(" %s Settings", "superlist-block"),
 							parentBlockType ? parentBlockType.title : ""
 						)}
