@@ -18,6 +18,8 @@ if (! defined('SUPERLIST_BLOCK_PLUGIN_FILE') ) {
     define('SUPERLIST_BLOCK_PLUGIN_FILE', __FILE__);
 }
 
+add_action('init', 'create_block_superlist_block_block_init');
+
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
  * Behind the scenes, it registers also all assets so they can be enqueued
