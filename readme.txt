@@ -58,6 +58,13 @@ https://youtu.be/wqzw-XrwuQE
 
 == Changelog ==
 
+= 0.1.4 =
+* Fix issue where you can't add new list items
+* When adding a new Super List, only one list item is added by default
+* List items no longer auto-add a paragraph block, matching the behavior of the Core better
+* Fix issue where the Super List level block appender wasn't showing the text label
+* Added a blueprint for the plugin repository.
+
 = 0.1.3 =
 * Fix semantic output for lists without markers
 * Mark plugin as tested with WordPress 6.7.2
