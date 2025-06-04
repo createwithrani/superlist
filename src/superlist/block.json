@@ -1,11 +1,12 @@
 {
 	"$schema": "https://json.schemastore.org/block.json",
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"name": "createwithrani/superlist-block",
-	"version": "0.1.1",
+	"version": "0.1.3",
 	"title": "Super List",
 	"category": "design",
 	"description": "Nest multiple blocks inside list items in any kind of list (ordered, unordered, no marker, etc)",
+	"allowedBlocks": ["createwithrani/superlist-item"],
 	"attributes": {
 		"listStyle":{
 			"type": "string",
