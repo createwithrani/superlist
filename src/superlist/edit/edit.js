@@ -141,7 +141,7 @@ export default function Edit({ attributes, setAttributes }) {
 	/**
 	 * Set container tag name based on list style, if the list style is none, set it to `ol`
 	 */
-	const ListContainer = "none" !== listStyle ? listStyle : "ol";
+	const ListContainer = "none" !== listStyle ? listStyle : "ul";
 
 	return (
 		<>
