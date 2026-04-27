@@ -2,12 +2,6 @@
  * External dependencies
  */
 import classnames from "classnames";
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
- */
-import { __ } from "@wordpress/i18n";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -15,7 +9,7 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
+import { useBlockProps, InnerBlocks, RichText } from "@wordpress/block-editor";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -27,19 +21,71 @@ import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
  * @return {WPElement} Element to render.
  */
 export default function save({ attributes }) {
-	const { listStyle, orientation, itemWidth, verticalAlignment } = attributes;
-	const subItemWidth = {
-		gridTemplateColumns: `repeat(auto-fill, minmax(${itemWidth}, 1fr))`,
-	};
+	const {
+		listStyle,
+		orientation,
+		itemWidth,
+		verticalAlignment,
+		start,
+		reversed,
+		caption,
+		customMarker,
+	} = attributes;
+
+	const isOrdered = listStyle === "ol";
+	const showCaption = typeof caption === "string" && caption.length > 0;
+
+	const listInlineStyle = {};
+	if ("horizontal" === orientation) {
+		listInlineStyle["--wp--custom--superlist-block--list-settings--width"] = itemWidth;
+	}
+	if (customMarker) {
+		listInlineStyle["--superlist-marker"] = `"${customMarker}"`;
+	}
+
+	const listClasses = classnames(listStyle, orientation, {
+		[`is-vertically-aligned-${verticalAlignment}`]: verticalAlignment,
+		"has-custom-marker": !!customMarker,
+	});
+
 	const ListContainer = "none" !== listStyle ? listStyle : "ul";
+
+	const containerExtraProps = isOrdered
+		? {
+				...(typeof start === "number" ? { start } : {}),
+				...(reversed ? { reversed: true } : {}),
+		  }
+		: {};
+
+	if (showCaption) {
+		return (
+			<figure {...useBlockProps.save({ className: "has-caption" })}>
+				<RichText.Content
+					tagName="figcaption"
+					className="wp-block-createwithrani-superlist-block__caption"
+					value={caption}
+				/>
+				<ListContainer
+					className={classnames(
+						"wp-block-createwithrani-superlist-block__list",
+						listClasses
+					)}
+					style={listInlineStyle}
+					{...containerExtraProps}
+				>
+					<InnerBlocks.Content />
+				</ListContainer>
+			</figure>
+		);
+	}
+
 	return (
 		<ListContainer
 			{...useBlockProps.save({
-				className: classnames(listStyle, orientation, {
-					[`is-vertically-aligned-${verticalAlignment}`]: verticalAlignment,
-				}),
-				style: "horizontal" === orientation ? subItemWidth : {},
+				className: listClasses,
+				style: listInlineStyle,
 			})}
+			{...containerExtraProps}
 		>
 			<InnerBlocks.Content />
 		</ListContainer>

@@ -1,9 +1,4 @@
 /**
- * External dependencies
- */
-import { find } from "lodash";
-
-/**
  * WordPress dependencies
  */
 import { __ } from "@wordpress/i18n";
@@ -18,7 +13,7 @@ const DEFAULT_LIST_CONTROLS = [
 	},
 	{
 		icon: formatListNumbered,
-		title: __("Ordered List", "superlist-block"),
+		title: __("Ordered list", "superlist-block"),
 		listStyle: "ol",
 	},
 	{
@@ -37,7 +32,7 @@ function ListStyleUI({
 	value,
 	onChange,
 	listControls = DEFAULT_LIST_CONTROLS,
-	describedBy = __("Change list style"),
+	describedBy = __("Change list type", "superlist-block"),
 	isCollapsed = true,
 	placement,
 }) {
@@ -45,8 +40,7 @@ function ListStyleUI({
 		return () => onChange(value === listStyle ? undefined : listStyle);
 	}
 
-	const activeStyle = find(
-		listControls,
+	const activeStyle = listControls.find(
 		(control) => control.listStyle === value
 	);
 
@@ -57,7 +51,7 @@ function ListStyleUI({
 	return "toolbar" === placement ? (
 		<ToolbarGroup
 			icon={setIcon()}
-			label={__(describedBy, "superlist-block")}
+			label={describedBy}
 			popoverProps={POPOVER_PROPS}
 			isCollapsed
 			controls={listControls.map((control) => {
@@ -74,13 +68,13 @@ function ListStyleUI({
 		/>
 	) : (
 		<fieldset className="block-editor-hooks__flex-layout-justification-controls">
-			<legend>{__(`${describedBy}`, "superlist-block")}</legend>
+			<legend>{describedBy}</legend>
 			<div>
 				{listControls.map(({ icon, listStyle, title }) => {
 					return (
 						<Button
 							key={listStyle}
-							label={__(title, "superlist-block")}
+							label={title}
 							icon={icon}
 							isPressed={listStyle === value}
 							onClick={applyOrUnset(listStyle)}

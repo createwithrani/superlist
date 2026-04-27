@@ -1,10 +1,9 @@
 /**
  * The following styles get applied both on the front of your site
  * and in the editor.
- *
- * Replace them with your own styles or remove the file completely.
  */
-.wp-block-createwithrani-superlist-block {
+.wp-block-createwithrani-superlist-block,
+.wp-block-createwithrani-superlist-block__list {
 	--listItemWidth: var(
 		--wp--custom--superlist-block--list-settings--width,
 		250px
@@ -38,6 +37,9 @@
 
 	--margin: var(--wp--custom--superlist-block--spacing--margin, inherit);
 	--padding: var(--wp--custom--superlist-block--spacing--padding, inherit);
+}
+
+.wp-block-createwithrani-superlist-block {
 	color: var(--textColor);
 	background-color: var(--backgroundColor);
 	font-size: var(--fontSize);
@@ -50,32 +52,74 @@
 	a {
 		color: var(--linkColor);
 	}
-	&.horizontal {
-		display: grid;
-		gap: 2rem;
-		grid-template-rows: auto;
-		grid-template-columns: repeat(auto-fill, minmax(var(--listItemWidth), 1fr));
-	}
-	&.none {
-		list-style: none;
-		li {
-			margin-top: 0;
-			margin-bottom: 0;
-		}
-	}
-	&.is-vertically-aligned-center {
-		align-items: center;
-	}
-	&.is-vertically-aligned-top {
-		align-items: flex-start;
-	}
-	&.is-vertically-aligned-bottom {
-		align-items: flex-end;
+}
+
+// Layout/list-style rules apply both to the block itself (no-caption mode)
+// and to the inner __list element (caption mode).
+.wp-block-createwithrani-superlist-block.horizontal,
+.wp-block-createwithrani-superlist-block__list.horizontal {
+	display: grid;
+	gap: 2rem;
+	grid-template-rows: auto;
+	grid-template-columns: repeat(auto-fill, minmax(var(--listItemWidth), 1fr));
+}
+
+.wp-block-createwithrani-superlist-block.none,
+.wp-block-createwithrani-superlist-block__list.none {
+	list-style: none;
+	padding-inline-start: 0;
+	li {
+		margin-top: 0;
+		margin-bottom: 0;
 	}
 }
 
-// allow indentation via padding to occur when a super list is nested inside a super list item, otherwise, remove the unnecessary padding-left.
-:not(li) > ul.wp-block-createwithrani-superlist-block {
+.wp-block-createwithrani-superlist-block.is-vertically-aligned-center,
+.wp-block-createwithrani-superlist-block__list.is-vertically-aligned-center {
+	align-items: center;
+}
+.wp-block-createwithrani-superlist-block.is-vertically-aligned-top,
+.wp-block-createwithrani-superlist-block__list.is-vertically-aligned-top {
+	align-items: flex-start;
+}
+.wp-block-createwithrani-superlist-block.is-vertically-aligned-bottom,
+.wp-block-createwithrani-superlist-block__list.is-vertically-aligned-bottom {
+	align-items: flex-end;
+}
+
+// Custom marker support: render the user-supplied character via ::marker.
+.wp-block-createwithrani-superlist-block.has-custom-marker,
+.wp-block-createwithrani-superlist-block__list.has-custom-marker {
+	list-style: none;
+	padding-inline-start: 1.5em;
+	li {
+		position: relative;
+	}
+	li::before {
+		content: var(--superlist-marker, "•");
+		position: absolute;
+		left: -1.25em;
+		top: 0;
+	}
+}
+
+// Caption / figure wrapper.
+figure.wp-block-createwithrani-superlist-block.has-caption {
+	display: block;
+	margin: var(--margin);
+	padding: var(--padding);
+
+	.wp-block-createwithrani-superlist-block__caption {
+		margin-bottom: 0.5em;
+		font-style: italic;
+		text-align: inherit;
+	}
+}
+
+// allow indentation via padding to occur when a super list is nested inside a
+// super list item, otherwise, remove the unnecessary padding-left.
+:not(li) > ul.wp-block-createwithrani-superlist-block,
+:not(li) > ol.wp-block-createwithrani-superlist-block {
 	padding-inline-start: 0;
 	margin-inline-start: 0;
 	li {
@@ -83,7 +127,9 @@
 	}
 }
 
-ul.wp-block-createwithrani-superlist-block {
+ul.wp-block-createwithrani-superlist-block,
+ol.wp-block-createwithrani-superlist-block,
+.wp-block-createwithrani-superlist-block__list {
 	li {
 		flex: 1;
 	}

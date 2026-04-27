@@ -1,24 +1,21 @@
+/**
+ * A simpler, monochrome icon for the Super List block to feel cohesive
+ * with the core block library where most icons are a single black glyph
+ * on a transparent background.
+ */
 export const SuperList = (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
-		width="146"
-		height="146"
-		data-name="Group 18"
-		viewBox="0 0 146 146"
+		width="24"
+		height="24"
+		viewBox="0 0 24 24"
+		fill="none"
 	>
-		<circle
-			cx="73"
-			cy="73"
-			r="73"
-			fill="#b2d38c"
-			data-name="Ellipse 1"
-		></circle>
-		<g data-name="Group 16" transform="translate(26.148 37.08)">
-			<path
-				fillRule="evenodd"
-				d="M164.737 192H203.7v68.717a3.123 3.123 0 11-6.247 0v-62.47h-81.206v62.47a3.124 3.124 0 11-6.247 0V192h54.737zm20.227 18.741H128.74v49.976a3.123 3.123 0 11-6.247 0v-56.223h68.717v56.223a3.123 3.123 0 11-6.247 0zm-12.494 12.494h-31.236v37.482a3.123 3.123 0 11-6.247 0v-43.729h43.729v43.729a3.124 3.124 0 11-6.247 0z"
-				transform="translate(-110 -192)"
-			></path>
-		</g>
+		<path
+			fillRule="evenodd"
+			clipRule="evenodd"
+			d="M3 5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5zm6.5.25a.75.75 0 0 1 .75-.75h9.5a.75.75 0 0 1 0 1.5h-9.5a.75.75 0 0 1-.75-.75zM3 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2zm6.5.25a.75.75 0 0 1 .75-.75h9.5a.75.75 0 0 1 0 1.5h-9.5a.75.75 0 0 1-.75-.75zM3 17a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2zm6.5.25a.75.75 0 0 1 .75-.75h9.5a.75.75 0 0 1 0 1.5h-9.5a.75.75 0 0 1-.75-.75z"
+			fill="currentColor"
+		/>
 	</svg>
 );

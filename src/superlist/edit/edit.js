@@ -23,13 +23,17 @@ import {
 	InspectorControls,
 	useSettings,
 	BlockVerticalAlignmentToolbar,
+	RichText,
 } from "@wordpress/block-editor";
 import {
 	PanelBody,
 	PanelRow,
+	ToggleControl,
+	TextControl,
+	__experimentalNumberControl as NumberControl,
 	__experimentalUnitControl as UnitControl,
 } from "@wordpress/components";
-import { useState } from "@wordpress/element";
+import { useState, useCallback } from "@wordpress/element";
 
 /**
  * Internal Dependencies
@@ -61,7 +65,16 @@ const LIST_TEMPLATE = [
  * @return {WPElement} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-	const { listStyle, orientation, itemWidth, verticalAlignment } = attributes;
+	const {
+		listStyle,
+		orientation,
+		itemWidth,
+		verticalAlignment,
+		start,
+		reversed,
+		caption,
+		customMarker,
+	} = attributes;
 
 	// check if theme.json has set a preferred list orientation
 	const [themeListOrientation] = useSettings(
@@ -72,7 +85,7 @@ export default function Edit({ attributes, setAttributes }) {
 	const defaultListOrientation =
 		undefined === themeListOrientation ? "vertical" : themeListOrientation;
 
-	// set up a state variable for list orientation, use the orientation attribute if it is set, otherwise  use the smart default
+	// set up a state variable for list orientation, use the orientation attribute if it is set, otherwise use the smart default
 	const [listOrientation, setListOrientation] = useState(
 		undefined !== orientation ? orientation : defaultListOrientation
 	);
@@ -80,37 +93,71 @@ export default function Edit({ attributes, setAttributes }) {
 	// set state for list item width from the attribute
 	const [width, setWidth] = useState(itemWidth);
 
-	// set inline CSS Custom Property for list item width
-	const subItemWidth = {
-		"--wp--custom--superlist-block--list-settings--width": width,
-	};
+	const isOrdered = listStyle === "ol";
+	const showCaption =
+		typeof caption === "string" && caption.length > 0;
 
+	// Inline style applied to the list element (not the figure wrapper).
+	const listInlineStyle = {};
+	if ("horizontal" === listOrientation) {
+		listInlineStyle["--wp--custom--superlist-block--list-settings--width"] = width;
+	}
+	if (customMarker) {
+		listInlineStyle["--superlist-marker"] = `"${customMarker}"`;
+	}
+
+	const listClasses = classnames(listStyle, listOrientation, {
+		[`is-vertically-aligned-${verticalAlignment}`]: verticalAlignment,
+		"has-custom-marker": !!customMarker,
+	});
+
+	// useBlockProps applies to the outermost element. In caption mode that's
+	// the <figure>; otherwise it's the list itself.
 	const blockProps = useBlockProps({
-		// add class names to set list style, list orientation, and vertical alignment
-		className: classnames(listStyle, listOrientation, {
-			[`is-vertically-aligned-${verticalAlignment}`]: verticalAlignment,
-		}),
-		// add inline style if list orientation is horizontal and the user has set a custom list item width
-		style: "horizontal" === listOrientation ? subItemWidth : {},
+		className: showCaption
+			? "has-caption"
+			: listClasses,
+		style: showCaption ? undefined : listInlineStyle,
 	});
 
-	const innerBlockProps = useInnerBlocksProps(blockProps, {
-		// we only allow one kind of inner block, and we automatically populate this block with two inner blocks
-		allowedBlocks: ALLOWED_BLOCKS,
-		template: LIST_TEMPLATE,
-		// we also set the inner block orientation based on the list orientation, this affects the in-between appender position
-		orientation: `${listOrientation}`,
-		// we also set the focus to newly added inner block when it's added
-		templateInsertUpdateSelection: true,
-	});
+	// useInnerBlocksProps wires the inner-blocks behavior to a wrapper element.
+	// In caption mode the list is a separate element (not the block wrapper);
+	// otherwise it IS the block wrapper, so we extend blockProps.
+	const innerBlockProps = useInnerBlocksProps(
+		showCaption
+			? {
+					className: classnames(
+						"wp-block-createwithrani-superlist-block__list",
+						listClasses
+					),
+					style: listInlineStyle,
+			  }
+			: blockProps,
+		{
+			allowedBlocks: ALLOWED_BLOCKS,
+			template: LIST_TEMPLATE,
+			orientation: `${listOrientation}`,
+			templateInsertUpdateSelection: true,
+		}
+	);
 
 	/**
 	 * onChange function to switch the list style
 	 * @param {string} style ul || ol || none
 	 */
-	function switchStyle(style) {
-		setAttributes({ listStyle: style });
-	}
+	const switchStyle = useCallback(
+		(style) => {
+			const next = { listStyle: style };
+			// Reset ordered-list-only attributes when switching away from ol so
+			// they don't silently affect a future <ol> conversion.
+			if (style !== "ol") {
+				next.start = undefined;
+				next.reversed = undefined;
+			}
+			setAttributes(next);
+		},
+		[setAttributes]
+	);
 
 	/**
 	 * onChange function to set the user inputted item width including unit
@@ -123,25 +170,36 @@ export default function Edit({ attributes, setAttributes }) {
 
 	/**
 	 * onChange function to set the vertical alignment attribute
-	 * @param {string} verticalAlignment
 	 */
-	function updateAlignment(verticalAlignment) {
-		setAttributes({ verticalAlignment: verticalAlignment });
+	function updateAlignment(nextVerticalAlignment) {
+		setAttributes({ verticalAlignment: nextVerticalAlignment });
 	}
 
 	/**
 	 * onChange function to update the list orientation
-	 * @param {string} orientation horizontal || vertical
+	 * @param {string} nextOrientation horizontal || vertical
 	 */
-	function updateOrientation(orientation) {
-		setListOrientation(orientation);
-		setAttributes({ orientation: orientation });
+	function updateOrientation(nextOrientation) {
+		setListOrientation(nextOrientation);
+		setAttributes({ orientation: nextOrientation });
 	}
 
 	/**
-	 * Set container tag name based on list style, if the list style is none, set it to `ol`
+	 * Set container tag name based on list style. When markers are off we still
+	 * use a <ul> so the structure stays semantic.
 	 */
 	const ListContainer = "none" !== listStyle ? listStyle : "ul";
+
+	const containerExtraProps = isOrdered
+		? {
+				...(typeof start === "number" ? { start } : {}),
+				...(reversed ? { reversed: true } : {}),
+		  }
+		: {};
+
+	const listElement = (
+		<ListContainer {...innerBlockProps} {...containerExtraProps} />
+	);
 
 	return (
 		<>
@@ -166,28 +224,12 @@ export default function Edit({ attributes, setAttributes }) {
 					initialOpen={true}
 					title={__("List Settings", "superlist-block")}
 				>
-					{
-						/**
-						 * Only show list item setting if the list orientation is
-						 * horizontal, because this setting is specifically for the basic
-						 * grid mode this block offers.
-						 */
-						listOrientation === "horizontal" && (
-							<PanelRow>
-								<UnitControl
-									label={__("List-item max-width", "superlist-block")}
-									onChange={setItemWidth}
-									value={width}
-								/>
-							</PanelRow>
-						)
-					}
-					<br />
 					<PanelRow>
 						<ListStyleUI
 							value={listStyle}
 							onChange={switchStyle}
 							placement="inspector"
+							describedBy={__("Change list type", "superlist-block")}
 						/>
 					</PanelRow>
 					<PanelRow>
@@ -197,9 +239,93 @@ export default function Edit({ attributes, setAttributes }) {
 							placement="inspector"
 						/>
 					</PanelRow>
+					{listOrientation === "horizontal" && (
+						<PanelRow>
+							<UnitControl
+								label={__("List-item max-width", "superlist-block")}
+								onChange={setItemWidth}
+								value={width}
+							/>
+						</PanelRow>
+					)}
+					{isOrdered && (
+						<>
+							<PanelRow>
+								<NumberControl
+									label={__("Start value", "superlist-block")}
+									value={typeof start === "number" ? start : ""}
+									min={1}
+									onChange={(value) => {
+										if (value === "" || value === undefined) {
+											setAttributes({ start: undefined });
+											return;
+										}
+										const parsed = parseInt(value, 10);
+										setAttributes({
+											start: Number.isNaN(parsed) ? undefined : parsed,
+										});
+									}}
+								/>
+							</PanelRow>
+							<PanelRow>
+								<ToggleControl
+									label={__("Reverse list numbering", "superlist-block")}
+									checked={!!reversed}
+									onChange={(value) => setAttributes({ reversed: value })}
+								/>
+							</PanelRow>
+						</>
+					)}
+					{listStyle === "ul" && (
+						<PanelRow>
+							<TextControl
+								label={__("Custom marker", "superlist-block")}
+								help={__(
+									"Optional. A character or emoji used as the list marker (e.g. ★, →, •). Leave blank to use the default bullet.",
+									"superlist-block"
+								)}
+								value={customMarker || ""}
+								onChange={(value) =>
+									setAttributes({ customMarker: value || undefined })
+								}
+							/>
+						</PanelRow>
+					)}
+				</PanelBody>
+				<PanelBody
+					initialOpen={false}
+					title={__("List Title", "superlist-block")}
+				>
+					<PanelRow>
+						<TextControl
+							label={__("Caption", "superlist-block")}
+							help={__(
+								"When set, the list is wrapped in a <figure> with this caption as <figcaption>.",
+								"superlist-block"
+							)}
+							value={caption || ""}
+							onChange={(value) =>
+								setAttributes({ caption: value || undefined })
+							}
+						/>
+					</PanelRow>
 				</PanelBody>
 			</InspectorControls>
-			<ListContainer {...innerBlockProps} />
+			{showCaption ? (
+				<figure {...blockProps}>
+					<RichText
+						tagName="figcaption"
+						className="wp-block-createwithrani-superlist-block__caption"
+						value={caption || ""}
+						onChange={(value) => setAttributes({ caption: value })}
+						placeholder={__("Add a list title…", "superlist-block")}
+						aria-label={__("List title", "superlist-block")}
+					/>
+					{listElement}
+				</figure>
+			) : (
+				listElement
+			)}
 		</>
 	);
 }

@@ -1,13 +1,20 @@
+/**
+ * Monochrome list-item icon: a single bold square + line, on transparent
+ * background, to match the core block icon style.
+ */
 export const ListItem = (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
-		width="10.814"
-		height="2.703"
-		viewBox="0 0 10.814 2.703"
+		width="24"
+		height="24"
+		viewBox="0 0 24 24"
+		fill="none"
 	>
 		<path
-			d="M8.8 6.811v1.014h6.015V6.811zM5.352 6A1.352 1.352 0 106.7 7.352 1.356 1.356 0 005.352 6z"
-			transform="translate(-4 -6)"
-		></path>
+			fillRule="evenodd"
+			clipRule="evenodd"
+			d="M3 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2zm6.5.25a.75.75 0 0 1 .75-.75h9.5a.75.75 0 0 1 0 1.5h-9.5a.75.75 0 0 1-.75-.75z"
+			fill="currentColor"
+		/>
 	</svg>
 );
