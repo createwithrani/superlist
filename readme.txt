@@ -4,7 +4,7 @@ Tags:              block, list, nesting, repeater, superlist
 Requires at least: 6.3
 Tested up to:      6.9
 Requires PHP:      7.0
-Stable tag:        0.1.4
+Stable tag:        0.2.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://github.com/sponsors/aurooba
@@ -57,6 +57,18 @@ https://youtu.be/wqzw-XrwuQE
 3. You can easily re-order list items and even add more list items wherever you need from the list item toolbar.
 
 == Changelog ==
+
+= 0.2.0 =
+* Fix critical editor crash caused by missing `sprintf` import in the list-item block (#60).
+* Update block icons to a simpler black-on-transparent style for better cohesion with core blocks (#44).
+* Rename "List Orientation" to "List Style" and the previous "List Style" (ul/ol/none) to "List Type", with clearer icons (#36).
+* Add background image support via the standard block-supports API (#35).
+* Add support for ordered list `start` value and reverse numbering (#25).
+* Add optional list title rendered as `<figure>` + `<figcaption>` (#13).
+* Surface the list-item max-width control on the list-item block as well (#9).
+* Add a "double-Enter on an empty trailing paragraph" shortcut to create a new list item (#7).
+* Add a custom marker character (e.g. ★, →, •) for unordered lists (#3).
+* Update transforms to/from the modern `core/list` block, which uses nested `core/list-item` inner blocks (#54).
 
 = 0.1.4 =
 * Fix issue where you can't add new list items
